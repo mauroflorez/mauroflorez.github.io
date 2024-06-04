@@ -1,11 +1,18 @@
 ---
-title: "mauroflorez.github.io"
+title: "Mauro Florez"
+image: media/headshot.png
+toc: false
+about:
+  template: trestles
+  image-shape: round
+  image-width: 20em
+  links:
+    - text: LinkedIn
+      href: https://www.linkedin.com/in/mauroefr/
+    - text: GitHub
+      href: https://github.com/mauroflorez
+    - text: Email
+      href: mf53@rice.edu
 ---
 
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
-
-```{r}
-1 + 1
-```
+Hi! I am creating my webpage

@@ -3,18 +3,22 @@ project:
   output-dir: docs
 
 website:
-  title: "mauroflorez.github.io"
+  title: "Mauro Florez"
   navbar:
     left:
       - href: index.qmd
         text: Home
       - about.qmd
+      - projects.qmd
 
 format:
   html:
-    theme: cosmo
+    theme:
+      light: flatly
+      dark: darkly
     css: styles.css
     toc: true
+    page-layout: full
 
 editor: visual
 
