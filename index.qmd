@@ -13,38 +13,76 @@ about:
     - icon: github
       text: GitHub
       href: https://github.com/mauroflorez
-    - text: Email
+    - icon: envelope
+      text: Email
       href: mailto:mf53@rice.edu
+page-layour: full
 ---
 
 ::: justify
-## Bio
+## About me
 
-Hi! 👋
-
-I am a PhD candidate in Statistics at Rice University, currently working on developing Bayesian models for multivariate data under the direction of Dr. [Marina Vannucci](https://marina.blogs.rice.edu/).
-
-I completed my undergraduate studies in my hometown, Bogotá, Colombia, earning a BS in *Statistics* from the Universidad Nacional de Colombia, where I graduated with distinction (1st class). Additionally, I hold a BS in *Mathematics* from Universidad Sergio Arboleda.
-
-I have experience as Data Analyst, in teaching. I have been TA and Reviewer
-
-## Research Interest
-
-My interests are
-
--   Applied Statistics
-
--   Bayesian Statistics
-
--   Machine Learning
-
-## Selected Experience
-
-Data Analyst
-
-Statistical Specialist
-
-Lecturer
+I am a PhD Candidate in Statistics at Rice University, currently working on Bayesian models for multivariate data under the direction of Dr. [Marina Vannucci](https://marina.blogs.rice.edu/).
 :::
 
-## 
+::: columns
+## Research Interests
+
+::: {.column width="45%"}
+::: justify
+My current research focuses on developing innovative statistical methods to analyze complex data structures, with a diverse range of applications, from healthcare to sports analytics.
+:::
+:::
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="40%"}
+-   Bayesian Modeling
+-   Statistical Computing
+-   Graphical Models
+-   Applied Statistics
+-   Machine Learning
+:::
+:::
+
+A list of projects can be found [here](https://mauroflorez.github.io/projects.html).
+
+::: columns
+## Education
+
+::: {.column width="45%"}
+::: justify
+I completed my undergraduate studies in my hometown, Bogotá, Colombia, earning a BS in *Statistics* from the Universidad Nacional de Colombia, where I graduated with distinction (#1 class). Additionally, I hold a BS in *Mathematics* from Universidad Sergio Arboleda. In 2020 I was awarded a [Fulbright](https://www.fulbrightprogram.org/) scholarship to pursue my PhD at Rice University.
+:::
+:::
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="40%"}
+🎓 PhD in Statistics, (Exp. 2025)\
+*Rice University*
+
+🎓 MA in Statistics, (Exp. 2024)\
+*Rice University*
+
+🎓 BS in Statistics, 2019\
+*Universidad Nacional de Colombia*
+
+🎓 BS in Mathematics, 2017\
+*Universidad Sergio Arboleda*
+:::
+:::
+
+::: justify
+## Selected Experience
+
+**Data Analyst**, 2019 - 2020\
+*Minciencias*
+
+**Statistical Consultant**, 2017 - 2018\
+*Universidad del Rosario*
+
+**Lecturer** - See the full list of courses [here](https://mauroflorez.github.io/teaching.html).
+:::

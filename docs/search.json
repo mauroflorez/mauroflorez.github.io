@@ -18,7 +18,7 @@
     "href": "index.html",
     "title": "Mauro Florez",
     "section": "",
-    "text": "Hi! 👋\nI am a PhD candidate in Statistics at Rice University, currently working on developing Bayesian models for multivariate data under the direction of Dr. Marina Vannucci.\nI completed my undergraduate studies in my hometown, Bogotá, Colombia, earning a BS in Statistics from the Universidad Nacional de Colombia, where I graduated with distinction (1st class). Additionally, I hold a BS in Mathematics from Universidad Sergio Arboleda.\nI have experience as Data Analyst, in teaching. I have been TA and Reviewer\n\n\n\nMy interests are\n\nApplied Statistics\nBayesian Statistics\nMachine Learning\n\n\n\n\nData Analyst\nStatistical Specialist\nLecturer"
+    "text": "I am a PhD Candidate in Statistics at Rice University, currently working on Bayesian models for multivariate data under the direction of Dr. Marina Vannucci.\nA list of projects can be found here."
   },
   {
     "objectID": "index.html#bio",
@@ -31,15 +31,15 @@
     "objectID": "index.html#research-interest",
     "href": "index.html#research-interest",
     "title": "Mauro Florez",
-    "section": "",
-    "text": "My interests are\n\nApplied Statistics\nBayesian Statistics\nMachine Learning"
+    "section": "Research Interest",
+    "text": "Research Interest\nMy interests are\n\nApplied Statistics\nBayesian Statistics\nMachine Learning"
   },
   {
     "objectID": "index.html#selected-experience",
     "href": "index.html#selected-experience",
     "title": "Mauro Florez",
-    "section": "",
-    "text": "Data Analyst\nStatistical Specialist\nLecturer"
+    "section": "Selected Experience",
+    "text": "Selected Experience\nData Analyst, 2019 - 2020\nMinciencias\nStatistical Consultant, 2017 - 2018\nUniversidad del Rosario\nLecturer - See the full list of courses here."
   },
   {
     "objectID": "projects/MultRegCMP.html",
@@ -60,6 +60,111 @@
     "href": "teaching.html",
     "title": "Teaching",
     "section": "",
-    "text": "Lecturer\n\n\nProbability and Statistics (STAT 310) - Rice University, Houston, TX - Summer 2022 [Instructor Evaluation]\nIntroduction to Statistics - Universidad Sergio Arboleda, Bogotá, CO - Fall 2019\nIntroduction to Statistics - Universidad Sergio Arboleda, Bogotá, CO - Spring 2019\nLogic & Analysis - Universidad Sergio Arboleda, Bogotá, CO - Spring 2019\nIntroduction to Statistics - Universidad Sergio Arboleda, Bogotá, CO - Fall 2018\nLogic & Analysis - Universidad Sergio Arboleda, Bogotá, CO - Fall 2018\n\n\n\nTeaching Assistant\n\n\nBayesian Statistics (STAT 525) - Rice University, Houston, TX - Fall 2022\nIntroduction to Stat for Biosciences (STAT 305) - Rice University, Houston, TX - Spring 2021\nStatistical Genomics in R - Universidad Nacional de Colombia, Bogotá, CO - Fall 2018\nProbability and Basic Inference (Certificate course) - Universidad Nacional de Colombia, Bogotá, CO - Fall 2017"
+    "text": "Lecturer\n\n\nProbability and Statistics (STAT 310) - Rice University, Houston, TX - Summer 2022 [Instructor Evaluation]\nIntroduction to Statistics - Universidad Sergio Arboleda, Bogotá, CO - Fall 2019\nIntroduction to Statistics - Universidad Sergio Arboleda, Bogotá, CO - Spring 2019\nLogic & Analysis - Universidad Sergio Arboleda, Bogotá, CO - Spring 2019\nIntroduction to Statistics - Universidad Sergio Arboleda, Bogotá, CO - Fall 2018\nLogic & Analysis - Universidad Sergio Arboleda, Bogotá, CO - Fall 2018\n\n\n\nTeaching Assistant\n\n\nBayesian Statistics (STAT 525) - Rice University, Houston, TX - Fall 2022\nIntroduction to Stat for Biosciences (STAT 305) - Rice University, Houston, TX - Spring 2021\nStatistical Genomics in R - Universidad Nacional de Colombia, Bogotá, CO - Fall 2018\nProbability and Basic Inference (Certificate course) - Universidad Nacional de Colombia, Bogotá, CO - Fall 2017\n\n\n\nReviewer\n\n\nWIREs Computational Statistics, November 2023"
+  },
+  {
+    "objectID": "gallery.html",
+    "href": "gallery.html",
+    "title": "Gallery",
+    "section": "",
+    "text": "Florence\n\n\n\n\n\n\nThe Brunelleschi Dome\n\n\n\n\n\nSan Gimignano\n\n\n\n\n\nLucca\n\n\n\n\n\nColosseum\n\n\n\n\n\nCinque Terre\n\n\n\n\n\nColosseum at night\n\n\n\n\n\nDavid by Michelangelo\n\n\n\n\n\nRome"
+  },
+  {
+    "objectID": "gallery.html#italy",
+    "href": "gallery.html#italy",
+    "title": "Gallery",
+    "section": "",
+    "text": "Florence\n\n\n\n\n\n\nThe Brunelleschi Dome\n\n\n\n\n\nSan Gimignano\n\n\n\n\n\nLucca\n\n\n\n\n\nColosseum\n\n\n\n\n\nCinque Terre\n\n\n\n\n\nColosseum at night\n\n\n\n\n\nDavid by Michelangelo\n\n\n\n\n\nRome"
+  },
+  {
+    "objectID": "gallery.html#malta",
+    "href": "gallery.html#malta",
+    "title": "Gallery",
+    "section": "Malta",
+    "text": "Malta\n\n\n\n\nMalta\n\n\n\n\n\nMalta\n\n\n\n\n\n\nFlorence\nThe Brunelleschi Dome\nSan Gimignano\nLucca\nColosseum\nCinque Terre\nColosseum at night\nDavid by Michelangelo\nRome\nMalta\nMalta"
+  },
+  {
+    "objectID": "index.html#about-me",
+    "href": "index.html#about-me",
+    "title": "Mauro Florez",
+    "section": "",
+    "text": "I am a PhD Candidate in Statistics at Rice University, currently working on Bayesian models for multivariate data under the direction of Dr. Marina Vannucci."
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Mauro Florez",
+    "section": "Education",
+    "text": "Education\n\n\nI completed my undergraduate studies in my hometown, Bogotá, Colombia, earning a BS in Statistics from the Universidad Nacional de Colombia, where I graduated with distinction (#1 class). Additionally, I hold a BS in Mathematics from Universidad Sergio Arboleda. In 2020 I was awarded a Fulbright scholarship to pursue my PhD at Rice University.\n\n\n\n\n\n🎓 PhD in Statistics, (Exp. 2025)\nRice University\n🎓 MA in Statistics, (Exp. 2024)\nRice University\n🎓 BS in Statistics, 2019\nUniversidad Nacional de Colombia\n🎓 BS in Mathematics, 2017\nUniversidad Sergio Arboleda"
+  },
+  {
+    "objectID": "index.html#education-1",
+    "href": "index.html#education-1",
+    "title": "Mauro Florez",
+    "section": "Education 🎓",
+    "text": "Education 🎓"
+  },
+  {
+    "objectID": "index.html#experience",
+    "href": "index.html#experience",
+    "title": "Mauro Florez",
+    "section": "Experience 📊",
+    "text": "Experience 📊\n\nUniversidad del Rosario"
+  },
+  {
+    "objectID": "index.html#selected-experience-1",
+    "href": "index.html#selected-experience-1",
+    "title": "Mauro Florez",
+    "section": "Selected Experience",
+    "text": "Selected Experience\nData Analyst, 2019 - 2020\nMinciencias\nStatistical Consultant, 2017 - 2018\nUniversidad del Rosario\nLecturer - See the full list of courses here"
+  },
+  {
+    "objectID": "index.html#interests",
+    "href": "index.html#interests",
+    "title": "Mauro Florez",
+    "section": "Interests 📊",
+    "text": "Interests 📊\n\nMA in Statistics, 2024\nRice University\nBS in Statistics, 2019\nUniversidad Nacional de Colombia\nBS in Mathematics, 2017\nUniversidad Sergio Arboleda"
+  },
+  {
+    "objectID": "index.html#research-interests",
+    "href": "index.html#research-interests",
+    "title": "Mauro Florez",
+    "section": "Research Interests",
+    "text": "Research Interests\n\n\nMy current research focuses on developing innovative statistical methods to analyze complex data structures, with a diverse range of applications, from healthcare to sports analytics.\n\n\n\n\n\n\nBayesian Modeling\nStatistical Computing\nGraphical Models\nApplied Statistics\nMachine Learning"
+  },
+  {
+    "objectID": "CV.html",
+    "href": "CV.html",
+    "title": "Curriculum Vitae",
+    "section": "",
+    "text": "cynthia.huang@monash.edu"
+  },
+  {
+    "objectID": "CV.html#education",
+    "href": "CV.html#education",
+    "title": "Curriculum Vitae",
+    "section": "EDUCATION",
+    "text": "EDUCATION\nDoctor of Philosophy – Econometrics and Business Statistics  Monash University Aug 2021 — Present\n\nNew principles and methods for complex data preparation and integration, with applications to official statistics, web-scrapped data and satellite raster images\nMonash Data Futures Institute PhD Top-Up Scholarship (2021-2024)\nExpected submission date: Nov 2024"
+  },
+  {
+    "objectID": "CV.html#work-experience",
+    "href": "CV.html#work-experience",
+    "title": "Curriculum Vitae",
+    "section": "WORK EXPERIENCE",
+    "text": "WORK EXPERIENCE\n\nData Scientist\nFreelance, Multiple Clients Jan 2020 – June 2021\nProviding data collection, pre-processing, exploratory analysis and modelling services to clients in the early R&D stages of developing data driven products. Projects include:\n\nData description and preliminary product feasibility insights for a start-up real estate bond platform; including assessing suitability of various property transaction databases for use in initial product prototype.\nDevelopment of statistical anomaly detection regimes and key historical insights from internet quality time-series data for use in parametric insurance products, including documenting analysis tools in an R package."
+  },
+  {
+    "objectID": "CV.html#presentations-and-workshops",
+    "href": "CV.html#presentations-and-workshops",
+    "title": "Curriculum Vitae",
+    "section": "PRESENTATIONS AND WORKSHOPS",
+    "text": "PRESENTATIONS AND WORKSHOPS\n\nTalk: Misadventures with Reproducibility in R (30 Nov 2022, R Ladies Melbourne Meetup)\nTalk: Designing R Packages (4 Oct 2022, Monash EBS Data Science Research Software Study Group)\nTalk: Quarto Websites as Research Compendiums (16 Aug 2022, Monash EBS Data Science Research Software Study Group)\nWorkshop: Writing academic papers with Rmarkdown and friends (9 Aug 2022, Monash University)"
+  },
+  {
+    "objectID": "CV.html#references",
+    "href": "CV.html#references",
+    "title": "Curriculum Vitae",
+    "section": "References",
+    "text": "References\nAvailable upon request"
   }
 ]
