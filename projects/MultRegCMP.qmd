@@ -1,0 +1,13 @@
+---
+title: Bayesian Regression Model for Multivariate Count Data
+description: An R package designed to fit a Bayesian Regression Model for multivariate count data where the data is distributed as Conway-Maxwell-Poisson distribution
+author: 
+  - name: Mauro Florez
+    email: mf53@rice.edu
+date: 2024-05-30
+image: CMP.png
+---
+
+## MultRegCMP
+
+[MultRegCMP](https://mauroflorez.github.io/MultRegCMP/) is an R package that I designed to fit a Bayesian Multivariate regression model for count data. This model have been used to analyze football and baseball scores. A practical example on how to use it can be found in this [Football Vignette](https://mauroflorez.github.io/MultRegCMP/articles/Example-Real-Data.html).

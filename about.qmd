@@ -1,9 +1,0 @@
----
-title: "About"
----
-
-Esto es una prueba
-
-```{r}
-1 + 1
-```

@@ -1,0 +1,31 @@
+---
+title: Teaching
+---
+
+### Lecturer
+
+------------------------------------------------------------------------
+
+-   Probability and Statistics (STAT 310) - *Rice University, Houston, TX -* Summer 2022 \[[Instructor Evaluation](images/stat_310_evaluations.pdf)\]
+
+-   Introduction to Statistics - *Universidad Sergio Arboleda, Bogotá, CO* - Fall 2019
+
+-   Introduction to Statistics - *Universidad Sergio Arboleda, Bogotá, CO* - Spring 2019
+
+-   Logic & Analysis - *Universidad Sergio Arboleda, Bogotá, CO* - Spring 2019
+
+-   Introduction to Statistics - *Universidad Sergio Arboleda, Bogotá, CO* - Fall 2018
+
+-   Logic & Analysis - *Universidad Sergio Arboleda, Bogotá, CO* - Fall 2018
+
+### Teaching Assistant
+
+------------------------------------------------------------------------
+
+-   Bayesian Statistics (STAT 525)  - *Rice University, Houston, TX -* Fall 2022
+
+-   Introduction to Stat for Biosciences (STAT 305) - *Rice University, Houston, TX -* Spring 2021
+
+-   Statistical Genomics in R - *Universidad Nacional de Colombia, Bogotá, CO* - Fall 2018
+
+-   Probability and Basic Inference (Certificate course) - *Universidad Nacional de Colombia, Bogotá, CO* - Fall 2017

@@ -1,0 +1,27 @@
+---
+title: Lung Disease Risk Prediction in a Coal Mine
+description: Survival Model to predict the risk of contracting a lung disease for workers of one of the largest coal mines in America
+author: 
+  - name: Mauro Florez
+    email: mf53@rice.edu
+date: 2019-01-10
+image: survival.png
+---
+
+```{r, echo = FALSE}
+library(ggplot2)
+coefficients <- c(2.055, 21.266)
+riesgo <- function(t,beta){(t/21.266)^2.055*beta}
+#Funciones de Riesgo
+
+ggplot(data.frame(x = c(0, 20)), aes(x)) +
+  stat_function(fun = function(x) riesgo(x, 0.2062), aes(colour = "Low")) + 
+  stat_function(fun = function(x) riesgo(x, 0.4697), aes(colour = "Medium")) + 
+  stat_function(fun = function(x) riesgo(x, 0.3464), aes(colour = "High")) + 
+  stat_function(fun = function(x) riesgo(x, 1), aes(colour = "Extreme")) + 
+  labs(x = "Years", y = paste("Risk -", expression(h[x](t)))) + 
+  scale_color_manual(name = "Group",
+                     breaks = c("Extreme", "High", "Medium", "Low"),
+                     values = c("#A76C1A","#58B368","#195699","#454D66")) +
+  theme_classic()
+```

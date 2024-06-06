@@ -1,3 +1,22 @@
 ---
-title: "Projects"
+title: Projects
+listing:
+  id: sample-listings
+  contents: "projects/*.qmd"
+  sort: "date desc"
+  type: default
+page-layour: full
 ---
+
+### Projects
+
+::: {#sample-listings}
+:::
+
+### Academic Publications
+
+-   **Florez, M.**, Guindani, M. and Vannucci, M. (2023). Bayesian Bivariate Conway-Maxwell-Poisson Regression Model for Correlated Count Data in Sports, In revision.
+
+-   Rivera, H. M., Muñoz, E. N., Osuna, D., **Florez, M.**, Carvajal, M., & Gómez, L. A. (2021). Reciprocal changes in miRNA expression with pigmentation and decreased proliferation induced in mouse B16F1 melanoma cells by l-Tyrosine and 5-bromo-2′-deoxyuridine. *International Journal of Molecular Sciences*, *22*(4). <https://doi.org/10.3390/ijms22041591>
+
+-   Otálora-Otálora, B. A., **Florez, M.**, López-Kleine, L., Canas Arboleda, A., Grajales Urrego, D. M., & Rojas, A. (2019). Joint transcriptomic analysis of lung cancer and other lung diseases. *Frontiers in Genetics*, *10*. <https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2019.01260>

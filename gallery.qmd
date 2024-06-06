@@ -1,0 +1,46 @@
+---
+title: Gallery
+description: During my free time, I enjoy traveling around the world to discover new places, try new food, get to know different cultures, and take pictures. Here are some of my favorite places I've been.
+format:
+  html:
+    toc: false
+    grid:
+      body-width: 500px
+lightbox:
+  match: auto
+  effect: fade
+  desc-position: right
+  loop: false
+---
+
+## Italy
+
+![Florence](media/photography/IMG_0949.JPEG){group="gallery" fig-align="center" width="500"}
+
+::: {style="display: grid;grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));grid-gap: 1em;"}
+![The Brunelleschi Dome](media/photography/cathedral.JPEG){group="gallery"}
+
+![San Gimignano](media/photography/IMG_1180.JPEG){group="gallery"}
+
+![Lucca](media/photography/IMG_1537.JPEG){group="gallery"}
+
+![Colosseum](media/photography/IMG_1930.JPEG){group="gallery"}
+
+![Cinque Terre](media/photography/cinque.JPEG){group="gallery"}
+
+![Colosseum at night](media/photography/IMG_1780.JPEG){group="gallery"}
+
+![David by Michelangelo](media/photography/IMG_1765.JPEG){group="gallery"}
+
+![Rome](media/photography/IMG_1795.JPEG){group="gallery"}
+:::
+
+## Malta
+
+::: {style="display: grid;grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));grid-gap: 1em;"}
+
+![Malta](media/photography/malta.JPEG){group="malta"}
+
+![Malta](media/photography/IMG_2444.JPEG){group="malta"}
+
+:::

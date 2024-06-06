@@ -7,12 +7,44 @@ about:
   image-shape: round
   image-width: 20em
   links:
-    - text: LinkedIn
+    - icon: linkedin
+      text: LinkedIn
       href: https://www.linkedin.com/in/mauroefr/
-    - text: GitHub
+    - icon: github
+      text: GitHub
       href: https://github.com/mauroflorez
     - text: Email
-      href: mf53@rice.edu
+      href: mailto:mf53@rice.edu
 ---
 
-Hi! I am creating my webpage
+::: justify
+## Bio
+
+Hi! 👋
+
+I am a PhD candidate in Statistics at Rice University, currently working on developing Bayesian models for multivariate data under the direction of Dr. [Marina Vannucci](https://marina.blogs.rice.edu/).
+
+I completed my undergraduate studies in my hometown, Bogotá, Colombia, earning a BS in *Statistics* from the Universidad Nacional de Colombia, where I graduated with distinction (1st class). Additionally, I hold a BS in *Mathematics* from Universidad Sergio Arboleda.
+
+I have experience as Data Analyst, in teaching. I have been TA and Reviewer
+
+## Research Interest
+
+My interests are
+
+-   Applied Statistics
+
+-   Bayesian Statistics
+
+-   Machine Learning
+
+## Selected Experience
+
+Data Analyst
+
+Statistical Specialist
+
+Lecturer
+:::
+
+## 

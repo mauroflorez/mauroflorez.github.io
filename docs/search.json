@@ -1,16 +1,65 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
     "section": "",
-    "text": "Esto es una prueba\n\n1 + 1\n\n[1] 2"
+    "text": "Projects\n\n\n\n\n\n\n\n\n\n\nBayesian Regression Model for Multivariate Count Data\n\n\n\n\n\nAn R package designed to fit a Bayesian Regression Model for multivariate count data where the data is distributed as Conway-Maxwell-Poisson distribution\n\n\n\n\n\nMay 30, 2024\n\n\nMauro Florez\n\n\n\n\n\n\n\n\n\n\n\n\nLung Disease Risk Prediction in a Coal Mine\n\n\n\n\n\nSurvival Model to predict the risk of contracting a lung disease for workers of one of the largest coal mines in America\n\n\n\n\n\nJan 10, 2019\n\n\nMauro Florez\n\n\n\n\n\n\nNo matching items\n\n\n\n\nAcademic Publications\n\nFlorez, M., Guindani, M. and Vannucci, M. (2023). Bayesian Bivariate Conway-Maxwell-Poisson Regression Model for Correlated Count Data in Sports, In revision.\nRivera, H. M., Muñoz, E. N., Osuna, D., Florez, M., Carvajal, M., & Gómez, L. A. (2021). Reciprocal changes in miRNA expression with pigmentation and decreased proliferation induced in mouse B16F1 melanoma cells by l-Tyrosine and 5-bromo-2′-deoxyuridine. International Journal of Molecular Sciences, 22(4). https://doi.org/10.3390/ijms22041591\nOtálora-Otálora, B. A., Florez, M., López-Kleine, L., Canas Arboleda, A., Grajales Urrego, D. M., & Rojas, A. (2019). Joint transcriptomic analysis of lung cancer and other lung diseases. Frontiers in Genetics, 10. https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2019.01260"
+  },
+  {
+    "objectID": "projects/project1.html",
+    "href": "projects/project1.html",
+    "title": "Lung Disease Risk Prediction in a Coal Mine",
+    "section": "",
+    "text": "library(ggplot2)\ncoefficients &lt;- c(2.055, 21.266)\nriesgo &lt;- function(t,beta){(t/21.266)^2.055*beta}\n#Funciones de Riesgo\n\nggplot(data.frame(x = c(0, 20)), aes(x)) +\n  stat_function(fun = function(x) riesgo(x, 0.2062), aes(colour = \"Low\")) + \n  stat_function(fun = function(x) riesgo(x, 0.4697), aes(colour = \"Medium\")) + \n  stat_function(fun = function(x) riesgo(x, 0.3464), aes(colour = \"High\")) + \n  stat_function(fun = function(x) riesgo(x, 1), aes(colour = \"Extreme\")) + \n  labs(x = \"Years\", y = paste(\"Risk -\", expression(h[x](t)))) + \n  scale_color_manual(name = \"Group\",\n                     breaks = c(\"Extreme\", \"High\", \"Medium\", \"Low\"),\n                     values = c(\"#A76C1A\",\"#58B368\",\"#195699\",\"#454D66\")) +\n  theme_classic()"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Mauro Florez",
     "section": "",
-    "text": "Hi! I am creating my webpage"
+    "text": "Hi! 👋\nI am a PhD candidate in Statistics at Rice University, currently working on developing Bayesian models for multivariate data under the direction of Dr. Marina Vannucci.\nI completed my undergraduate studies in my hometown, Bogotá, Colombia, earning a BS in Statistics from the Universidad Nacional de Colombia, where I graduated with distinction (1st class). Additionally, I hold a BS in Mathematics from Universidad Sergio Arboleda.\nI have experience as Data Analyst, in teaching. I have been TA and Reviewer\n\n\n\nMy interests are\n\nApplied Statistics\nBayesian Statistics\nMachine Learning\n\n\n\n\nData Analyst\nStatistical Specialist\nLecturer"
+  },
+  {
+    "objectID": "index.html#bio",
+    "href": "index.html#bio",
+    "title": "Mauro Florez",
+    "section": "",
+    "text": "Hi! 👋\nI am a PhD candidate in Statistics at Rice University, currently working on developing Bayesian models for multivariate data under the direction of Dr. Marina Vannucci.\nI completed my undergraduate studies in my hometown, Bogotá, Colombia, earning a BS in Statistics from the Universidad Nacional de Colombia, where I graduated with distinction (1st class). Additionally, I hold a BS in Mathematics from Universidad Sergio Arboleda.\nI have experience as Data Analyst, in teaching. I have been TA and Reviewer"
+  },
+  {
+    "objectID": "index.html#research-interest",
+    "href": "index.html#research-interest",
+    "title": "Mauro Florez",
+    "section": "",
+    "text": "My interests are\n\nApplied Statistics\nBayesian Statistics\nMachine Learning"
+  },
+  {
+    "objectID": "index.html#selected-experience",
+    "href": "index.html#selected-experience",
+    "title": "Mauro Florez",
+    "section": "",
+    "text": "Data Analyst\nStatistical Specialist\nLecturer"
+  },
+  {
+    "objectID": "projects/MultRegCMP.html",
+    "href": "projects/MultRegCMP.html",
+    "title": "Bayesian Regression Model for Multivariate Count Data",
+    "section": "",
+    "text": "MultRegCMP is an R package that I designed to fit a Bayesian Multivariate regression model for count data. This model have been used to analyze football and baseball scores. A practical example on how to use it can be found in this Football Vignette."
+  },
+  {
+    "objectID": "projects/MultRegCMP.html#multregcmp",
+    "href": "projects/MultRegCMP.html#multregcmp",
+    "title": "Bayesian Regression Model for Multivariate Count Data",
+    "section": "",
+    "text": "MultRegCMP is an R package that I designed to fit a Bayesian Multivariate regression model for count data. This model have been used to analyze football and baseball scores. A practical example on how to use it can be found in this Football Vignette."
+  },
+  {
+    "objectID": "teaching.html",
+    "href": "teaching.html",
+    "title": "Teaching",
+    "section": "",
+    "text": "Lecturer\n\n\nProbability and Statistics (STAT 310) - Rice University, Houston, TX - Summer 2022 [Instructor Evaluation]\nIntroduction to Statistics - Universidad Sergio Arboleda, Bogotá, CO - Fall 2019\nIntroduction to Statistics - Universidad Sergio Arboleda, Bogotá, CO - Spring 2019\nLogic & Analysis - Universidad Sergio Arboleda, Bogotá, CO - Spring 2019\nIntroduction to Statistics - Universidad Sergio Arboleda, Bogotá, CO - Fall 2018\nLogic & Analysis - Universidad Sergio Arboleda, Bogotá, CO - Fall 2018\n\n\n\nTeaching Assistant\n\n\nBayesian Statistics (STAT 525) - Rice University, Houston, TX - Fall 2022\nIntroduction to Stat for Biosciences (STAT 305) - Rice University, Houston, TX - Spring 2021\nStatistical Genomics in R - Universidad Nacional de Colombia, Bogotá, CO - Fall 2018\nProbability and Basic Inference (Certificate course) - Universidad Nacional de Colombia, Bogotá, CO - Fall 2017"
   }
 ]

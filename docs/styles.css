@@ -1,1 +1,7 @@
 /* css styles */
+
+```{css, echo = FALSE}
+.justify {
+  text-align: justify !important
+}
+```

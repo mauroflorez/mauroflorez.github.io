@@ -33,6 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
@@ -90,7 +91,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -100,6 +101,14 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="./teaching.html"> 
 <span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./CV.html" aria-current="page"> 
+<span class="menu-text">CV.html</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./gallery.html"> 
+<span class="menu-text">Gallery</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -113,66 +122,19 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
 <!-- main -->
-<div class="quarto-about-trestles content column-page">
-  <div class="about-entity">
-    <img src="media/headshot.png" class="about-image
-  round " style="height: 20em; width: 20em;">
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Mauro Florez</h1>
-</div>
-<div class="quarto-title-meta column-page">
-  </div>
-</header>
-    <div class="about-links">
-  <a href="https://www.linkedin.com/in/mauroefr/" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="https://github.com/mauroflorez" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">GitHub</span>
-  </a>
-  <a href="mailto:mf53@rice.edu" class="about-link" rel="" target="">
-     <span class="about-link-text">Email</span>
-  </a>
-</div>
-  </div>
-  <div class="about-contents"><main class="content column-page" id="quarto-document-content">
-<div class="justify">
-<section id="bio" class="level2">
-<h2 data-anchor-id="bio">Bio</h2>
-<p>Hi! 👋</p>
-<p>I am a PhD candidate in Statistics at Rice University, currently working on developing Bayesian models for multivariate data under the direction of Dr.&nbsp;<a href="https://marina.blogs.rice.edu/">Marina Vannucci</a>.</p>
-<p>I completed my undergraduate studies in my hometown, Bogotá, Colombia, earning a BS in <em>Statistics</em> from the Universidad Nacional de Colombia, where I graduated with distinction (1st class). Additionally, I hold a BS in <em>Mathematics</em> from Universidad Sergio Arboleda.</p>
-<p>I have experience as Data Analyst, in teaching. I have been TA and Reviewer</p>
-</section>
-<section id="research-interest" class="level2">
-<h2 data-anchor-id="research-interest">Research Interest</h2>
-<p>My interests are</p>
-<ul>
-<li><p>Applied Statistics</p></li>
-<li><p>Bayesian Statistics</p></li>
-<li><p>Machine Learning</p></li>
-</ul>
-</section>
-<section id="selected-experience" class="level2">
-<h2 data-anchor-id="selected-experience">Selected Experience</h2>
-<p>Data Analyst</p>
-<p>Statistical Specialist</p>
-<p>Lecturer</p>
-</section>
-</div>
-<section id="section" class="level2">
-<h2 data-anchor-id="section"></h2>
+<main class="content column-page" id="quarto-document-content">
 
 
-</section>
-</main></div>
-</div>
- <!-- /main -->
+
+
+
+
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -337,6 +299,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   } else {
     toggleColorMode(false);
   }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
