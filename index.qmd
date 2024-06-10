@@ -16,7 +16,7 @@ about:
     - icon: envelope
       text: Email
       href: mailto:mf53@rice.edu
-page-layour: full
+page-layout: full
 ---
 
 ::: justify
