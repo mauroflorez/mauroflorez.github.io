@@ -1,6 +1,6 @@
 ---
 title: Gallery
-description: During my free time, I enjoy traveling around the world to discover new places, try new food, get to know different cultures, and take pictures. Here are some of my favorite places I've been.
+description: One of my hobbies is traveling around the world to discover new places, try new food, get to know different cultures, and take pictures. Here are some of my favorite photos I've taken.
 format:
   html:
     toc: false
