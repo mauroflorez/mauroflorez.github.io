@@ -37,11 +37,9 @@ When I am not immersed in data and research, I love football –watching or play
 ## Research Interests
 
 ::: {.column width="45%"}
-::: justify
 My latest projects involve developing frameworks for estimating graphical models that identify relationships or dependencies between different mixed data types.
 
 A list of projects can be found [here](https://mauroflorez.github.io/projects.html).
-:::
 :::
 
 ::: {.column width="10%"}
@@ -58,11 +56,9 @@ A list of projects can be found [here](https://mauroflorez.github.io/projects.ht
 ## Education
 
 ::: {.column width="45%"}
-::: justify
 I completed my undergraduate studies in Bogotá, Colombia, earning a BS in *Statistics* from the Universidad Nacional de Colombia, where I graduated with distinction (#1 class). Additionally, I hold a BS in *Mathematics* from Universidad Sergio Arboleda.
 
 In 2020 I was awarded a [Fulbright](https://www.fulbrightprogram.org/) scholarship to pursue my PhD at Rice University.
-:::
 :::
 
 ::: {.column width="10%"}
