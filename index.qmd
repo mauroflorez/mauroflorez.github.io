@@ -30,20 +30,11 @@ format:
 
 I am a PhD Candidate in Statistics at Rice University. My research focuses on developing Bayesian models for multivariate data, working under the direction of Dr. [Marina Vannucci](https://marina.blogs.rice.edu/). I am passionate about formulating innovative statistical methods to analyze different types of data, with a diverse range of applications, from healthcare to sports.
 
-When I am not immersed in data and research, I love football –watching or playing– as well as exploring new places and taking pictures. Check out some of my travel photos [here](https://mauroflorez.github.io/gallery.html).
+When I am not immersed in data and research, I love soccer –watching or playing– as well as exploring new places and taking pictures. Check out some of my travel photos [here](https://mauroflorez.github.io/gallery.html).
 :::
 
 ::: columns
 ## Research Interests
-
-::: {.column width="45%"}
-My latest projects involve developing frameworks for estimating graphical models that identify relationships or dependencies between different mixed data types.
-
-A list of projects can be found [here](https://mauroflorez.github.io/projects.html).
-:::
-
-::: {.column width="10%"}
-:::
 
 ::: {.column width="40%"}
 -   Bayesian Modeling
@@ -53,16 +44,16 @@ A list of projects can be found [here](https://mauroflorez.github.io/projects.ht
 -   Machine Learning
 :::
 
+::: {.column width="5%"}
+:::
+
+::: {.column width="50%"}
+My latest projects involve developing frameworks for estimating graphical models that identify relationships or dependencies between different mixed data types.
+
+A list of projects can be found [here](https://mauroflorez.github.io/projects.html).
+:::
+
 ## Education
-
-::: {.column width="45%"}
-I completed my undergraduate studies in Bogotá, Colombia, earning a BS in *Statistics* from the Universidad Nacional de Colombia, where I graduated with distinction (#1 class). Additionally, I hold a BS in *Mathematics* from Universidad Sergio Arboleda.
-
-In 2020 I was awarded a [Fulbright](https://www.fulbrightprogram.org/) scholarship to pursue my PhD at Rice University.
-:::
-
-::: {.column width="10%"}
-:::
 
 ::: {.column width="40%"}
 PhD in Statistics, (Exp. 2025)\
@@ -72,10 +63,19 @@ MA in Statistics, (Exp. 2024)\
 *Rice University*
 
 🎓 BS in Statistics, 2019\
-*Universidad Nacional de Colombia*
+*Universidad* Nacional *de Colombia*
 
 🎓 BS in Mathematics, 2017\
 *Universidad Sergio Arboleda*
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="50%"}
+I completed my undergraduate studies in Bogotá, Colombia, earning a BS in *Statistics* from the Universidad Nacional de Colombia, where I graduated with distinction (#1 class). Additionally, I hold a BS in *Mathematics* from Universidad Sergio Arboleda.
+
+In 2020 I was awarded a [Fulbright](https://www.fulbrightprogram.org/) scholarship to pursue my PhD at Rice University.
 :::
 :::
 
