@@ -38,9 +38,7 @@ lightbox:
 ## Malta
 
 ::: {style="display: grid;grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));grid-gap: 1em;"}
-
 ![Malta](media/photography/malta.JPEG){group="malta"}
 
 ![Malta](media/photography/IMG_2444.JPEG){group="malta"}
-
 :::
