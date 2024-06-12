@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Mauro Florez">
+<meta name="description" content=".">
 
-<title>Mauro Florez – Projects</title>
+<title>Mauro Florez – meta</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,26 +25,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,67 +70,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-sample-listings .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-sample-listings'] = new List('listing-sample-listings', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -140,7 +82,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Mauro Florez</span>
     </a>
   </div>
@@ -151,23 +93,23 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./projects.html" aria-current="page"> 
+    <a class="nav-link" href="../projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./teaching.html"> 
+    <a class="nav-link" href="../teaching.html"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./CV.html"> 
+    <a class="nav-link" href="../CV.html"> 
 <span class="menu-text">CV.html</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./gallery.html"> 
+    <a class="nav-link" href="../gallery.html"> 
 <span class="menu-text">Gallery</span></a>
   </li>  
 </ul>
@@ -182,28 +124,32 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#projects" id="toc-projects" class="nav-link active" data-scroll-target="#projects">Projects</a></li>
-  <li><a href="#academic-publications" id="toc-academic-publications" class="nav-link" data-scroll-target="#academic-publications">Academic Publications</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Projects</h1>
+<h1 class="title">meta</h1>
+</div>
+
+<div>
+  <div class="description">
+    .
+  </div>
 </div>
 
 
+<div class="quarto-title-meta column-page">
 
-<div class="quarto-title-meta column-page-left">
-
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Mauro Florez <a href="mailto:mf53@rice.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+          </div>
+  </div>
     
   
     
@@ -214,133 +160,8 @@ window.Quarto = {
 </header>
 
 
-<section id="projects" class="level3">
-<h3 class="anchored" data-anchor-id="projects">Projects</h3>
-<div id="listing-sample-listings" class="quarto-listing quarto-listing-container-default">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1718231561977" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<div class="thumbnail">
-<p><a href="./projects/meta.html" class="no-external"></a></p><a href="./projects/meta.html" class="no-external">
-<p><img loading="lazy" src="./projects/siniestralidad.png" class="thumbnail-image"></p>
-</a><p><a href="./projects/meta.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./projects/meta.html" class="no-external">GLM</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./projects/meta.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./projects/meta.html" class="no-external">.</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./projects/meta.html" class="no-external"></a></p><a href="./projects/meta.html" class="no-external">
-<div class="listing-author">
-Mauro Florez
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1718231552856" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<div class="thumbnail">
-<p><a href="./projects/siniestralidad.html" class="no-external"></a></p><a href="./projects/siniestralidad.html" class="no-external">
-<p><img loading="lazy" src="./projects/metaanalysis.png" class="thumbnail-image"></p>
-</a><p><a href="./projects/siniestralidad.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./projects/siniestralidad.html" class="no-external">meta</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./projects/siniestralidad.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./projects/siniestralidad.html" class="no-external">.</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./projects/siniestralidad.html" class="no-external"></a></p><a href="./projects/siniestralidad.html" class="no-external">
-<div class="listing-author">
-Mauro Florez
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1717045200000" data-listing-file-modified-sort="1718053079553" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="44">
-<div class="thumbnail">
-<p><a href="./projects/MultRegCMP.html" class="no-external"></a></p><a href="./projects/MultRegCMP.html" class="no-external">
-<p><img loading="lazy" src="./projects/CMP.png" class="thumbnail-image"></p>
-</a><p><a href="./projects/MultRegCMP.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./projects/MultRegCMP.html" class="no-external">Bayesian Regression Model for Multivariate Count Data</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./projects/MultRegCMP.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./projects/MultRegCMP.html" class="no-external">An R package designed to fit a Bayesian Regression Model for multivariate count data where the data is distributed as Conway-Maxwell-Poisson distribution</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./projects/MultRegCMP.html" class="no-external">
-<div class="listing-date">
-May 30, 2024
-</div>
-<div class="listing-author">
-Mauro Florez
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1547100000000" data-listing-file-modified-sort="1718053079553" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="127">
-<div class="thumbnail">
-<p><a href="./projects/survival_coal.html" class="no-external"></a></p><a href="./projects/survival_coal.html" class="no-external">
-<p><img loading="lazy" src="./projects/survival.png" class="thumbnail-image"></p>
-</a><p><a href="./projects/survival_coal.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./projects/survival_coal.html" class="no-external">Lung Disease Risk Prediction in a Coal Mine</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./projects/survival_coal.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./projects/survival_coal.html" class="no-external">Survival Model to predict the risk of contracting a lung disease for workers of one of the largest coal mines in America</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./projects/survival_coal.html" class="no-external">
-<div class="listing-date">
-Jan 10, 2019
-</div>
-<div class="listing-author">
-Mauro Florez
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
-</section>
-<section id="academic-publications" class="level3">
-<h3 class="anchored" data-anchor-id="academic-publications">Academic Publications</h3>
-<ul>
-<li><p><strong>Florez, M.</strong>, Guindani, M. and Vannucci, M. (2023). Bayesian Bivariate Conway-Maxwell-Poisson Regression Model for Correlated Count Data in Sports, In revision.</p></li>
-<li><p>Rivera, H. M., Muñoz, E. N., Osuna, D., <strong>Florez, M.</strong>, Carvajal, M., &amp; Gómez, L. A. (2021). Reciprocal changes in miRNA expression with pigmentation and decreased proliferation induced in mouse B16F1 melanoma cells by l-Tyrosine and 5-bromo-2′-deoxyuridine. <em>International Journal of Molecular Sciences</em>, <em>22</em>(4). <a href="https://doi.org/10.3390/ijms22041591" class="uri">https://doi.org/10.3390/ijms22041591</a></p></li>
-<li><p>Otálora-Otálora, B. A., <strong>Florez, M.</strong>, López-Kleine, L., Canas Arboleda, A., Grajales Urrego, D. M., &amp; Rojas, A. (2019). Joint transcriptomic analysis of lung cancer and other lung diseases. <em>Frontiers in Genetics</em>, <em>10</em>. <a href="https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2019.01260" class="uri">https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2019.01260</a></p></li>
-</ul>
 
 
-
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
