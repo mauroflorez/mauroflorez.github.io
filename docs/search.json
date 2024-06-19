@@ -1,19 +1,5 @@
 [
   {
-    "objectID": "projects.html",
-    "href": "projects.html",
-    "title": "Projects",
-    "section": "",
-    "text": "Projects\n\n\n\n\n\n\n\n\n\n\nGLM\n\n\n\n\n\n.\n\n\n\n\n\nMauro Florez\n\n\n\n\n\n\n\n\n\n\n\n\nmeta\n\n\n\n\n\n.\n\n\n\n\n\nMauro Florez\n\n\n\n\n\n\n\n\n\n\n\n\nBayesian Regression Model for Multivariate Count Data\n\n\n\n\n\nAn R package designed to fit a Bayesian Regression Model for multivariate count data where the data is distributed as Conway-Maxwell-Poisson distribution\n\n\n\n\n\nMay 30, 2024\n\n\nMauro Florez\n\n\n\n\n\n\n\n\n\n\n\n\nLung Disease Risk Prediction in a Coal Mine\n\n\n\n\n\nSurvival Model to predict the risk of contracting a lung disease for workers of one of the largest coal mines in America\n\n\n\n\n\nJan 10, 2019\n\n\nMauro Florez\n\n\n\n\n\n\nNo matching items\n\n\n\n\nAcademic Publications\n\nFlorez, M., Guindani, M. and Vannucci, M. (2023). Bayesian Bivariate Conway-Maxwell-Poisson Regression Model for Correlated Count Data in Sports, In revision.\nRivera, H. M., Muñoz, E. N., Osuna, D., Florez, M., Carvajal, M., & Gómez, L. A. (2021). Reciprocal changes in miRNA expression with pigmentation and decreased proliferation induced in mouse B16F1 melanoma cells by l-Tyrosine and 5-bromo-2′-deoxyuridine. International Journal of Molecular Sciences, 22(4). https://doi.org/10.3390/ijms22041591\nOtálora-Otálora, B. A., Florez, M., López-Kleine, L., Canas Arboleda, A., Grajales Urrego, D. M., & Rojas, A. (2019). Joint transcriptomic analysis of lung cancer and other lung diseases. Frontiers in Genetics, 10. https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2019.01260"
-  },
-  {
-    "objectID": "projects/project1.html",
-    "href": "projects/project1.html",
-    "title": "Lung Disease Risk Prediction in a Coal Mine",
-    "section": "",
-    "text": "library(ggplot2)\ncoefficients &lt;- c(2.055, 21.266)\nriesgo &lt;- function(t,beta){(t/21.266)^2.055*beta}\n#Funciones de Riesgo\n\nggplot(data.frame(x = c(0, 20)), aes(x)) +\n  stat_function(fun = function(x) riesgo(x, 0.2062), aes(colour = \"Low\")) + \n  stat_function(fun = function(x) riesgo(x, 0.4697), aes(colour = \"Medium\")) + \n  stat_function(fun = function(x) riesgo(x, 0.3464), aes(colour = \"High\")) + \n  stat_function(fun = function(x) riesgo(x, 1), aes(colour = \"Extreme\")) + \n  labs(x = \"Years\", y = paste(\"Risk -\", expression(h[x](t)))) + \n  scale_color_manual(name = \"Group\",\n                     breaks = c(\"Extreme\", \"High\", \"Medium\", \"Low\"),\n                     values = c(\"#A76C1A\",\"#58B368\",\"#195699\",\"#454D66\")) +\n  theme_classic()"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Mauro Florez",
@@ -21,18 +7,25 @@
     "text": "I am a PhD Candidate in Statistics at Rice University. My research focuses on developing Bayesian models for multivariate data, working under the direction of Dr. Marina Vannucci. I am passionate about formulating innovative statistical methods to analyze different types of data, with a diverse range of applications, from healthcare to sports.\nWhen I am not immersed in data and research, I love soccer –watching or playing– as well as exploring new places and taking pictures. Check out some of my travel photos here."
   },
   {
-    "objectID": "index.html#bio",
-    "href": "index.html#bio",
+    "objectID": "index.html#about-me",
+    "href": "index.html#about-me",
     "title": "Mauro Florez",
     "section": "",
-    "text": "Hi! 👋\nI am a PhD candidate in Statistics at Rice University, currently working on developing Bayesian models for multivariate data under the direction of Dr. Marina Vannucci.\nI completed my undergraduate studies in my hometown, Bogotá, Colombia, earning a BS in Statistics from the Universidad Nacional de Colombia, where I graduated with distinction (1st class). Additionally, I hold a BS in Mathematics from Universidad Sergio Arboleda.\nI have experience as Data Analyst, in teaching. I have been TA and Reviewer"
+    "text": "I am a PhD Candidate in Statistics at Rice University. My research focuses on developing Bayesian models for multivariate data, working under the direction of Dr. Marina Vannucci. I am passionate about formulating innovative statistical methods to analyze different types of data, with a diverse range of applications, from healthcare to sports.\nWhen I am not immersed in data and research, I love soccer –watching or playing– as well as exploring new places and taking pictures. Check out some of my travel photos here."
   },
   {
-    "objectID": "index.html#research-interest",
-    "href": "index.html#research-interest",
+    "objectID": "index.html#research-interests",
+    "href": "index.html#research-interests",
     "title": "Mauro Florez",
-    "section": "Research Interest",
-    "text": "Research Interest\nMy interests are\n\nApplied Statistics\nBayesian Statistics\nMachine Learning"
+    "section": "Research Interests",
+    "text": "Research Interests\n\n\nBayesian Modeling\nStatistical Computing\nGraphical Models\nApplied Statistics\nMachine Learning\n\n\n\n\n\nMy latest projects involve developing frameworks for estimating graphical models that identify relationships or dependencies between different mixed data types.\nA list of projects can be found here."
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Mauro Florez",
+    "section": "Education",
+    "text": "Education\n\nPhD in Statistics, (Exp. 2025)\nRice University\nMA in Statistics, (Exp. 2024)\nRice University\n🎓 BS in Statistics, 2019\nUniversidad Nacional de Colombia\n🎓 BS in Mathematics, 2017\nUniversidad Sergio Arboleda\n\n\n\n\nI completed my undergraduate studies in Bogotá, Colombia, earning a BS in Statistics from the Universidad Nacional de Colombia, where I graduated with distinction (#1 class). Additionally, I hold a BS in Mathematics from Universidad Sergio Arboleda.\nIn 2020 I was awarded a Fulbright scholarship to pursue my PhD at Rice University."
   },
   {
     "objectID": "index.html#selected-experience",
@@ -40,20 +33,6 @@
     "title": "Mauro Florez",
     "section": "Selected Experience",
     "text": "Selected Experience\nData Analyst, 2019 - 2020\nMinciencias\nStatistical Consultant, 2017 - 2018\nUniversidad del Rosario\nLecturer - See the full list of courses here."
-  },
-  {
-    "objectID": "projects/MultRegCMP.html",
-    "href": "projects/MultRegCMP.html",
-    "title": "Bayesian Regression Model for Multivariate Count Data",
-    "section": "",
-    "text": "MultRegCMP is an R package that I designed to fit a Bayesian Multivariate regression model for count data. This model have been used to analyze football and baseball scores. A practical example on how to use it can be found in this Football Vignette."
-  },
-  {
-    "objectID": "projects/MultRegCMP.html#multregcmp",
-    "href": "projects/MultRegCMP.html#multregcmp",
-    "title": "Bayesian Regression Model for Multivariate Count Data",
-    "section": "",
-    "text": "MultRegCMP is an R package that I designed to fit a Bayesian Multivariate regression model for count data. This model have been used to analyze football and baseball scores. A practical example on how to use it can be found in this Football Vignette."
   },
   {
     "objectID": "teaching.html",
@@ -84,87 +63,24 @@
     "text": "Malta\n\n\n\n\nMalta\n\n\n\n\n\nMalta"
   },
   {
-    "objectID": "index.html#about-me",
-    "href": "index.html#about-me",
-    "title": "Mauro Florez",
+    "objectID": "projects/MultRegCMP.html",
+    "href": "projects/MultRegCMP.html",
+    "title": "Bayesian Regression Model for Multivariate Count Data",
     "section": "",
-    "text": "I am a PhD Candidate in Statistics at Rice University. My research focuses on developing Bayesian models for multivariate data, working under the direction of Dr. Marina Vannucci. I am passionate about formulating innovative statistical methods to analyze different types of data, with a diverse range of applications, from healthcare to sports.\nWhen I am not immersed in data and research, I love soccer –watching or playing– as well as exploring new places and taking pictures. Check out some of my travel photos here."
+    "text": "MultRegCMP is an R package that I designed to fit a Bayesian Multivariate regression model for count data. This model have been used to analyze football and baseball scores. A practical example on how to use it can be found in this Football Vignette."
   },
   {
-    "objectID": "index.html#education",
-    "href": "index.html#education",
-    "title": "Mauro Florez",
-    "section": "Education",
-    "text": "Education\n\nPhD in Statistics, (Exp. 2025)\nRice University\nMA in Statistics, (Exp. 2024)\nRice University\n🎓 BS in Statistics, 2019\nUniversidad Nacional de Colombia\n🎓 BS in Mathematics, 2017\nUniversidad Sergio Arboleda\n\n\n\n\nI completed my undergraduate studies in Bogotá, Colombia, earning a BS in Statistics from the Universidad Nacional de Colombia, where I graduated with distinction (#1 class). Additionally, I hold a BS in Mathematics from Universidad Sergio Arboleda.\nIn 2020 I was awarded a Fulbright scholarship to pursue my PhD at Rice University."
-  },
-  {
-    "objectID": "index.html#education-1",
-    "href": "index.html#education-1",
-    "title": "Mauro Florez",
-    "section": "Education 🎓",
-    "text": "Education 🎓"
-  },
-  {
-    "objectID": "index.html#experience",
-    "href": "index.html#experience",
-    "title": "Mauro Florez",
-    "section": "Experience 📊",
-    "text": "Experience 📊\n\nUniversidad del Rosario"
-  },
-  {
-    "objectID": "index.html#selected-experience-1",
-    "href": "index.html#selected-experience-1",
-    "title": "Mauro Florez",
-    "section": "Selected Experience",
-    "text": "Selected Experience\nData Analyst, 2019 - 2020\nMinciencias\nStatistical Consultant, 2017 - 2018\nUniversidad del Rosario\nLecturer - See the full list of courses here"
-  },
-  {
-    "objectID": "index.html#interests",
-    "href": "index.html#interests",
-    "title": "Mauro Florez",
-    "section": "Interests 📊",
-    "text": "Interests 📊\n\nMA in Statistics, 2024\nRice University\nBS in Statistics, 2019\nUniversidad Nacional de Colombia\nBS in Mathematics, 2017\nUniversidad Sergio Arboleda"
-  },
-  {
-    "objectID": "index.html#research-interests",
-    "href": "index.html#research-interests",
-    "title": "Mauro Florez",
-    "section": "Research Interests",
-    "text": "Research Interests\n\n\nBayesian Modeling\nStatistical Computing\nGraphical Models\nApplied Statistics\nMachine Learning\n\n\n\n\n\nMy latest projects involve developing frameworks for estimating graphical models that identify relationships or dependencies between different mixed data types.\nA list of projects can be found here."
-  },
-  {
-    "objectID": "CV.html",
-    "href": "CV.html",
-    "title": "Curriculum Vitae",
+    "objectID": "projects/MultRegCMP.html#multregcmp",
+    "href": "projects/MultRegCMP.html#multregcmp",
+    "title": "Bayesian Regression Model for Multivariate Count Data",
     "section": "",
-    "text": "cynthia.huang@monash.edu"
+    "text": "MultRegCMP is an R package that I designed to fit a Bayesian Multivariate regression model for count data. This model have been used to analyze football and baseball scores. A practical example on how to use it can be found in this Football Vignette."
   },
   {
-    "objectID": "CV.html#education",
-    "href": "CV.html#education",
-    "title": "Curriculum Vitae",
-    "section": "EDUCATION",
-    "text": "EDUCATION\nDoctor of Philosophy – Econometrics and Business Statistics  Monash University Aug 2021 — Present\n\nNew principles and methods for complex data preparation and integration, with applications to official statistics, web-scrapped data and satellite raster images\nMonash Data Futures Institute PhD Top-Up Scholarship (2021-2024)\nExpected submission date: Nov 2024"
-  },
-  {
-    "objectID": "CV.html#work-experience",
-    "href": "CV.html#work-experience",
-    "title": "Curriculum Vitae",
-    "section": "WORK EXPERIENCE",
-    "text": "WORK EXPERIENCE\n\nData Scientist\nFreelance, Multiple Clients Jan 2020 – June 2021\nProviding data collection, pre-processing, exploratory analysis and modelling services to clients in the early R&D stages of developing data driven products. Projects include:\n\nData description and preliminary product feasibility insights for a start-up real estate bond platform; including assessing suitability of various property transaction databases for use in initial product prototype.\nDevelopment of statistical anomaly detection regimes and key historical insights from internet quality time-series data for use in parametric insurance products, including documenting analysis tools in an R package."
-  },
-  {
-    "objectID": "CV.html#presentations-and-workshops",
-    "href": "CV.html#presentations-and-workshops",
-    "title": "Curriculum Vitae",
-    "section": "PRESENTATIONS AND WORKSHOPS",
-    "text": "PRESENTATIONS AND WORKSHOPS\n\nTalk: Misadventures with Reproducibility in R (30 Nov 2022, R Ladies Melbourne Meetup)\nTalk: Designing R Packages (4 Oct 2022, Monash EBS Data Science Research Software Study Group)\nTalk: Quarto Websites as Research Compendiums (16 Aug 2022, Monash EBS Data Science Research Software Study Group)\nWorkshop: Writing academic papers with Rmarkdown and friends (9 Aug 2022, Monash University)"
-  },
-  {
-    "objectID": "CV.html#references",
-    "href": "CV.html#references",
-    "title": "Curriculum Vitae",
-    "section": "References",
-    "text": "References\nAvailable upon request"
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Projects\n\n\n\n\n\n\n\n\n\n\nBayesian Regression Model for Multivariate Count Data\n\n\n\n\n\nAn R package designed to fit a Bayesian Regression Model for multivariate count data where the data is distributed as Conway-Maxwell-Poisson distribution\n\n\n\n\n\nMay 30, 2024\n\n\nMauro Florez\n\n\n\n\n\n\n\n\n\n\n\n\nLung Disease Risk Prediction in a Coal Mine\n\n\n\n\n\nSurvival Model to predict the risk of contracting a lung disease for workers of one of the largest coal mines in America\n\n\n\n\n\nJan 10, 2019\n\n\nMauro Florez\n\n\n\n\n\n\nNo matching items\n\n\n\n\nAcademic Publications\n\nFlorez, M., Guindani, M. and Vannucci, M. (2023). Bayesian Bivariate Conway-Maxwell-Poisson Regression Model for Correlated Count Data in Sports, In revision.\nRivera, H. M., Muñoz, E. N., Osuna, D., Florez, M., Carvajal, M., & Gómez, L. A. (2021). Reciprocal changes in miRNA expression with pigmentation and decreased proliferation induced in mouse B16F1 melanoma cells by l-Tyrosine and 5-bromo-2′-deoxyuridine. International Journal of Molecular Sciences, 22(4). https://doi.org/10.3390/ijms22041591\nOtálora-Otálora, B. A., Florez, M., López-Kleine, L., Canas Arboleda, A., Grajales Urrego, D. M., & Rojas, A. (2019). Joint transcriptomic analysis of lung cancer and other lung diseases. Frontiers in Genetics, 10. https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2019.01260"
   }
 ]

@@ -2,8 +2,6 @@
   {
     "listing": "/projects.html",
     "items": [
-      "/projects/meta.html",
-      "/projects/siniestralidad.html",
       "/projects/MultRegCMP.html",
       "/projects/survival_coal.html"
     ]
