@@ -1,8 +1,0 @@
----
-title: GLM
-description: .
-author: 
-  - name: Mauro Florez
-    email: mf53@rice.edu
-image: siniestralidad.png
----

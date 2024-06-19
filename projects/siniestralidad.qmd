@@ -1,8 +1,0 @@
----
-title: meta
-description: .
-author: 
-  - name: Mauro Florez
-    email: mf53@rice.edu
-image: metaanalysis.png
----
