@@ -1,0 +1,91 @@
+---
+title: Predicting Euro-2024 Results
+---
+
+In this project, I will propose a model to predict the scores in the Euro 2024.
+
+The data is contained in this repository <https://github.com/martj42/international_results>.
+
+```{r output = FALSE}
+urlfile = "https://raw.githubusercontent.com/martj42/international_results/master/results.csv"
+```
+
+I will use a Bayesian model, so we need the following libraries
+
+```{r, message=FALSE}}
+require(rstanarm)
+require(rstantools)
+require(bayesplot)
+```
+
+As well as
+
+```{r, message=FALSE}
+require(readr)
+require(dplyr)
+require(lubridate)
+require(ggplot2)
+```
+
+We load the data
+
+```{r }
+data <- read_csv(url(urlfile), show_col_types = FALSE)
+```
+
+The proposed model is based on the teams' strengths attacking and defending. Therefore, we will consider only the games played during 2024. An improved model would be one with dynamic strengths.
+
+```{r}
+
+
+euro_2024 = c('Albania','Austria','Belgium','Croatia','Czech Republic','Denmark','England','France','Georgia','Germany','Hungary','Italy','Netherlands','Poland','Portugal','Romania','Scotland','Serbia','Slovakia','Slovenia','Spain','Switzerland','Turkey','Ukraine')
+
+scores <- data %>% 
+  filter(home_team %in% euro_2024 | away_team %in% euro_2024) %>% 
+  filter(date > "2023-06-01" & date < today())
+
+test <- data %>% 
+  filter(home_team %in% euro_2024 | away_team %in% euro_2024) %>% 
+  filter(date == today()) %>% 
+  select(date, home_team, away_team)
+```
+
+For example, we consider the following games played by Portugal
+
+```{r}
+scores %>% 
+  filter(home_team == "Portugal" | away_team == "Portugal")
+```
+
+To fit the model I would consider the scores Neg. Binomial distributed for simplicity, one better option is the Conway-Maxwell-Poisson. However, we will use a simple model for computational reasons.
+
+```{r, message=FALSE}
+pois1 <- stan_glm(home_score ~ 1 + home_team + away_team, data = scores, family = poisson, iter = 5000, contrasts = list(home_team = "contr.sum", away_team = "contr.sum"))
+pois2 <- stan_glm(away_score ~ 1 + away_team + home_team, data = scores, family = poisson, iter = 5000, contrasts = list(home_team = "contr.sum", away_team = "contr.sum"))
+```
+
+We can plot the estimated parameters. Choosing only those playing the Euro.
+
+```{r}
+indices_countries_home <- scores %>% 
+  select(home_team) %>% 
+  distinct(home_team) %>% 
+  arrange(home_team) %>% 
+  .$home_team %in% euro_2024 %>% 
+  which
+
+indices_countries_away <- scores %>% 
+  select(away_team) %>% 
+  distinct(away_team) %>% 
+  arrange(away_team) %>% 
+  .$away_team %in% euro_2024 %>% 
+  which()
+
+coef1 <- pois1$coefficients[c(indices_countries_home + 1, indices_countries_home + 1 + indices_countries_away)]
+
+coef2 <- pois2$coefficients[c(indices_countries_away + 1, indices_countries_away + 1 + indices_countries_home)]
+```
+
+```{r}
+
+```
