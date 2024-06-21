@@ -25,6 +25,8 @@ require(readr)
 require(dplyr)
 require(lubridate)
 require(ggplot2)
+require(ggrepel)
+require(latex2exp)
 ```
 
 We load the data
@@ -36,18 +38,12 @@ data <- read_csv(url(urlfile), show_col_types = FALSE)
 The proposed model is based on the teams' strengths attacking and defending. Therefore, we will consider only the games played during 2024. An improved model would be one with dynamic strengths.
 
 ```{r}
-
-
 euro_2024 = c('Albania','Austria','Belgium','Croatia','Czech Republic','Denmark','England','France','Georgia','Germany','Hungary','Italy','Netherlands','Poland','Portugal','Romania','Scotland','Serbia','Slovakia','Slovenia','Spain','Switzerland','Turkey','Ukraine')
 
 scores <- data %>% 
-  filter(home_team %in% euro_2024 | away_team %in% euro_2024) %>% 
+  filter(home_team %in% euro_2024 & away_team %in% euro_2024) %>% 
   filter(date > "2023-06-01" & date < today())
 
-test <- data %>% 
-  filter(home_team %in% euro_2024 | away_team %in% euro_2024) %>% 
-  filter(date == today()) %>% 
-  select(date, home_team, away_team)
 ```
 
 For example, we consider the following games played by Portugal
@@ -57,35 +53,77 @@ scores %>%
   filter(home_team == "Portugal" | away_team == "Portugal")
 ```
 
+```{r}
+home_scores <- scores %>% 
+  select(score = home_score, team = home_team, adversary = away_team, date = date) %>% 
+  mutate(condition = ifelse(scores$neutral, "home", "neutral"))
+  
+away_scores <- scores %>% 
+  select(score = away_score, team = away_team, adversary = home_team, date = date) %>% 
+  mutate(condition = ifelse(scores$neutral, "away", "neutral"))
+
+total_scores <- union_all(home_scores, away_scores)
+```
+
+We also consider the ranking FIFA of the teams as covariate. For every game, select the up-to-date ranking
+
+```{r}
+path0 <- "https://raw.githubusercontent.com/Dato-Futbol/fifa-ranking/master/ranking_fifa_historical.csv"
+rank <- read_csv(url(path0), show_col_types = FALSE)
+
+rank <- rank %>% 
+  select(team, total_points, date) %>% 
+  group_by(date) %>% 
+  mutate(ranking = rank(-total_points))
+```
+
+```{r}
+get_update_rank <- function(team, date2){
+  rank %>% 
+    select(team, date, ranking)
+    filter(team == team & ymd(date) <= ymd(date2)) %>% 
+    select(row_number(1))
+}
+
+total_scores %>% 
+  select(team, date) %>% 
+  apply(1, get_update_rank, date2 = date)
+```
+
 To fit the model I would consider the scores Neg. Binomial distributed for simplicity, one better option is the Conway-Maxwell-Poisson. However, we will use a simple model for computational reasons.
 
 ```{r, message=FALSE}
-pois1 <- stan_glm(home_score ~ 1 + home_team + away_team, data = scores, family = poisson, iter = 5000, contrasts = list(home_team = "contr.sum", away_team = "contr.sum"))
-pois2 <- stan_glm(away_score ~ 1 + away_team + home_team, data = scores, family = poisson, iter = 5000, contrasts = list(home_team = "contr.sum", away_team = "contr.sum"))
+model <- stan_glm(score ~ 1 + team + adversary + condition, data = total_scores, family = poisson, iter = 5000, contrasts = list(team = "contr.sum", adversary = "contr.sum"))
 ```
 
 We can plot the estimated parameters. Choosing only those playing the Euro.
 
 ```{r}
-indices_countries_home <- scores %>% 
-  select(home_team) %>% 
-  distinct(home_team) %>% 
-  arrange(home_team) %>% 
-  .$home_team %in% euro_2024 %>% 
-  which
+strength_att <- model$coefficients[2:24]
+strength_att <- c(strength_att, 0 - sum(strength_att))
 
-indices_countries_away <- scores %>% 
-  select(away_team) %>% 
-  distinct(away_team) %>% 
-  arrange(away_team) %>% 
-  .$away_team %in% euro_2024 %>% 
-  which()
+strength_def <- model$coefficients[25:47]
+strength_def <- c(strength_def, 0 - sum(strength_def))
 
-coef1 <- pois1$coefficients[c(indices_countries_home + 1, indices_countries_home + 1 + indices_countries_away)]
+coeffs <- data.frame(team = euro_2024, strength_att, strength_def, row.names = c())
+```
 
-coef2 <- pois2$coefficients[c(indices_countries_away + 1, indices_countries_away + 1 + indices_countries_home)]
+```{r show = FALSE}
+personal_theme =   theme_classic() +
+  theme(plot.title = element_text(hjust = 0.5))
 ```
 
 ```{r}
-
+ggplot(coeffs, aes(x = strength_att, y = -strength_def)) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "grey50") +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "grey50") +
+  geom_point() +
+  geom_label_repel(aes(label = team),
+                            box.padding = 0.25,
+                            point.padding = 0.5,
+                            segment.color = "grey50") +
+  labs(title = "Strengths of every team",
+       x = TeX("Attack $(\\exp(\\beta^{\\omega_{H_i}}))$"), 
+       y = TeX("Defense $(\\exp(-\\beta^{\\delta_{H_i}}))$")) + 
+  personal_theme
 ```
