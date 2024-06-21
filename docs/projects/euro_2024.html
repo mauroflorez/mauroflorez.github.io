@@ -167,6 +167,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#estimated-parameters" id="toc-estimated-parameters" class="nav-link" data-scroll-target="#estimated-parameters">Estimated Parameters</a></li>
   </ul></li>
+  <li><a href="#predictions" id="toc-predictions" class="nav-link" data-scroll-target="#predictions">Predictions</a></li>
   </ul>
 </nav>
     </div>
@@ -227,7 +228,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(home_team <span class="sc">%in%</span> euro_2024 <span class="sc">&amp;</span> away_team <span class="sc">%in%</span> euro_2024) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">&gt;</span> <span class="st">"2023-06-01"</span> <span class="sc">&amp;</span> date <span class="sc">&lt;</span> <span class="fu">today</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">&gt;</span> <span class="st">"2023-01-01"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">id =</span> <span class="fu">row_number</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>For example, we consider the following games played by Portugal</p>
@@ -235,7 +236,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>scores <span class="sc">%&gt;%</span> </span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(home_team <span class="sc">==</span> <span class="st">"Portugal"</span> <span class="sc">|</span> away_team <span class="sc">==</span> <span class="st">"Portugal"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 5 × 10
+<pre><code># A tibble: 7 × 10
   date       home_team away_team  home_score away_score tournament city  country
   &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;  
 1 2023-09-08 Slovakia  Portugal            0          1 UEFA Euro… Brat… Slovak…
@@ -243,17 +244,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3 2024-03-26 Slovenia  Portugal            2          0 Friendly   Ljub… Sloven…
 4 2024-06-08 Portugal  Croatia             1          2 Friendly   Oeir… Portug…
 5 2024-06-18 Portugal  Czech Rep…          2          1 UEFA Euro  Leip… Germany
+6 2024-06-22 Turkey    Portugal           NA         NA UEFA Euro  Dort… Germany
+7 2024-06-26 Georgia   Portugal           NA         NA UEFA Euro  Gels… Germany
 # ℹ 2 more variables: neutral &lt;lgl&gt;, id &lt;int&gt;</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>home_scores <span class="ot">&lt;-</span> scores <span class="sc">%&gt;%</span> </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, <span class="at">score =</span> home_score, <span class="at">team =</span> home_team, <span class="at">adversary =</span> away_team, <span class="at">date =</span> date) <span class="sc">%&gt;%</span> </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">condition =</span> <span class="fu">ifelse</span>(scores<span class="sc">$</span>neutral, <span class="st">"home"</span>, <span class="st">"neutral"</span>))</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">condition =</span> <span class="fu">ifelse</span>(scores<span class="sc">$</span>neutral, <span class="st">"neutral"</span>, <span class="st">"home"</span>))</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>away_scores <span class="ot">&lt;-</span> scores <span class="sc">%&gt;%</span> </span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, <span class="at">score =</span> away_score, <span class="at">team =</span> away_team, <span class="at">adversary =</span> home_team, <span class="at">date =</span> date) <span class="sc">%&gt;%</span> </span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">condition =</span> <span class="fu">ifelse</span>(scores<span class="sc">$</span>neutral, <span class="st">"away"</span>, <span class="st">"neutral"</span>))</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">condition =</span> <span class="fu">ifelse</span>(scores<span class="sc">$</span>neutral, <span class="st">"neutral"</span>, <span class="st">"away"</span>))</span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>total_scores <span class="ot">&lt;-</span> <span class="fu">union_all</span>(home_scores, away_scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -272,16 +275,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(rank, <span class="at">by =</span> <span class="fu">join_by</span>(adversary <span class="sc">==</span> team), <span class="at">relationship =</span> <span class="st">"many-to-many"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date.x <span class="sc">&gt;=</span> date.y) <span class="sc">%&gt;%</span> </span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">diff_date =</span> date.x <span class="sc">-</span> date.y) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(id) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(id, team) <span class="sc">%&gt;%</span> </span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_min</span>(diff_date) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, score, team, adversary, condition, <span class="at">date_game =</span> date.x, <span class="at">ranking_adv =</span> ranking, <span class="at">date_rank =</span> date.y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, score, team, adversary, condition, <span class="at">date_game =</span> date.x, <span class="at">ranking_adv =</span> ranking, <span class="at">date_rank =</span> date.y)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> total_scores <span class="sc">%&gt;%</span> </span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date_game <span class="sc">&lt;</span> <span class="fu">today</span>())</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> total_scores <span class="sc">%&gt;%</span> </span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date_game <span class="sc">&gt;=</span> <span class="fu">today</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="fitting-the-model" class="level2">
 <h2 class="anchored" data-anchor-id="fitting-the-model">Fitting the model</h2>
 <p>To fit the model I would consider the scores Neg. Binomial distributed for simplicity, one better option is the Conway-Maxwell-Poisson. However, we will use a simple model for computational reasons.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">stan_glm</span>(score <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> team <span class="sc">+</span> adversary <span class="sc">+</span> condition, <span class="at">data =</span> total_scores, <span class="at">family =</span> poisson, <span class="at">iter =</span> <span class="dv">5000</span>, <span class="at">contrasts =</span> <span class="fu">list</span>(<span class="at">team =</span> <span class="st">"contr.sum"</span>, <span class="at">adversary =</span> <span class="st">"contr.sum"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">stan_glm</span>(score <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> team <span class="sc">+</span> adversary <span class="sc">+</span> condition <span class="sc">+</span> ranking_adv, <span class="at">data =</span> train, <span class="at">family =</span> poisson, <span class="at">iter =</span> <span class="dv">1000</span>, <span class="at">contrasts =</span> <span class="fu">list</span>(<span class="at">team =</span> <span class="st">"contr.sum"</span>, <span class="at">adversary =</span> <span class="st">"contr.sum"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="estimated-parameters" class="level3">
 <h3 class="anchored" data-anchor-id="estimated-parameters">Estimated Parameters</h3>
@@ -296,9 +305,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Now, we can plot the estimated strengths in the following way:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(coeffs, <span class="fu">aes</span>(<span class="at">x =</span> strength_att, <span class="at">y =</span> strength_def)) <span class="sc">+</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(coeffs, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">exp</span>(strength_att), <span class="at">y =</span> <span class="fu">exp</span>(<span class="sc">-</span>strength_def))) <span class="sc">+</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label_repel</span>(<span class="fu">aes</span>(<span class="at">label =</span> team),</span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>                            <span class="at">box.padding =</span> <span class="fl">0.25</span>,</span>
@@ -318,9 +327,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>This graph provides an intuition into the strengths and abilities of every team. Teams located in the origin have an overall performance, and below the axis are worse than the averages’ team.</p>
-
-
+<p>Now, we predict the scores of the future games:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>test_pred <span class="ot">&lt;-</span> test <span class="sc">%&gt;%</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, team, adversary, condition, ranking_adv)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">posterior_predict</span>(model, <span class="at">newdata =</span> test_pred) </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>mean_goals <span class="ot">&lt;-</span> <span class="fu">apply</span>(predictions, <span class="dv">2</span>, mean)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>test_pred <span class="ot">&lt;-</span> test_pred <span class="sc">%&gt;%</span> </span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">goals =</span> mean_goals) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(id) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="st">"Team 1"</span> <span class="ot">=</span> <span class="fu">first</span>(team),</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Exp. Goals"</span> <span class="ot">=</span> <span class="fu">first</span>(goals),</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Team 2"</span> <span class="ot">=</span> <span class="fu">last</span>(team),</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Exp. Goals"</span> <span class="ot">=</span> <span class="fu">last</span>(goals)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Therefore the predictions of future games are:</p>
 </section>
+</section>
+<section id="predictions" class="level2">
+<h2 class="anchored" data-anchor-id="predictions">Predictions</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>test_pred <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="fl">1e3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 21 × 4
+      id `Team 1`       `Exp. Goals` `Team 2`   
+   &lt;int&gt; &lt;chr&gt;                 &lt;dbl&gt; &lt;chr&gt;      
+ 1    78 Italy                 1.21  Spain      
+ 2    79 Serbia                1.75  Slovenia   
+ 3    80 Denmark               0.822 England    
+ 4    81 Austria               0.660 Poland     
+ 5    82 France                0.898 Netherlands
+ 6    83 Slovakia              0.714 Ukraine    
+ 7    84 Belgium               2.39  Romania    
+ 8    85 Czech Republic        0.882 Georgia    
+ 9    86 Portugal              0.999 Turkey     
+10    87 Germany               1.42  Switzerland
+11    88 Hungary               0.898 Scotland   
+12    89 Albania               1.05  Spain      
+13    90 Croatia               1.00  Italy      
+14    91 England               1.64  Slovenia   
+15    92 Denmark               0.293 Serbia     
+16    93 Austria               1.03  Netherlands
+17    94 France                0.616 Poland     
+18    95 Romania               0.417 Slovakia   
+19    96 Belgium               0.652 Ukraine    
+20    97 Georgia               4.90  Portugal   
+21    98 Czech Republic        0.958 Turkey     </code></pre>
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->

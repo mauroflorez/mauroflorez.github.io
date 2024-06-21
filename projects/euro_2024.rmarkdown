@@ -66,7 +66,7 @@ euro_2024 = c('Albania','Austria','Belgium','Croatia','Czech Republic','Denmark'
 
 scores <- data %>% 
   filter(home_team %in% euro_2024 & away_team %in% euro_2024) %>% 
-  filter(date > "2023-06-01" & date < today()) %>% 
+  filter(date > "2023-01-01") %>% 
   mutate(id = row_number())
 
 ```
@@ -85,11 +85,11 @@ scores %>%
 ```{r}
 home_scores <- scores %>% 
   select(id, score = home_score, team = home_team, adversary = away_team, date = date) %>% 
-  mutate(condition = ifelse(scores$neutral, "home", "neutral"))
+  mutate(condition = ifelse(scores$neutral, "neutral", "home"))
   
 away_scores <- scores %>% 
   select(id, score = away_score, team = away_team, adversary = home_team, date = date) %>% 
-  mutate(condition = ifelse(scores$neutral, "away", "neutral"))
+  mutate(condition = ifelse(scores$neutral, "neutral", "away"))
 
 total_scores <- union_all(home_scores, away_scores)
 ```
@@ -115,9 +115,15 @@ total_scores <- total_scores %>%
   left_join(rank, by = join_by(adversary == team), relationship = "many-to-many") %>% 
   filter(date.x >= date.y) %>% 
   mutate(diff_date = date.x - date.y) %>% 
-  group_by(id) %>% 
+  group_by(id, team) %>% 
   slice_min(diff_date) %>% 
   select(id, score, team, adversary, condition, date_game = date.x, ranking_adv = ranking, date_rank = date.y)
+
+train <- total_scores %>% 
+  filter(date_game < today())
+
+test <- total_scores %>% 
+  filter(date_game >= today())
 ```
 
 
@@ -129,7 +135,7 @@ To fit the model I would consider the scores Neg. Binomial distributed for simpl
 
 
 ```{r, output=FALSE}
-model <- stan_glm(score ~ 1 + team + adversary + condition, data = total_scores, family = poisson, iter = 5000, contrasts = list(team = "contr.sum", adversary = "contr.sum"))
+model <- stan_glm(score ~ 1 + team + adversary + condition + ranking_adv, data = train, family = poisson, iter = 1000, contrasts = list(team = "contr.sum", adversary = "contr.sum"))
 ```
 
 
@@ -155,9 +161,9 @@ Now, we can plot the estimated strengths in the following way:
 
 
 ```{r}
-ggplot(coeffs, aes(x = strength_att, y = strength_def)) +
-  geom_hline(yintercept = 0, linetype = "dashed", color = "grey50") +
-  geom_vline(xintercept = 0, linetype = "dashed", color = "grey50") +
+ggplot(coeffs, aes(x = exp(strength_att), y = exp(-strength_def))) +
+  geom_hline(yintercept = 1, linetype = "dashed", color = "grey50") +
+  geom_vline(xintercept = 1, linetype = "dashed", color = "grey50") +
   geom_point() +
   geom_label_repel(aes(label = team),
                             box.padding = 0.25,
@@ -173,4 +179,38 @@ ggplot(coeffs, aes(x = strength_att, y = strength_def)) +
 
 
 This graph provides an intuition into the strengths and abilities of every team. Teams located in the origin have an overall performance, and below the axis are worse than the averages' team.
+
+Now, we predict the scores of the future games:
+
+
+
+```{r}
+test_pred <- test %>% 
+  select(id, team, adversary, condition, ranking_adv)
+predictions <- posterior_predict(model, newdata = test_pred) 
+mean_goals <- apply(predictions, 2, mean)
+
+test_pred <- test_pred %>% 
+  ungroup() %>% 
+  mutate(goals = mean_goals) %>% 
+  group_by(id) %>% 
+  summarise("Team 1" = first(team),
+            "Exp. Goals" = first(goals),
+            "Team 2" = last(team),
+            "Exp. Goals" = last(goals)) 
+```
+
+
+
+Therefore the predictions of future games are:
+
+## Predictions
+
+
+
+```{r}
+test_pred %>% 
+  print(n = 1e3)
+  
+```
 
