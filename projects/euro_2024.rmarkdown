@@ -2,11 +2,15 @@
 title: Predicting Euro-2024 Results
 ---
 
+
+
 In this project, I will propose a model to predict the scores in the Euro 2024.
 
 ## Packages
 
 I will use a Bayesian model, so we need the following libraries
+
+
 
 ```{r, message=FALSE}
 require(rstanarm)
@@ -14,7 +18,11 @@ require(rstantools)
 require(bayesplot)
 ```
 
+
+
 As well as
+
+
 
 ```{r, message=FALSE}
 require(readr)
@@ -25,21 +33,33 @@ require(ggrepel)
 require(latex2exp)
 ```
 
+
+
 ## Data
 
 The data is contained in this repository <https://github.com/martj42/international_results>.
+
+
 
 ```{r output = FALSE}
 urlfile = "https://raw.githubusercontent.com/martj42/international_results/master/results.csv"
 ```
 
+
+
 We load the data
+
+
 
 ```{r }
 data <- read_csv(url(urlfile), show_col_types = FALSE)
 ```
 
+
+
 The proposed model is based on the teams' strengths attacking and defending. Therefore, we will consider only the games played during 2024. An improved model would be one with dynamic strengths.
+
+
 
 ```{r}
 euro_2024 = c('Albania','Austria','Belgium','Croatia','Czech Republic','Denmark','England','France','Georgia','Germany','Hungary','Italy','Netherlands','Poland','Portugal','Romania','Scotland','Serbia','Slovakia','Slovenia','Spain','Switzerland','Turkey','Ukraine')
@@ -51,7 +71,11 @@ scores <- data %>%
 
 ```
 
+
+
 For example, we consider the following games played by Portugal
+
+
 
 ```{r}
 scores %>% 
@@ -70,7 +94,11 @@ away_scores <- scores %>%
 total_scores <- union_all(home_scores, away_scores)
 ```
 
+
+
 We also consider the ranking FIFA of the teams as covariate. For every game, select the up-to-date ranking
+
+
 
 ```{r}
 path0 <- "https://raw.githubusercontent.com/Dato-Futbol/fifa-ranking/master/ranking_fifa_historical.csv"
@@ -92,15 +120,23 @@ total_scores <- total_scores %>%
   select(id, score, team, adversary, condition, date_game = date.x, ranking_adv = ranking, date_rank = date.y)
 ```
 
+
+
 ## Fitting the model
 
 To fit the model I would consider the scores Neg. Binomial distributed for simplicity, one better option is the Conway-Maxwell-Poisson. However, we will use a simple model for computational reasons.
+
+
 
 ```{r, output=FALSE}
 model <- stan_glm(score ~ 1 + team + adversary + condition, data = total_scores, family = poisson, iter = 5000, contrasts = list(team = "contr.sum", adversary = "contr.sum"))
 ```
 
+
+
 ### Estimated Parameters
+
+
 
 ```{r}
 strength_att <- model$coefficients[2:24]
@@ -112,7 +148,11 @@ strength_def <- c(strength_def, 0 - sum(strength_def))
 coeffs <- data.frame(team = euro_2024, strength_att, strength_def, row.names = c())
 ```
 
+
+
 Now, we can plot the estimated strengths in the following way:
+
+
 
 ```{r}
 ggplot(coeffs, aes(x = strength_att, y = strength_def)) +
@@ -130,4 +170,7 @@ ggplot(coeffs, aes(x = strength_att, y = strength_def)) +
   theme(plot.title = element_text(hjust = 0.5))
 ```
 
+
+
 This graph provides an intuition into the strengths and abilities of every team. Teams located in the origin have an overall performance, and below the axis are worse than the averages' team.
+
