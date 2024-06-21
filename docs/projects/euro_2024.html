@@ -290,7 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="fitting-the-model">Fitting the model</h2>
 <p>To fit the model I would consider the scores Neg. Binomial distributed for simplicity, one better option is the Conway-Maxwell-Poisson. However, we will use a simple model for computational reasons.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">stan_glm</span>(score <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> team <span class="sc">+</span> adversary <span class="sc">+</span> condition <span class="sc">+</span> ranking_adv, <span class="at">data =</span> train, <span class="at">family =</span> poisson, <span class="at">iter =</span> <span class="dv">1000</span>, <span class="at">contrasts =</span> <span class="fu">list</span>(<span class="at">team =</span> <span class="st">"contr.sum"</span>, <span class="at">adversary =</span> <span class="st">"contr.sum"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">stan_glm</span>(score <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> team <span class="sc">+</span> adversary <span class="sc">+</span> condition <span class="sc">+</span> ranking_adv, <span class="at">data =</span> train, <span class="at">family =</span> poisson, <span class="at">iter =</span> <span class="dv">5000</span>, <span class="at">contrasts =</span> <span class="fu">list</span>(<span class="at">team =</span> <span class="st">"contr.sum"</span>, <span class="at">adversary =</span> <span class="st">"contr.sum"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="estimated-parameters" class="level3">
 <h3 class="anchored" data-anchor-id="estimated-parameters">Estimated Parameters</h3>
@@ -341,7 +341,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="st">"Team 1"</span> <span class="ot">=</span> <span class="fu">first</span>(team),</span>
 <span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Exp. Goals"</span> <span class="ot">=</span> <span class="fu">first</span>(goals),</span>
 <span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Team 2"</span> <span class="ot">=</span> <span class="fu">last</span>(team),</span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Exp. Goals"</span> <span class="ot">=</span> <span class="fu">last</span>(goals)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Exp. Goals 2"</span> <span class="ot">=</span> <span class="fu">last</span>(goals)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Therefore the predictions of future games are:</p>
 </section>
@@ -352,30 +352,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>test_pred <span class="sc">%&gt;%</span> </span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="fl">1e3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 21 × 4
-      id `Team 1`       `Exp. Goals` `Team 2`   
-   &lt;int&gt; &lt;chr&gt;                 &lt;dbl&gt; &lt;chr&gt;      
- 1    78 Italy                 1.21  Spain      
- 2    79 Serbia                1.75  Slovenia   
- 3    80 Denmark               0.822 England    
- 4    81 Austria               0.660 Poland     
- 5    82 France                0.898 Netherlands
- 6    83 Slovakia              0.714 Ukraine    
- 7    84 Belgium               2.39  Romania    
- 8    85 Czech Republic        0.882 Georgia    
- 9    86 Portugal              0.999 Turkey     
-10    87 Germany               1.42  Switzerland
-11    88 Hungary               0.898 Scotland   
-12    89 Albania               1.05  Spain      
-13    90 Croatia               1.00  Italy      
-14    91 England               1.64  Slovenia   
-15    92 Denmark               0.293 Serbia     
-16    93 Austria               1.03  Netherlands
-17    94 France                0.616 Poland     
-18    95 Romania               0.417 Slovakia   
-19    96 Belgium               0.652 Ukraine    
-20    97 Georgia               4.90  Portugal   
-21    98 Czech Republic        0.958 Turkey     </code></pre>
+<pre><code># A tibble: 21 × 5
+      id `Team 1`       `Exp. Goals` `Team 2`    `Exp. Goals 2`
+   &lt;int&gt; &lt;chr&gt;                 &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;
+ 1    78 Italy                 0.795 Spain                1.19 
+ 2    79 Serbia                0.495 Slovenia             1.85 
+ 3    80 Denmark               1.60  England              0.829
+ 4    81 Austria               1.94  Poland               0.662
+ 5    82 France                2.10  Netherlands          0.872
+ 6    83 Slovakia              0.766 Ukraine              0.724
+ 7    84 Belgium               1.06  Romania              2.39 
+ 8    85 Czech Republic        3.71  Georgia              0.858
+ 9    86 Portugal              1.61  Turkey               0.987
+10    87 Germany               0.861 Switzerland          1.42 
+11    88 Hungary               1.57  Scotland             0.915
+12    89 Albania               1.01  Spain                1.04 
+13    90 Croatia               1.30  Italy                1.03 
+14    91 England               1.30  Slovenia             1.76 
+15    92 Denmark               1.67  Serbia               0.289
+16    93 Austria               3.71  Netherlands          1.06 
+17    94 France                1.18  Poland               0.604
+18    95 Romania               2.61  Slovakia             0.431
+19    96 Belgium               1.87  Ukraine              0.677
+20    97 Georgia               0.907 Portugal             4.86 
+21    98 Czech Republic        1.21  Turkey               0.944</code></pre>
 </div>
 </div>
 

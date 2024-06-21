@@ -103,7 +103,7 @@ test <- total_scores %>%
 To fit the model I would consider the scores Neg. Binomial distributed for simplicity, one better option is the Conway-Maxwell-Poisson. However, we will use a simple model for computational reasons.
 
 ```{r, output=FALSE}
-model <- stan_glm(score ~ 1 + team + adversary + condition + ranking_adv, data = train, family = poisson, iter = 1000, contrasts = list(team = "contr.sum", adversary = "contr.sum"))
+model <- stan_glm(score ~ 1 + team + adversary + condition + ranking_adv, data = train, family = poisson, iter = 5000, contrasts = list(team = "contr.sum", adversary = "contr.sum"))
 ```
 
 ### Estimated Parameters
@@ -153,7 +153,7 @@ test_pred <- test_pred %>%
   summarise("Team 1" = first(team),
             "Exp. Goals" = first(goals),
             "Team 2" = last(team),
-            "Exp. Goals" = last(goals)) 
+            "Exp. Goals 2" = last(goals)) 
 ```
 
 Therefore the predictions of future games are:
