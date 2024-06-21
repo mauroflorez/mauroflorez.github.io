@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -149,6 +183,117 @@ ul.task-list li input[type="checkbox"] {
 
 <p>In this project, I will propose a model to predict the scores in the Euro 2024.</p>
 <p>The data is contained in this repository <a href="https://github.com/martj42/international_results" class="uri">https://github.com/martj42/international_results</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>urlfile <span class="ot">=</span> <span class="st">"https://raw.githubusercontent.com/martj42/international_results/master/results.csv"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>I will use a Bayesian model, so we need the following libraries</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(rstanarm)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(rstantools)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(bayesplot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>As well as</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(readr)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(dplyr)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(lubridate)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ggplot2)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ggrepel)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(latex2exp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We load the data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">url</span>(urlfile), <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The proposed model is based on the teams’ strengths attacking and defending. Therefore, we will consider only the games played during 2024. An improved model would be one with dynamic strengths.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>euro_2024 <span class="ot">=</span> <span class="fu">c</span>(<span class="st">'Albania'</span>,<span class="st">'Austria'</span>,<span class="st">'Belgium'</span>,<span class="st">'Croatia'</span>,<span class="st">'Czech Republic'</span>,<span class="st">'Denmark'</span>,<span class="st">'England'</span>,<span class="st">'France'</span>,<span class="st">'Georgia'</span>,<span class="st">'Germany'</span>,<span class="st">'Hungary'</span>,<span class="st">'Italy'</span>,<span class="st">'Netherlands'</span>,<span class="st">'Poland'</span>,<span class="st">'Portugal'</span>,<span class="st">'Romania'</span>,<span class="st">'Scotland'</span>,<span class="st">'Serbia'</span>,<span class="st">'Slovakia'</span>,<span class="st">'Slovenia'</span>,<span class="st">'Spain'</span>,<span class="st">'Switzerland'</span>,<span class="st">'Turkey'</span>,<span class="st">'Ukraine'</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(home_team <span class="sc">%in%</span> euro_2024 <span class="sc">&amp;</span> away_team <span class="sc">%in%</span> euro_2024) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">&gt;</span> <span class="st">"2023-06-01"</span> <span class="sc">&amp;</span> date <span class="sc">&lt;</span> <span class="fu">today</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">id =</span> <span class="fu">row_number</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For example, we consider the following games played by Portugal</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>scores <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(home_team <span class="sc">==</span> <span class="st">"Portugal"</span> <span class="sc">|</span> away_team <span class="sc">==</span> <span class="st">"Portugal"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 10
+  date       home_team away_team  home_score away_score tournament city  country
+  &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;  
+1 2023-09-08 Slovakia  Portugal            0          1 UEFA Euro… Brat… Slovak…
+2 2023-10-13 Portugal  Slovakia            3          2 UEFA Euro… Porto Portug…
+3 2024-03-26 Slovenia  Portugal            2          0 Friendly   Ljub… Sloven…
+4 2024-06-08 Portugal  Croatia             1          2 Friendly   Oeir… Portug…
+5 2024-06-18 Portugal  Czech Rep…          2          1 UEFA Euro  Leip… Germany
+# ℹ 2 more variables: neutral &lt;lgl&gt;, id &lt;int&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>home_scores <span class="ot">&lt;-</span> scores <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, <span class="at">score =</span> home_score, <span class="at">team =</span> home_team, <span class="at">adversary =</span> away_team, <span class="at">date =</span> date) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">condition =</span> <span class="fu">ifelse</span>(scores<span class="sc">$</span>neutral, <span class="st">"home"</span>, <span class="st">"neutral"</span>))</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>away_scores <span class="ot">&lt;-</span> scores <span class="sc">%&gt;%</span> </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, <span class="at">score =</span> away_score, <span class="at">team =</span> away_team, <span class="at">adversary =</span> home_team, <span class="at">date =</span> date) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">condition =</span> <span class="fu">ifelse</span>(scores<span class="sc">$</span>neutral, <span class="st">"away"</span>, <span class="st">"neutral"</span>))</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>total_scores <span class="ot">&lt;-</span> <span class="fu">union_all</span>(home_scores, away_scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We also consider the ranking FIFA of the teams as covariate. For every game, select the up-to-date ranking</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>path0 <span class="ot">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/Dato-Futbol/fifa-ranking/master/ranking_fifa_historical.csv"</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>rank <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">url</span>(path0), <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>rank <span class="ot">&lt;-</span> rank <span class="sc">%&gt;%</span> </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(team, total_points, date) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(date) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ranking =</span> <span class="fu">rank</span>(<span class="sc">-</span>total_points))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>total_scores <span class="ot">&lt;-</span> total_scores <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(rank, <span class="at">by =</span> <span class="fu">join_by</span>(adversary <span class="sc">==</span> team), <span class="at">relationship =</span> <span class="st">"many-to-many"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date.x <span class="sc">&gt;=</span> date.y) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">diff_date =</span> date.x <span class="sc">-</span> date.y) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(id) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_min</span>(diff_date) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, score, team, adversary, condition, <span class="at">date_game =</span> date.x, <span class="at">ranking_adv =</span> ranking, <span class="at">date_rank =</span> date.y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To fit the model I would consider the scores Neg. Binomial distributed for simplicity, one better option is the Conway-Maxwell-Poisson. However, we will use a simple model for computational reasons.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">stan_glm</span>(score <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> team <span class="sc">+</span> adversary <span class="sc">+</span> condition, <span class="at">data =</span> total_scores, <span class="at">family =</span> poisson, <span class="at">iter =</span> <span class="dv">5000</span>, <span class="at">contrasts =</span> <span class="fu">list</span>(<span class="at">team =</span> <span class="st">"contr.sum"</span>, <span class="at">adversary =</span> <span class="st">"contr.sum"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can plot the estimated parameters. Choosing only those playing the Euro.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>strength_att <span class="ot">&lt;-</span> model<span class="sc">$</span>coefficients[<span class="dv">2</span><span class="sc">:</span><span class="dv">24</span>]</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>strength_att <span class="ot">&lt;-</span> <span class="fu">c</span>(strength_att, <span class="dv">0</span> <span class="sc">-</span> <span class="fu">sum</span>(strength_att))</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>strength_def <span class="ot">&lt;-</span> model<span class="sc">$</span>coefficients[<span class="dv">25</span><span class="sc">:</span><span class="dv">47</span>]</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>strength_def <span class="ot">&lt;-</span> <span class="fu">c</span>(strength_def, <span class="dv">0</span> <span class="sc">-</span> <span class="fu">sum</span>(strength_def))</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>coeffs <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">team =</span> euro_2024, strength_att, strength_def, <span class="at">row.names =</span> <span class="fu">c</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now, we can plot the estimated strengths in the following way:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode markdown code-overflow-wrap code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| output: false</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| code-overflow: wrap</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(coeffs, aes(x = strength_att, y = strength_def)) +</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_hline(yintercept = 0, linetype = "dashed", color = "grey50") +</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_vline(xintercept = 0, linetype = "dashed", color = "grey50") +</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() +</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_label_repel(aes(label = team),</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="in">                            box.padding = 0.25,</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="in">                            point.padding = 0.5,</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="in">                            segment.color = "grey50") +</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="in">  labs(title = "Strengths of every team",</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="in">       x = TeX("Attack $(\\exp(\\beta^{\\omega_{H_i}}))$"), </span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="in">       y = TeX("Defense $(\\exp(-\\beta^{\\delta_{H_i}}))$")) + </span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_classic() +</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="in">  theme(plot.title = element_text(hjust = 0.5))</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 

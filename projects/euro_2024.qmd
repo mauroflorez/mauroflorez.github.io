@@ -12,7 +12,7 @@ urlfile = "https://raw.githubusercontent.com/martj42/international_results/maste
 
 I will use a Bayesian model, so we need the following libraries
 
-```{r, message=FALSE}}
+```{r, message=FALSE}
 require(rstanarm)
 require(rstantools)
 require(bayesplot)
@@ -42,7 +42,8 @@ euro_2024 = c('Albania','Austria','Belgium','Croatia','Czech Republic','Denmark'
 
 scores <- data %>% 
   filter(home_team %in% euro_2024 & away_team %in% euro_2024) %>% 
-  filter(date > "2023-06-01" & date < today())
+  filter(date > "2023-06-01" & date < today()) %>% 
+  mutate(id = row_number())
 
 ```
 
@@ -55,11 +56,11 @@ scores %>%
 
 ```{r}
 home_scores <- scores %>% 
-  select(score = home_score, team = home_team, adversary = away_team, date = date) %>% 
+  select(id, score = home_score, team = home_team, adversary = away_team, date = date) %>% 
   mutate(condition = ifelse(scores$neutral, "home", "neutral"))
   
 away_scores <- scores %>% 
-  select(score = away_score, team = away_team, adversary = home_team, date = date) %>% 
+  select(id, score = away_score, team = away_team, adversary = home_team, date = date) %>% 
   mutate(condition = ifelse(scores$neutral, "away", "neutral"))
 
 total_scores <- union_all(home_scores, away_scores)
@@ -78,21 +79,19 @@ rank <- rank %>%
 ```
 
 ```{r}
-get_update_rank <- function(team, date2){
-  rank %>% 
-    select(team, date, ranking)
-    filter(team == team & ymd(date) <= ymd(date2)) %>% 
-    select(row_number(1))
-}
-
-total_scores %>% 
-  select(team, date) %>% 
-  apply(1, get_update_rank, date2 = date)
+total_scores <- total_scores %>% 
+  left_join(rank, by = join_by(adversary == team), relationship = "many-to-many") %>% 
+  filter(date.x >= date.y) %>% 
+  mutate(diff_date = date.x - date.y) %>% 
+  group_by(id) %>% 
+  slice_min(diff_date) %>% 
+  select(id, score, team, adversary, condition, date_game = date.x, ranking_adv = ranking, date_rank = date.y)
 ```
 
 To fit the model I would consider the scores Neg. Binomial distributed for simplicity, one better option is the Conway-Maxwell-Poisson. However, we will use a simple model for computational reasons.
 
-```{r, message=FALSE}
+```{r}
+#| output: false
 model <- stan_glm(score ~ 1 + team + adversary + condition, data = total_scores, family = poisson, iter = 5000, contrasts = list(team = "contr.sum", adversary = "contr.sum"))
 ```
 
@@ -108,13 +107,13 @@ strength_def <- c(strength_def, 0 - sum(strength_def))
 coeffs <- data.frame(team = euro_2024, strength_att, strength_def, row.names = c())
 ```
 
-```{r show = FALSE}
-personal_theme =   theme_classic() +
-  theme(plot.title = element_text(hjust = 0.5))
-```
+Now, we can plot the estimated strengths in the following way:
 
 ```{r}
-ggplot(coeffs, aes(x = strength_att, y = -strength_def)) +
+#| echo: fenced
+#| output: false
+#| code-overflow: wrap
+ggplot(coeffs, aes(x = strength_att, y = strength_def)) +
   geom_hline(yintercept = 0, linetype = "dashed", color = "grey50") +
   geom_vline(xintercept = 0, linetype = "dashed", color = "grey50") +
   geom_point() +
@@ -125,5 +124,6 @@ ggplot(coeffs, aes(x = strength_att, y = -strength_def)) +
   labs(title = "Strengths of every team",
        x = TeX("Attack $(\\exp(\\beta^{\\omega_{H_i}}))$"), 
        y = TeX("Defense $(\\exp(-\\beta^{\\delta_{H_i}}))$")) + 
-  personal_theme
+  theme_classic() +
+  theme(plot.title = element_text(hjust = 0.5))
 ```
