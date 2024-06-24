@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Mauro Florez - Predicting Euro-2024 Results</title>
+<title>Mauro Florez - Predicting Copa América - 2024</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -176,7 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Predicting Euro-2024 Results</h1>
+<h1 class="title">Predicting Copa América - 2024</h1>
 </div>
 
 
@@ -224,28 +224,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>The proposed model is based on the teams’ strengths attacking and defending. Therefore, we will consider only the games played during 2024. An improved model would be one with dynamic strengths.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>euro_2024 <span class="ot">=</span> <span class="fu">c</span>(<span class="st">'Albania'</span>,<span class="st">'Austria'</span>,<span class="st">'Belgium'</span>,<span class="st">'Croatia'</span>,<span class="st">'Czech Republic'</span>,<span class="st">'Denmark'</span>,<span class="st">'England'</span>,<span class="st">'France'</span>,<span class="st">'Georgia'</span>,<span class="st">'Germany'</span>,<span class="st">'Hungary'</span>,<span class="st">'Italy'</span>,<span class="st">'Netherlands'</span>,<span class="st">'Poland'</span>,<span class="st">'Portugal'</span>,<span class="st">'Romania'</span>,<span class="st">'Scotland'</span>,<span class="st">'Serbia'</span>,<span class="st">'Slovakia'</span>,<span class="st">'Slovenia'</span>,<span class="st">'Spain'</span>,<span class="st">'Switzerland'</span>,<span class="st">'Turkey'</span>,<span class="st">'Ukraine'</span>)</span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>america_2024 <span class="ot">=</span> <span class="fu">c</span>(<span class="st">'Argentina'</span>, <span class="st">'Chile'</span>, <span class="st">'Peru'</span>, <span class="st">'Canada'</span>, <span class="st">'Mexico'</span>, <span class="st">'Ecuador'</span>, <span class="st">'Venezuela'</span>, <span class="st">'Jamaica'</span>, <span class="st">'United States'</span>, <span class="st">'Uruguay'</span>, <span class="st">'Panama'</span>, <span class="st">'Bolivia'</span>, <span class="st">'Brazil'</span>, <span class="st">'Colombia'</span>, <span class="st">'Paraguay'</span>, <span class="st">'Costa Rica'</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(home_team <span class="sc">%in%</span> euro_2024 <span class="sc">&amp;</span> away_team <span class="sc">%in%</span> euro_2024) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(home_team <span class="sc">%in%</span> america_2024 <span class="sc">&amp;</span> away_team <span class="sc">%in%</span> america_2024) <span class="sc">%&gt;%</span> </span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">&gt;</span> <span class="st">"2023-01-01"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">id =</span> <span class="fu">row_number</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>For example, we consider the following games played by Portugal</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>scores <span class="sc">%&gt;%</span> </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(home_team <span class="sc">==</span> <span class="st">"Portugal"</span> <span class="sc">|</span> away_team <span class="sc">==</span> <span class="st">"Portugal"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(home_team <span class="sc">==</span> <span class="st">"Colombia"</span> <span class="sc">|</span> away_team <span class="sc">==</span> <span class="st">"Colombia"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 7 × 10
-  date       home_team away_team  home_score away_score tournament city  country
-  &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;  
-1 2023-09-08 Slovakia  Portugal            0          1 UEFA Euro… Brat… Slovak…
-2 2023-10-13 Portugal  Slovakia            3          2 UEFA Euro… Porto Portug…
-3 2024-03-26 Slovenia  Portugal            2          0 Friendly   Ljub… Sloven…
-4 2024-06-08 Portugal  Croatia             1          2 Friendly   Oeir… Portug…
-5 2024-06-18 Portugal  Czech Rep…          2          1 UEFA Euro  Leip… Germany
-6 2024-06-22 Turkey    Portugal            0          3 UEFA Euro  Dort… Germany
-7 2024-06-26 Georgia   Portugal           NA         NA UEFA Euro  Gels… Germany
+<pre><code># A tibble: 13 × 10
+   date       home_team away_team home_score away_score tournament city  country
+   &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;          &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;  
+ 1 2023-01-28 United S… Colombia           0          0 Friendly   Cars… United…
+ 2 2023-09-07 Colombia  Venezuela          1          0 FIFA Worl… Barr… Colomb…
+ 3 2023-09-12 Chile     Colombia           0          0 FIFA Worl… Sant… Chile  
+ 4 2023-10-12 Colombia  Uruguay            2          2 FIFA Worl… Barr… Colomb…
+ 5 2023-10-17 Ecuador   Colombia           0          0 FIFA Worl… Quito Ecuador
+ 6 2023-11-16 Colombia  Brazil             2          1 FIFA Worl… Barr… Colomb…
+ 7 2023-11-21 Paraguay  Colombia           0          1 FIFA Worl… Asun… Paragu…
+ 8 2023-12-16 Mexico    Colombia           2          3 Friendly   Los … United…
+ 9 2024-06-08 United S… Colombia           1          5 Friendly   Land… United…
+10 2024-06-15 Colombia  Bolivia            3          0 Friendly   Denv… United…
+11 2024-06-24 Colombia  Paraguay          NA         NA Copa Amér… Hous… United…
+12 2024-06-28 Colombia  Costa Ri…         NA         NA Copa Amér… Glen… United…
+13 2024-07-02 Brazil    Colombia          NA         NA Copa Amér… Sant… United…
 # ℹ 2 more variables: neutral &lt;lgl&gt;, id &lt;int&gt;</code></pre>
 </div>
 </div>
@@ -268,7 +274,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>rank <span class="ot">&lt;-</span> rank <span class="sc">%&gt;%</span> </span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(team, total_points, date) <span class="sc">%&gt;%</span> </span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(date) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ranking =</span> <span class="fu">rank</span>(<span class="sc">-</span>total_points))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ranking =</span> <span class="fu">rank</span>(<span class="sc">-</span>total_points), <span class="at">team =</span> <span class="fu">recode</span>(team, <span class="st">'USA'</span><span class="ot">=</span><span class="st">'United States'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>total_scores <span class="ot">&lt;-</span> total_scores <span class="sc">%&gt;%</span> </span>
@@ -295,13 +301,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="estimated-parameters" class="level3">
 <h3 class="anchored" data-anchor-id="estimated-parameters">Estimated Parameters</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>strength_att <span class="ot">&lt;-</span> model<span class="sc">$</span>coefficients[<span class="dv">2</span><span class="sc">:</span><span class="dv">24</span>]</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>strength_att <span class="ot">&lt;-</span> <span class="fu">c</span>(strength_att, <span class="dv">0</span> <span class="sc">-</span> <span class="fu">sum</span>(strength_att))</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>strength_def <span class="ot">&lt;-</span> model<span class="sc">$</span>coefficients[<span class="dv">25</span><span class="sc">:</span><span class="dv">47</span>]</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>strength_def <span class="ot">&lt;-</span> <span class="fu">c</span>(strength_def, <span class="dv">0</span> <span class="sc">-</span> <span class="fu">sum</span>(strength_def))</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>coeffs <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">team =</span> euro_2024, strength_att, strength_def, <span class="at">row.names =</span> <span class="fu">c</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(america_2024)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>strength_att <span class="ot">&lt;-</span> model<span class="sc">$</span>coefficients[<span class="dv">2</span><span class="sc">:</span>n]</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>strength_att <span class="ot">&lt;-</span> <span class="fu">c</span>(strength_att, <span class="dv">0</span> <span class="sc">-</span> <span class="fu">sum</span>(strength_att))</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>strength_def <span class="ot">&lt;-</span> model<span class="sc">$</span>coefficients[(n<span class="sc">+</span><span class="dv">1</span>)<span class="sc">:</span>(<span class="dv">2</span><span class="sc">*</span>n<span class="dv">-1</span>)]</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>strength_def <span class="ot">&lt;-</span> <span class="fu">c</span>(strength_def, <span class="dv">0</span> <span class="sc">-</span> <span class="fu">sum</span>(strength_def))</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>coeffs <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">team =</span> america_2024, strength_att, strength_def, <span class="at">row.names =</span> <span class="fu">c</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now, we can plot the estimated strengths in the following way:</p>
 <div class="cell">
@@ -321,7 +328,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="euro_2024_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="copaamerica_2024_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -352,19 +359,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>test_pred <span class="sc">%&gt;%</span> </span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="fl">1e3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 10 × 5
-      id `Team 1`       `Exp. Goals` `Team 2`    `Exp. Goals 2`
-   &lt;int&gt; &lt;chr&gt;                 &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;
- 1    89 Albania               0.793 Spain                1.15 
- 2    90 Croatia               1.20  Italy                0.895
- 3    91 England               1.41  Slovenia             1.25 
- 4    92 Denmark               1.00  Serbia               0.377
- 5    93 Austria               3.53  Netherlands          0.974
- 6    94 France                1.15  Poland               0.510
- 7    95 Romania               1.75  Slovakia             0.592
- 8    96 Belgium               2.08  Ukraine              0.594
- 9    97 Georgia               0.781 Portugal             4.52 
-10    98 Czech Republic        0.93  Turkey               0.862</code></pre>
+<pre><code># A tibble: 18 × 5
+      id `Team 1`      `Exp. Goals` `Team 2`      `Exp. Goals 2`
+   &lt;int&gt; &lt;chr&gt;                &lt;dbl&gt; &lt;chr&gt;                  &lt;dbl&gt;
+ 1    80 Colombia             1.41  Paraguay              0.273 
+ 2    81 Brazil               2.82  Costa Rica            0.443 
+ 3    82 Canada               1.01  Peru                  0.211 
+ 4    83 Argentina            1.12  Chile                 0.342 
+ 5    84 Ecuador              1.97  Jamaica               0.711 
+ 6    85 Mexico               0.585 Venezuela             1.72  
+ 7    86 Panama               0.553 United States         2.44  
+ 8    87 Bolivia              0.302 Uruguay               3.42  
+ 9    88 Colombia             3.11  Costa Rica            0.291 
+10    89 Brazil               1.28  Paraguay              0.412 
+11    90 Argentina            1.21  Peru                  0.0458
+12    91 Canada               0.918 Chile                 1.43  
+13    92 Ecuador              1.39  Mexico                0.888 
+14    93 Jamaica              0.465 Venezuela             2.50  
+15    94 United States        0.739 Uruguay               1.95  
+16    95 Bolivia              0.970 Panama                0.983 
+17    96 Brazil               1.01  Colombia              1.70  
+18    97 Costa Rica           0.365 Paraguay              0.735 </code></pre>
 </div>
 </div>
 

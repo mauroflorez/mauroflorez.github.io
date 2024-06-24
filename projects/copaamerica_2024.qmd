@@ -1,5 +1,5 @@
 ---
-title: Predicting Euro-2024 Results
+title: Predicting Copa América - 2024
 ---
 
 In this project, I will propose a model to predict the scores in the Euro 2024.
@@ -42,10 +42,10 @@ data <- read_csv(url(urlfile), show_col_types = FALSE)
 The proposed model is based on the teams' strengths attacking and defending. Therefore, we will consider only the games played during 2024. An improved model would be one with dynamic strengths.
 
 ```{r}
-euro_2024 = c('Albania','Austria','Belgium','Croatia','Czech Republic','Denmark','England','France','Georgia','Germany','Hungary','Italy','Netherlands','Poland','Portugal','Romania','Scotland','Serbia','Slovakia','Slovenia','Spain','Switzerland','Turkey','Ukraine')
+america_2024 = c('Argentina', 'Chile', 'Peru', 'Canada', 'Mexico', 'Ecuador', 'Venezuela', 'Jamaica', 'United States', 'Uruguay', 'Panama', 'Bolivia', 'Brazil', 'Colombia', 'Paraguay', 'Costa Rica')
 
 scores <- data %>% 
-  filter(home_team %in% euro_2024 & away_team %in% euro_2024) %>% 
+  filter(home_team %in% america_2024 & away_team %in% america_2024) %>% 
   filter(date > "2023-01-01") %>% 
   mutate(id = row_number())
 
@@ -55,7 +55,7 @@ For example, we consider the following games played by Portugal
 
 ```{r}
 scores %>% 
-  filter(home_team == "Portugal" | away_team == "Portugal")
+  filter(home_team == "Colombia" | away_team == "Colombia")
 ```
 
 ```{r}
@@ -79,7 +79,7 @@ rank <- read_csv(url(path0), show_col_types = FALSE)
 rank <- rank %>% 
   select(team, total_points, date) %>% 
   group_by(date) %>% 
-  mutate(ranking = rank(-total_points))
+  mutate(ranking = rank(-total_points), team = recode(team, 'USA'='United States'))
 ```
 
 ```{r}
@@ -109,13 +109,14 @@ model <- stan_glm(score ~ 1 + team + adversary + condition + ranking_adv, data =
 ### Estimated Parameters
 
 ```{r}
-strength_att <- model$coefficients[2:24]
+n <- length(america_2024)
+strength_att <- model$coefficients[2:n]
 strength_att <- c(strength_att, 0 - sum(strength_att))
 
-strength_def <- model$coefficients[25:47]
+strength_def <- model$coefficients[(n+1):(2*n-1)]
 strength_def <- c(strength_def, 0 - sum(strength_def))
 
-coeffs <- data.frame(team = euro_2024, strength_att, strength_def, row.names = c())
+coeffs <- data.frame(team = america_2024, strength_att, strength_def, row.names = c())
 ```
 
 Now, we can plot the estimated strengths in the following way:
