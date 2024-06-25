@@ -92,10 +92,10 @@ total_scores <- total_scores %>%
   select(id, score, team, adversary, condition, date_game = date.x, ranking_adv = ranking, date_rank = date.y)
 
 train <- total_scores %>% 
-  filter(date_game < today())
+  filter(date_game <= today())
 
 test <- total_scores %>% 
-  filter(date_game >= today())
+  filter(date_game > today())
 ```
 
 ## Fitting the model
