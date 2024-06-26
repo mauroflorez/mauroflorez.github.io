@@ -286,10 +286,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, score, team, adversary, condition, <span class="at">date_game =</span> date.x, <span class="at">ranking_adv =</span> ranking, <span class="at">date_rank =</span> date.y)</span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> total_scores <span class="sc">%&gt;%</span> </span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date_game <span class="sc">&lt;=</span> <span class="fu">today</span>())</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date_game <span class="sc">&lt;</span> <span class="fu">today</span>())</span>
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> total_scores <span class="sc">%&gt;%</span> </span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date_game <span class="sc">&gt;</span> <span class="fu">today</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date_game <span class="sc">&gt;=</span> <span class="fu">today</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="fitting-the-model" class="level2">
@@ -359,21 +359,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>test_pred <span class="sc">%&gt;%</span> </span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="fl">1e3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 12 × 5
+<pre><code># A tibble: 14 × 5
       id `Team 1`      `Exp. Goals` `Team 2`      `Exp. Goals 2`
    &lt;int&gt; &lt;chr&gt;                &lt;dbl&gt; &lt;chr&gt;                  &lt;dbl&gt;
- 1    86 Panama               0.549 United States         2.29  
- 2    87 Bolivia              0.310 Uruguay               3.31  
- 3    88 Colombia             3.16  Costa Rica            0.295 
- 4    89 Brazil               1.33  Paraguay              0.424 
- 5    90 Argentina            1.24  Peru                  0.0478
- 6    91 Canada               0.980 Chile                 1.41  
- 7    92 Ecuador              1.38  Mexico                0.934 
- 8    93 Jamaica              0.487 Venezuela             2.42  
- 9    94 United States        0.826 Uruguay               1.78  
-10    95 Bolivia              0.850 Panama                1.05  
-11    96 Brazil               1.05  Colombia              1.73  
-12    97 Costa Rica           0.384 Paraguay              0.748 </code></pre>
+ 1    84 Ecuador              1.95  Jamaica               0.746 
+ 2    85 Mexico               0.605 Venezuela             1.70  
+ 3    86 Panama               0.564 United States         2.31  
+ 4    87 Bolivia              0.297 Uruguay               3.31  
+ 5    88 Colombia             3.09  Costa Rica            0.298 
+ 6    89 Brazil               1.32  Paraguay              0.428 
+ 7    90 Argentina            1.23  Peru                  0.0565
+ 8    91 Canada               0.972 Chile                 1.41  
+ 9    92 Ecuador              1.40  Mexico                0.926 
+10    93 Jamaica              0.489 Venezuela             2.40  
+11    94 United States        0.801 Uruguay               1.78  
+12    95 Bolivia              0.870 Panama                1.03  
+13    96 Brazil               1.02  Colombia              1.75  
+14    97 Costa Rica           0.379 Paraguay              0.748 </code></pre>
 </div>
 </div>
 
