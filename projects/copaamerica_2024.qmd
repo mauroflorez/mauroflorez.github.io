@@ -42,7 +42,7 @@ data <- read_csv(url(urlfile), show_col_types = FALSE)
 The proposed model is based on the teams' strengths attacking and defending. Therefore, we will consider only the games played during 2024. An improved model would be one with dynamic strengths.
 
 ```{r}
-america_2024 = c('Argentina', 'Chile', 'Peru', 'Canada', 'Mexico', 'Ecuador', 'Venezuela', 'Jamaica', 'United States', 'Uruguay', 'Panama', 'Bolivia', 'Brazil', 'Colombia', 'Paraguay', 'Costa Rica')
+america_2024 = sort(c('Argentina', 'Chile', 'Peru', 'Canada', 'Mexico', 'Ecuador', 'Venezuela', 'Jamaica', 'United States', 'Uruguay', 'Panama', 'Bolivia', 'Brazil', 'Colombia', 'Paraguay', 'Costa Rica'))
 
 scores <- data %>% 
   filter(home_team %in% america_2024 & away_team %in% america_2024) %>% 

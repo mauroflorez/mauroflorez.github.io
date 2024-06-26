@@ -224,7 +224,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>The proposed model is based on the teams’ strengths attacking and defending. Therefore, we will consider only the games played during 2024. An improved model would be one with dynamic strengths.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>america_2024 <span class="ot">=</span> <span class="fu">c</span>(<span class="st">'Argentina'</span>, <span class="st">'Chile'</span>, <span class="st">'Peru'</span>, <span class="st">'Canada'</span>, <span class="st">'Mexico'</span>, <span class="st">'Ecuador'</span>, <span class="st">'Venezuela'</span>, <span class="st">'Jamaica'</span>, <span class="st">'United States'</span>, <span class="st">'Uruguay'</span>, <span class="st">'Panama'</span>, <span class="st">'Bolivia'</span>, <span class="st">'Brazil'</span>, <span class="st">'Colombia'</span>, <span class="st">'Paraguay'</span>, <span class="st">'Costa Rica'</span>)</span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>america_2024 <span class="ot">=</span> <span class="fu">sort</span>(<span class="fu">c</span>(<span class="st">'Argentina'</span>, <span class="st">'Chile'</span>, <span class="st">'Peru'</span>, <span class="st">'Canada'</span>, <span class="st">'Mexico'</span>, <span class="st">'Ecuador'</span>, <span class="st">'Venezuela'</span>, <span class="st">'Jamaica'</span>, <span class="st">'United States'</span>, <span class="st">'Uruguay'</span>, <span class="st">'Panama'</span>, <span class="st">'Bolivia'</span>, <span class="st">'Brazil'</span>, <span class="st">'Colombia'</span>, <span class="st">'Paraguay'</span>, <span class="st">'Costa Rica'</span>))</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(home_team <span class="sc">%in%</span> america_2024 <span class="sc">&amp;</span> away_team <span class="sc">%in%</span> america_2024) <span class="sc">%&gt;%</span> </span>
@@ -362,20 +362,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 14 × 5
       id `Team 1`      `Exp. Goals` `Team 2`      `Exp. Goals 2`
    &lt;int&gt; &lt;chr&gt;                &lt;dbl&gt; &lt;chr&gt;                  &lt;dbl&gt;
- 1    84 Ecuador              1.95  Jamaica               0.746 
- 2    85 Mexico               0.605 Venezuela             1.70  
- 3    86 Panama               0.564 United States         2.31  
- 4    87 Bolivia              0.297 Uruguay               3.31  
- 5    88 Colombia             3.09  Costa Rica            0.298 
+ 1    84 Ecuador              1.95  Jamaica               0.735 
+ 2    85 Mexico               0.595 Venezuela             1.67  
+ 3    86 Panama               0.557 United States         2.31  
+ 4    87 Bolivia              0.310 Uruguay               3.32  
+ 5    88 Colombia             3.16  Costa Rica            0.295 
  6    89 Brazil               1.32  Paraguay              0.428 
- 7    90 Argentina            1.23  Peru                  0.0565
- 8    91 Canada               0.972 Chile                 1.41  
- 9    92 Ecuador              1.40  Mexico                0.926 
-10    93 Jamaica              0.489 Venezuela             2.40  
-11    94 United States        0.801 Uruguay               1.78  
-12    95 Bolivia              0.870 Panama                1.03  
+ 7    90 Argentina            1.22  Peru                  0.0515
+ 8    91 Canada               0.973 Chile                 1.43  
+ 9    92 Ecuador              1.36  Mexico                0.914 
+10    93 Jamaica              0.485 Venezuela             2.44  
+11    94 United States        0.812 Uruguay               1.80  
+12    95 Bolivia              0.864 Panama                1.04  
 13    96 Brazil               1.02  Colombia              1.75  
-14    97 Costa Rica           0.379 Paraguay              0.748 </code></pre>
+14    97 Costa Rica           0.396 Paraguay              0.731 </code></pre>
 </div>
 </div>
 
