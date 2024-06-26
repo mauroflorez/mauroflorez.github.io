@@ -122,9 +122,9 @@ coeffs <- data.frame(team = america_2024, strength_att, strength_def, row.names 
 Now, we can plot the estimated strengths in the following way:
 
 ```{r}
-ggplot(coeffs, aes(x = exp(strength_att), y = exp(-strength_def))) +
-  geom_hline(yintercept = 1, linetype = "dashed", color = "grey50") +
-  geom_vline(xintercept = 1, linetype = "dashed", color = "grey50") +
+ggplot(coeffs, aes(x = strength_att, y = -strength_def)) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "grey50") +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "grey50") +
   geom_point() +
   geom_label_repel(aes(label = team),
                             box.padding = 0.25,

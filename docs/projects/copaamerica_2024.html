@@ -312,9 +312,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Now, we can plot the estimated strengths in the following way:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(coeffs, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">exp</span>(strength_att), <span class="at">y =</span> <span class="fu">exp</span>(<span class="sc">-</span>strength_def))) <span class="sc">+</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(coeffs, <span class="fu">aes</span>(<span class="at">x =</span> strength_att, <span class="at">y =</span> <span class="sc">-</span>strength_def)) <span class="sc">+</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label_repel</span>(<span class="fu">aes</span>(<span class="at">label =</span> team),</span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>                            <span class="at">box.padding =</span> <span class="fl">0.25</span>,</span>
@@ -362,20 +362,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 14 × 5
       id `Team 1`      `Exp. Goals` `Team 2`      `Exp. Goals 2`
    &lt;int&gt; &lt;chr&gt;                &lt;dbl&gt; &lt;chr&gt;                  &lt;dbl&gt;
- 1    84 Ecuador              1.95  Jamaica               0.735 
- 2    85 Mexico               0.595 Venezuela             1.67  
- 3    86 Panama               0.557 United States         2.31  
- 4    87 Bolivia              0.310 Uruguay               3.32  
- 5    88 Colombia             3.16  Costa Rica            0.295 
- 6    89 Brazil               1.32  Paraguay              0.428 
- 7    90 Argentina            1.22  Peru                  0.0515
- 8    91 Canada               0.973 Chile                 1.43  
- 9    92 Ecuador              1.36  Mexico                0.914 
-10    93 Jamaica              0.485 Venezuela             2.44  
-11    94 United States        0.812 Uruguay               1.80  
-12    95 Bolivia              0.864 Panama                1.04  
-13    96 Brazil               1.02  Colombia              1.75  
-14    97 Costa Rica           0.396 Paraguay              0.731 </code></pre>
+ 1    84 Ecuador              1.94  Jamaica               0.733 
+ 2    85 Mexico               0.592 Venezuela             1.67  
+ 3    86 Panama               0.552 United States         2.31  
+ 4    87 Bolivia              0.308 Uruguay               3.32  
+ 5    88 Colombia             3.10  Costa Rica            0.299 
+ 6    89 Brazil               1.35  Paraguay              0.423 
+ 7    90 Argentina            1.21  Peru                  0.0509
+ 8    91 Canada               0.999 Chile                 1.40  
+ 9    92 Ecuador              1.40  Mexico                0.903 
+10    93 Jamaica              0.477 Venezuela             2.39  
+11    94 United States        0.832 Uruguay               1.81  
+12    95 Bolivia              0.848 Panama                1.04  
+13    96 Brazil               1.02  Colombia              1.74  
+14    97 Costa Rica           0.389 Paraguay              0.733 </code></pre>
 </div>
 </div>
 
