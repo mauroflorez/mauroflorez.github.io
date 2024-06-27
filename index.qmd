@@ -55,7 +55,12 @@ A list of projects can be found [here](https://mauroflorez.github.io/projects.ht
 
 ## Education
 
-::: {.column width="40%"}
+::: {.column width="5%"}
+![](media/logos.png){fig-align="left" width="35"}
+
+:::
+
+::: {.column width="35%"}
 PhD in Statistics, (Exp. 2025)\
 *Rice University*
 
