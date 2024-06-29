@@ -286,10 +286,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, score, team, adversary, condition, <span class="at">date_game =</span> date.x, <span class="at">ranking_adv =</span> ranking, <span class="at">date_rank =</span> date.y)</span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> total_scores <span class="sc">%&gt;%</span> </span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date_game <span class="sc">&lt;</span> <span class="fu">today</span>())</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date_game <span class="sc">&lt;=</span> <span class="fu">today</span>())</span>
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> total_scores <span class="sc">%&gt;%</span> </span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date_game <span class="sc">&gt;=</span> <span class="fu">today</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date_game <span class="sc">&gt;</span> <span class="fu">today</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="fitting-the-model" class="level2">
@@ -359,19 +359,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>test_pred <span class="sc">%&gt;%</span> </span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="fl">1e3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 10 × 5
-      id `Team 1`      `Exp. Goals` `Team 2`   `Exp. Goals 2`
-   &lt;int&gt; &lt;chr&gt;                &lt;dbl&gt; &lt;chr&gt;               &lt;dbl&gt;
- 1    88 Colombia             2.56  Costa Rica         0.289 
- 2    89 Brazil               1.12  Paraguay           0.444 
- 3    90 Argentina            1.20  Peru               0.0395
- 4    91 Canada               0.804 Chile              1.22  
- 5    92 Ecuador              1.48  Mexico             0.974 
- 6    93 Jamaica              0.423 Venezuela          2.27  
- 7    94 United States        0.795 Uruguay            1.87  
- 8    95 Bolivia              0.860 Panama             1.06  
- 9    96 Brazil               0.970 Colombia           1.69  
-10    97 Costa Rica           0.338 Paraguay           0.666 </code></pre>
+<pre><code># A tibble: 8 × 5
+     id `Team 1`      `Exp. Goals` `Team 2`  `Exp. Goals 2`
+  &lt;int&gt; &lt;chr&gt;                &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt;
+1    90 Argentina            1.21  Peru              0.0406
+2    91 Canada               0.811 Chile             1.18  
+3    92 Ecuador              1.52  Mexico            0.962 
+4    93 Jamaica              0.414 Venezuela         2.28  
+5    94 United States        0.825 Uruguay           1.86  
+6    95 Bolivia              0.858 Panama            1.06  
+7    96 Brazil               0.974 Colombia          1.65  
+8    97 Costa Rica           0.347 Paraguay          0.676 </code></pre>
 </div>
 </div>
 

@@ -281,10 +281,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, score, team, adversary, condition, <span class="at">date_game =</span> date.x, <span class="at">ranking_adv =</span> ranking, <span class="at">date_rank =</span> date.y)</span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> total_scores <span class="sc">%&gt;%</span> </span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date_game <span class="sc">&lt;</span> <span class="fu">today</span>())</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date_game <span class="sc">&lt;=</span> <span class="fu">today</span>())</span>
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> total_scores <span class="sc">%&gt;%</span> </span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date_game <span class="sc">&gt;=</span> <span class="fu">today</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date_game <span class="sc">&gt;</span> <span class="fu">today</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="fitting-the-model" class="level2">
@@ -356,14 +356,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 8 × 5
      id `Team 1`    `Exp. Goals` `Team 2`    `Exp. Goals 2`
   &lt;int&gt; &lt;chr&gt;              &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;
-1    99 Italy              0.574 Switzerland          0.961
+1    99 Italy              0.593 Switzerland          0.952
 2   100 Denmark            1.24  Germany              1.07 
-3   101 England            1.54  Slovakia             0.510
-4   102 Georgia            0.467 Spain                2.88 
-5   103 Belgium            0.841 France               0.618
-6   104 Portugal           0.717 Slovenia             1.36 
-7   105 Netherlands        1.22  Romania              2.70 
-8   106 Austria            2.31  Turkey               0.698</code></pre>
+3   101 England            1.54  Slovakia             0.514
+4   102 Georgia            0.460 Spain                2.87 
+5   103 Belgium            0.841 France               0.611
+6   104 Portugal           0.732 Slovenia             1.34 
+7   105 Netherlands        1.24  Romania              2.66 
+8   106 Austria            2.30  Turkey               0.719</code></pre>
 </div>
 </div>
 
