@@ -57,7 +57,6 @@ A list of projects can be found [here](https://mauroflorez.github.io/projects.ht
 
 ::: {.column width="5%"}
 ![](media/logos.png){fig-align="left" width="35"}
-
 :::
 
 ::: {.column width="35%"}
