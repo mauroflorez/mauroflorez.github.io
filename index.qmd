@@ -55,29 +55,17 @@ A list of projects can be found [here](https://mauroflorez.github.io/projects.ht
 
 ## Education
 
-::: {.column width="5%"}
-![](media/logos.png){fig-align="left" width="35"}
-:::
-
-::: {.column width="35%"}
-PhD in Statistics, (Exp. 2025)\
-*Rice University*
-
-MA in Statistics, (Exp. 2024)\
-*Rice University*
-
-🎓 BS in Statistics, 2019\
-*Universidad* Nacional *de Colombia*
-
-🎓 BS in Mathematics, 2017\
-*Universidad Sergio Arboleda*
+::: {.column width="40%"}
+![](media/logos.png){fig-align="left" width="552"}
 :::
 
 ::: {.column width="5%"}
 :::
 
 ::: {.column width="50%"}
-I completed my undergraduate studies in Bogotá, Colombia, earning a BS in *Statistics* from the Universidad Nacional de Colombia, where I graduated with distinction (#1 class). Additionally, I hold a BS in *Mathematics* from Universidad Sergio Arboleda.
+I completed my undergraduate studies in Bogotá, Colombia, earning a BS in *Mathematics* from Universidad Sergio Arboleda, with a tuition waiver scholarship
+
+Additionally, I hold a BS in *Statistics* from the Universidad Nacional de Colombia, where I graduated with distinction (#1 class)
 
 In 2020 I was awarded a [Fulbright](https://www.fulbrightprogram.org/) scholarship to pursue my PhD at Rice University.
 :::
