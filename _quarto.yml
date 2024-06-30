@@ -10,8 +10,8 @@ website:
         text: Home
       - projects.qmd
       - teaching.qmd
-      - CV.qmd
       - gallery.qmd
+      - CV.qmd
 
 format:
   html:
