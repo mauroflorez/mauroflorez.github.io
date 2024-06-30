@@ -36,7 +36,7 @@ When I am not immersed in data and research, I love soccer –watching or playin
 ::: columns
 ## Research Interests
 
-::: {.column width="40%"}
+::: {.column width="30%"}
 -   Bayesian Modeling
 -   Statistical Computing
 -   Graphical Models
@@ -47,38 +47,54 @@ When I am not immersed in data and research, I love soccer –watching or playin
 ::: {.column width="5%"}
 :::
 
-::: {.column width="50%"}
+::: {.column width="60%"}
+::: justify
 My latest projects involve developing frameworks for estimating graphical models that identify relationships or dependencies between different mixed data types.
 
 A list of projects can be found [here](https://mauroflorez.github.io/projects.html).
 :::
+:::
+:::
 
+::: justify
 ## Education
 
+![](media/logos2.png){fig-align="center" width="600"}
+
+I completed my undergraduate studies in Bogotá, Colombia, earning a BS in *Mathematics* from Universidad Sergio Arboleda, with a tuition waiver scholarship. Additionally, I hold a BS in *Statistics* from the Universidad Nacional de Colombia, where I graduated with distinction (#1 class). In 2020, I was awarded a [Fulbright](https://www.fulbrightprogram.org/) scholarship to pursue my PhD at Rice University
+:::
+
+::: columns
+## Selected Experience
+
+-   **Data Analyst**, *Minciencias*, 2019 - 2020
+
+-   **Statistical Consultant**, *Universidad del Rosario*, 2017 - 2018
+
+-   **Lecturer** - See the full list of courses [here](https://mauroflorez.github.io/teaching.html).
+:::
+
+::: columns
 ::: {.column width="40%"}
-![](media/logos.png){fig-align="left" width="552"}
+## Software
+-   R
+-   Python
+-   SQL
+-   Matlab
+-   Tableau
+-   Latex
+-   Git
+-   MS Office
 :::
 
 ::: {.column width="5%"}
 :::
 
-::: {.column width="50%"}
-I completed my undergraduate studies in Bogotá, Colombia, earning a BS in *Mathematics* from Universidad Sergio Arboleda, with a tuition waiver scholarship
+::: {.column width="40%"}
+## Certifications
 
-Additionally, I hold a BS in *Statistics* from the Universidad Nacional de Colombia, where I graduated with distinction (#1 class)
+-   **R Developer**. Certificate from DataCamp (*DataCamp, 2024*) \[[Certificate](https://www.datacamp.com/completed/statement-of-accomplishment/track/7add30a444c03f094691cc5c2e37aed02b5ee050)\]
 
-In 2020 I was awarded a [Fulbright](https://www.fulbrightprogram.org/) scholarship to pursue my PhD at Rice University.
+-   **Applied Data Science with Python Specialization**. Certificate from University of Michigan (*Coursera, 2019*) \[[Certificate](https://www.coursera.org/account/accomplishments/specialization/PWJ9L2Z83K5Z)\]
 :::
-:::
-
-::: justify
-## Selected Experience
-
-**Data Analyst**, 2019 - 2020\
-*Minciencias*
-
-**Statistical Consultant**, 2017 - 2018\
-*Universidad del Rosario*
-
-**Lecturer** - See the full list of courses [here](https://mauroflorez.github.io/teaching.html).
 :::

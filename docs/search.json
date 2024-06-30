@@ -18,21 +18,21 @@
     "href": "index.html#research-interests",
     "title": "Mauro Florez",
     "section": "Research Interests",
-    "text": "Research Interests\n\n\nBayesian Modeling\nStatistical Computing\nGraphical Models\nApplied Statistics\nMachine Learning\n\n\n\n\n\nMy latest projects involve developing frameworks for estimating graphical models that identify relationships or dependencies between different mixed data types.\nA list of projects can be found here."
+    "text": "Research Interests\n\n\nBayesian Modeling\nStatistical Computing\nGraphical Models\nApplied Statistics\nMachine Learning\n\n\n\n\n\n\nMy latest projects involve developing frameworks for estimating graphical models that identify relationships or dependencies between different mixed data types.\nA list of projects can be found here."
   },
   {
     "objectID": "index.html#education",
     "href": "index.html#education",
     "title": "Mauro Florez",
     "section": "Education",
-    "text": "Education\n\n\n\n\n\n\n\n\n\n\nI completed my undergraduate studies in Bogotá, Colombia, earning a BS in Mathematics from Universidad Sergio Arboleda, with a tuition waiver scholarship\nAdditionally, I hold a BS in Statistics from the Universidad Nacional de Colombia, where I graduated with distinction (#1 class)\nIn 2020 I was awarded a Fulbright scholarship to pursue my PhD at Rice University."
+    "text": "Education\n\n\n\n\n\nI completed my undergraduate studies in Bogotá, Colombia, earning a BS in Mathematics from Universidad Sergio Arboleda, with a tuition waiver scholarship. Additionally, I hold a BS in Statistics from the Universidad Nacional de Colombia, where I graduated with distinction (#1 class). In 2020, I was awarded a Fulbright scholarship to pursue my PhD at Rice University"
   },
   {
     "objectID": "index.html#selected-experience",
     "href": "index.html#selected-experience",
     "title": "Mauro Florez",
     "section": "Selected Experience",
-    "text": "Selected Experience\nData Analyst, 2019 - 2020\nMinciencias\nStatistical Consultant, 2017 - 2018\nUniversidad del Rosario\nLecturer - See the full list of courses here."
+    "text": "Selected Experience\n\nData Analyst, Minciencias, 2019 - 2020\nStatistical Consultant, Universidad del Rosario, 2017 - 2018\nLecturer - See the full list of courses here."
   },
   {
     "objectID": "teaching.html",
@@ -152,5 +152,47 @@
     "title": "Predicting Copa América - 2024",
     "section": "Predictions",
     "text": "Predictions\n\ntest_pred %&gt;% \n  print(n = 1e3)\n\n# A tibble: 8 × 5\n     id `Team 1`      `Exp. Goals` `Team 2`  `Exp. Goals 2`\n  &lt;int&gt; &lt;chr&gt;                &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt;\n1    90 Argentina            1.21  Peru              0.0406\n2    91 Canada               0.811 Chile             1.18  \n3    92 Ecuador              1.52  Mexico            0.962 \n4    93 Jamaica              0.414 Venezuela         2.28  \n5    94 United States        0.825 Uruguay           1.86  \n6    95 Bolivia              0.858 Panama            1.06  \n7    96 Brazil               0.974 Colombia          1.65  \n8    97 Costa Rica           0.347 Paraguay          0.676"
+  },
+  {
+    "objectID": "index.html#skills",
+    "href": "index.html#skills",
+    "title": "Mauro Florez",
+    "section": "Skills",
+    "text": "Skills\n\n\nProgramming\n\nR\nPython\nSQL\nMatlab\nTableau\nLatex\nMS Office\n\n\n\n\n\n\n\nCertifications\n\nR Developer. Certificate from DataCamp (DataCamp, 2024) [Certificate]\nApplied Data Science with Python Specialization. Certificate from University of Michigan (Coursera, 2019) [Certificate]"
+  },
+  {
+    "objectID": "index.html#skills-software",
+    "href": "index.html#skills-software",
+    "title": "Mauro Florez",
+    "section": "Skills & Software",
+    "text": "Skills & Software\n\nProgramming\n\nR\nPython\nSQL\nMatlab\nTableau\nLatex\nMS Office"
+  },
+  {
+    "objectID": "index.html#certifications",
+    "href": "index.html#certifications",
+    "title": "Mauro Florez",
+    "section": "Certifications",
+    "text": "Certifications\n\nR Developer. Certificate from DataCamp (DataCamp, 2024) [Certificate]\nApplied Data Science with Python Specialization. Certificate from University of Michigan (Coursera, 2019) [Certificate]"
+  },
+  {
+    "objectID": "index.html#additional",
+    "href": "index.html#additional",
+    "title": "Mauro Florez",
+    "section": "Additional",
+    "text": "Additional"
+  },
+  {
+    "objectID": "index.html#column-width30",
+    "href": "index.html#column-width30",
+    "title": "Mauro Florez",
+    "section": "{.column width=“30%”}:",
+    "text": "{.column width=“30%”}:"
+  },
+  {
+    "objectID": "index.html#software",
+    "href": "index.html#software",
+    "title": "Mauro Florez",
+    "section": "Software",
+    "text": "Software\n\nR\nPython\nSQL\nMatlab\nTableau\nLatex\nGit\nMS Office"
   }
 ]
