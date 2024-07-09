@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.41">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2024-06-30">
 <meta name="description" content="I proposed a statistical model to analyze the results of the Euro Cup and the Copa America 2024.">
 
-<title>Mauro Florez – Predicting Euro &amp; Copa America - 2024</title>
+<title>Mauro Florez - Predicting Euro &amp; Copa America - 2024</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -36,7 +36,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -122,7 +122,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -149,7 +149,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+          <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
@@ -294,7 +294,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>scores <span class="sc">%&gt;%</span> </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(home_team <span class="sc">==</span> <span class="st">"Colombia"</span> <span class="sc">|</span> away_team <span class="sc">==</span> <span class="st">"Colombia"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 13 × 11
+<pre><code># A tibble: 14 × 11
    date       home_team away_team home_score away_score tournament city  country
    &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;          &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;  
  1 2023-09-07 Colombia  Venezuela          1          0 FIFA Worl… Barr… Colomb…
@@ -309,7 +309,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 10 2024-06-24 Colombia  Paraguay           2          1 Copa Amér… Hous… United…
 11 2024-06-28 Colombia  Costa Ri…          3          0 Copa Amér… Glen… United…
 12 2024-07-02 Brazil    Colombia           1          1 Copa Amér… Sant… United…
-13 2024-07-06 Colombia  Panama            NA         NA Copa Amér… Glen… United…
+13 2024-07-06 Colombia  Panama             5          0 Copa Amér… Glen… United…
+14 2024-07-10 Uruguay   Colombia          NA         NA Copa Amér… Char… United…
 # ℹ 3 more variables: neutral &lt;lgl&gt;, id &lt;int&gt;, cup &lt;chr&gt;</code></pre>
 </div>
 </div>
@@ -484,20 +485,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 14 × 5
       id `Team 1`    `Exp. Goals` `Team 2`    `Exp. Goals 2`
    &lt;int&gt; &lt;chr&gt;              &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;
- 1    91 Italy              0.625 Switzerland          0.802
- 2    92 Denmark            1.11  Germany              1.00 
- 3    93 England            1.50  Slovakia             0.577
- 4    94 Georgia            0.292 Spain                3.03 
- 5    95 Belgium            0.763 France               0.456
- 6    96 Portugal           0.782 Slovenia             1.30 
- 7    97 Netherlands        1.36  Romania              2.62 
- 8    98 Austria            2.43  Turkey               0.783
- 9    99 Germany            0.584 Spain                1.60 
-10   100 France             1.11  Portugal             0.697
-11   101 England            0.914 Switzerland          0.78 
-12   102 Netherlands        1.76  Turkey               1.33 
-13   103 France             0.310 Spain                0.978
-14   104 England            2.23  Netherlands          1.22 </code></pre>
+ 1    91 Italy              0.597 Switzerland          0.783
+ 2    92 Denmark            1.12  Germany              0.988
+ 3    93 England            1.49  Slovakia             0.578
+ 4    94 Georgia            0.298 Spain                3.10 
+ 5    95 Belgium            0.780 France               0.454
+ 6    96 Portugal           0.761 Slovenia             1.31 
+ 7    97 Netherlands        1.38  Romania              2.63 
+ 8    98 Austria            2.42  Turkey               0.818
+ 9    99 Germany            0.595 Spain                1.61 
+10   100 France             1.11  Portugal             0.700
+11   101 England            0.904 Switzerland          0.8  
+12   102 Netherlands        1.75  Turkey               1.33 
+13   103 France             0.320 Spain                0.976
+14   104 England            2.22  Netherlands          1.22 </code></pre>
 </div>
 </div>
 <p>According to this, the quarter-finals will be Switzerland vs England, Austria vs Netherlands, France vs Slovenia, Germany vs Spain.</p>
@@ -530,30 +531,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>test_pred <span class="sc">%&gt;%</span> </span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="fl">1e3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 13 × 5
+<pre><code># A tibble: 14 × 5
       id `Team 1`      `Exp. Goals` `Team 2`      `Exp. Goals 2`
    &lt;int&gt; &lt;chr&gt;                &lt;dbl&gt; &lt;chr&gt;                  &lt;dbl&gt;
- 1    84 Argentina            1.43  Peru                  0.0381
- 2    85 Canada               0.874 Chile                 1.02  
- 3    86 Ecuador              1.47  Mexico                1.09  
- 4    87 Jamaica              0.377 Venezuela             2.14  
- 5    88 United States        0.807 United States         0.807 
- 6    89 Bolivia              0.822 Panama                1.22  
- 7    90 Brazil               1.31  Colombia              1.75  
- 8    91 Costa Rica           0.487 Paraguay              0.616 
- 9    92 Argentina            1.28  Ecuador               0.405 
-10    93 Canada               0.626 Venezuela             1.80  
-11    94 Brazil               1.06  Uruguay               2.21  
-12    95 Colombia             2.74  Panama                0.538 
-13    96 Argentina            2.12  Canada                0.417 </code></pre>
+ 1    84 Argentina            1.41  Peru                   0.041
+ 2    85 Canada               0.901 Chile                  1.04 
+ 3    86 Ecuador              1.46  Mexico                 1.09 
+ 4    87 Jamaica              0.377 Venezuela              2.18 
+ 5    88 United States        0.811 United States          0.811
+ 6    89 Bolivia              0.816 Panama                 1.23 
+ 7    90 Brazil               1.32  Colombia               1.74 
+ 8    91 Costa Rica           0.488 Paraguay               0.603
+ 9    92 Argentina            1.27  Ecuador                0.419
+10    93 Canada               0.613 Venezuela              1.82 
+11    94 Brazil               1.06  Uruguay                2.22 
+12    95 Colombia             2.71  Panama                 0.546
+13    96 Argentina            2.13  Canada                 0.412
+14    97 Colombia             1.06  Uruguay                1.64 </code></pre>
 </div>
 </div>
 <p>If we want to see the distribution of a particular game, for example the game 92, Argentina vs Ecuador, it will be something like</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>results_game <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="st">"Argentina"</span> <span class="ot">=</span> predictions[,<span class="dv">16</span>], <span class="st">"Ecuador"</span> <span class="ot">=</span> predictions[,<span class="dv">17</span>])</span>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>results_game <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="st">"Colombia"</span> <span class="ot">=</span> predictions[,<span class="dv">26</span>], <span class="st">"Uruguay"</span> <span class="ot">=</span> predictions[,<span class="dv">27</span>])</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>df_count <span class="ot">&lt;-</span> results_game <span class="sc">%&gt;%</span> </span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Argentina, Ecuador) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Colombia, Uruguay) <span class="sc">%&gt;%</span> </span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">"keep"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
 <span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
@@ -562,12 +564,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>df_count <span class="ot">&lt;-</span> df_count <span class="sc">%&gt;%</span> </span>
 <span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">proportion =</span> count<span class="sc">/</span>total_combinations)</span>
 <span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_count, <span class="fu">aes</span>(<span class="at">x =</span> Argentina, <span class="at">y =</span> Ecuador, <span class="at">fill =</span> proportion)) <span class="sc">+</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_count, <span class="fu">aes</span>(<span class="at">x =</span> Colombia, <span class="at">y =</span> Uruguay, <span class="at">fill =</span> proportion)) <span class="sc">+</span></span>
 <span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span> </span>
 <span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"blue"</span>) <span class="sc">+</span> </span>
 <span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Heatmap of Goals Scored by the two teams"</span>,</span>
-<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Argentina"</span>, </span>
-<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Ecuador"</span>,</span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Colombia"</span>, </span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Uruguay"</span>,</span>
 <span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Probability"</span>) <span class="sc">+</span> </span>
 <span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -763,7 +765,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -795,29 +808,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -825,7 +816,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

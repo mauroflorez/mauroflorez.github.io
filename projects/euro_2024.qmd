@@ -283,10 +283,10 @@ test_pred %>%
 If we want to see the distribution of a particular game, for example the game 92, Argentina vs Ecuador, it will be something like
 
 ```{r}
-results_game <- tibble("Argentina" = predictions[,16], "Ecuador" = predictions[,17])
+results_game <- tibble("Colombia" = predictions[,26], "Uruguay" = predictions[,27])
 
 df_count <- results_game %>% 
-  group_by(Argentina, Ecuador) %>% 
+  group_by(Colombia, Uruguay) %>% 
   summarise(count = n(), .groups = "keep") %>% 
   ungroup()
 
@@ -295,12 +295,12 @@ total_combinations <- nrow(results_game)
 df_count <- df_count %>% 
     mutate(proportion = count/total_combinations)
   
-ggplot(df_count, aes(x = Argentina, y = Ecuador, fill = proportion)) +
+ggplot(df_count, aes(x = Colombia, y = Uruguay, fill = proportion)) +
   geom_tile() + 
   scale_fill_gradient(low = "white", high = "blue") + 
   labs(title = "Heatmap of Goals Scored by the two teams",
-       x = "Argentina", 
-       y = "Ecuador",
+       x = "Colombia", 
+       y = "Uruguay",
        fill = "Probability") + 
   theme_minimal()
 ```
