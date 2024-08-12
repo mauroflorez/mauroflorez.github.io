@@ -4,7 +4,7 @@ listing:
   id: sample-listings
   contents: "projects/*.qmd"
   sort: "date desc"
-  type: default
+  type: grid
 page-layour: full
 ---
 
