@@ -5,9 +5,10 @@ author:
   - name: Mauro Florez
     email: mf53@rice.edu
 date: 2024-06-30
+bibliography: references.bib
 ---
 
-In this project, I will propose a model for the Euro & Copa America - 2024 scores.
+In this project, I will propose a model for predicting the Euro & Copa America - 2024 scores based on the model presented in [@florez2024].
 
 ## Packages
 
@@ -44,7 +45,7 @@ We load the data
 data <- read_csv(url(urlfile), show_col_types = FALSE)
 ```
 
-The proposed model is based on the teams' strengths attacking and defending. Therefore, we will consider only the games played during 2024. An improved model would be one with dynamic strengths. But that is a future project.
+The proposed model is based on the teams' strengths attacking and defending. To train the model, we used the scores of games played since season 2023-2024.
 
 ```{r}
 euro_2024 = c('Albania','Austria','Belgium','Croatia','Czech Republic','Denmark','England','France','Georgia','Germany','Hungary','Italy','Netherlands','Poland','Portugal','Romania','Scotland','Serbia','Slovakia','Slovenia','Spain','Switzerland','Turkey','Ukraine')
@@ -114,11 +115,11 @@ scores_rank <- total_scores %>%
   select(id, score, team, adversary, condition, date_game = date.x, ranking_adv = ranking, date_rank = date.y, cup)
 ```
 
-We are separating the data for both Euro and Copa America. In the case of the Euro, the eighth-finals started on June 29th, we will train the data before that data and leave the rest for testing. In the case of Copa America, I will train it before the last round of groups started.
+We are separating the data for both Euro and Copa America. For both cases, we will use as test data the games played after the quarter-finals. i.e, we will finish predicting the results of the semi-finals and the finals.
 
 ```{r}
-date_euro = "2024-06-28"
-date_ca = "2024-06-29"
+date_euro = "2024-07-09"
+date_ca = "2024-07-09"
 
 train_euro <- scores_rank %>% 
   filter(date_game < date_euro, cup == "Euro")
@@ -135,7 +136,7 @@ test_america <- scores_rank %>%
 
 ## Fitting the model
 
-To fit the model I would consider the scores Neg. Binomial distributed for simplicity, one better option is the Conway-Maxwell-Poisson. However, we will use a simple model for computational reasons.
+To fit the model I would consider the scores are distributed as Poisson for simplicity, one better option is the Conway-Maxwell-Poisson as shown in [@florez2024]. However, we will use a simple model for computational reasons as we constantly update the model.
 
 ```{r, output=FALSE}
 model_euro <- stan_glm(score ~ 1 + team + adversary + condition + ranking_adv, data = train_euro, family = poisson, iter = 5000, contrasts = list(team = "contr.sum", adversary = "contr.sum"))
@@ -145,7 +146,7 @@ model_euro <- stan_glm(score ~ 1 + team + adversary + condition + ranking_adv, d
 model_america <- stan_glm(score ~ 1 + team + adversary + condition + ranking_adv, data = train_america, family = poisson, iter = 5000, contrasts = list(team = "contr.sum", adversary = "contr.sum"))
 ```
 
-## Estimattion
+## Estimation
 
 ### Euro
 
@@ -216,7 +217,7 @@ ggplot(coeffs, aes(x = strength_att, y = -strength_def)) +
 
 ### Euro
 
-Now, we predict the scores of the future games:
+Now, we predict the scores of the future games, i.e, the semifinals and the final.
 
 ```{r}
 test_pred <- test_euro %>% 
@@ -236,9 +237,7 @@ test_pred <- test_pred %>%
             "Exp. Goals 2" = last(goals)) 
 ```
 
-Therefore the predictions of future games are:
-
-### Round of 16
+The predictions of future games are:
 
 ```{r}
 test_pred %>% 
@@ -246,11 +245,32 @@ test_pred %>%
   
 ```
 
-According to this, the quarter-finals will be Switzerland vs England, Austria vs Netherlands, France vs Slovenia, Germany vs Spain.
+Particullarly, the distribution of the prediction of the score for the final looks as shown below.
 
-### Quarter-Finals
+```{r}
+results_game <- tibble("England" = predictions[,5], "Spain" = predictions[,6])
 
-To update
+df_count <- results_game %>% 
+  group_by(England, Spain) %>% 
+  summarise(count = n(), .groups = "keep") %>% 
+  ungroup()
+
+total_combinations <- nrow(results_game)
+
+df_count <- df_count %>% 
+    mutate(proportion = count/total_combinations)
+  
+ggplot(df_count, aes(x = England, y = Spain, fill = proportion)) +
+  geom_tile() + 
+  scale_fill_gradient(low = "white", high = "blue") + 
+  labs(title = "Heatmap of Goals Scored by the two teams",
+       x = "England", 
+       y = "Spain",
+       fill = "Probability") + 
+  theme_minimal()
+```
+
+According to this, it is likely that the final will be Spain vs. England. **Spain is expected to be the champion, with a predicted score of 2-0.**
 
 ### Copa America
 
@@ -280,13 +300,15 @@ test_pred %>%
   print(n = 1e3)
 ```
 
-If we want to see the distribution of a particular game, for example the game 92, Argentina vs Ecuador, it will be something like
+In this case, Argentina is expected to easily defeat Canada, and Uruguay will likely beat Colombia. However, Colombia won its game 1-0, so the final will be Argentina vs. Colombia, while the 3rd and 4th place game will be played between Canada and Uruguay.
+
+**The final is anticipated to be a close match, with the most likely result being 0-0, as indicated below. However, Argentina is expected to have a slightly higher probability of scoring more goals than Colombia.**
 
 ```{r}
-results_game <- tibble("Colombia" = predictions[,26], "Uruguay" = predictions[,27])
+results_game <- tibble("Argentina" = predictions[,7], "Colombia" = predictions[,8])
 
 df_count <- results_game %>% 
-  group_by(Colombia, Uruguay) %>% 
+  group_by(Argentina, Colombia) %>% 
   summarise(count = n(), .groups = "keep") %>% 
   ungroup()
 
@@ -295,12 +317,16 @@ total_combinations <- nrow(results_game)
 df_count <- df_count %>% 
     mutate(proportion = count/total_combinations)
   
-ggplot(df_count, aes(x = Colombia, y = Uruguay, fill = proportion)) +
+ggplot(df_count, aes(x = Argentina, y = Colombia, fill = proportion)) +
   geom_tile() + 
   scale_fill_gradient(low = "white", high = "blue") + 
   labs(title = "Heatmap of Goals Scored by the two teams",
-       x = "Colombia", 
-       y = "Uruguay",
+       x = "Argentina", 
+       y = "Colombia",
        fill = "Probability") + 
   theme_minimal()
 ```
+
+As we saw, the model accurately predicted the scores and captured the strengths of each team. It also produced reasonable and accurate results for the final games based on the quarter-final outcomes. **Spain defeated England 2-1**, while the match between **Argentina and Colombia ended 0-0**, with Argentina scoring a goal in extra time.
+
+For future models, incorporating dynamic strengths could improve accuracy.

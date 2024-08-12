@@ -57,7 +57,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -170,7 +190,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#filtering-data" id="toc-filtering-data" class="nav-link" data-scroll-target="#filtering-data">Filtering data</a></li>
   </ul></li>
   <li><a href="#fitting-the-model" id="toc-fitting-the-model" class="nav-link" data-scroll-target="#fitting-the-model">Fitting the model</a></li>
-  <li><a href="#estimattion" id="toc-estimattion" class="nav-link" data-scroll-target="#estimattion">Estimattion</a>
+  <li><a href="#estimation" id="toc-estimation" class="nav-link" data-scroll-target="#estimation">Estimation</a>
   <ul class="collapse">
   <li><a href="#euro" id="toc-euro" class="nav-link" data-scroll-target="#euro">Euro</a></li>
   <li><a href="#copa-america" id="toc-copa-america" class="nav-link" data-scroll-target="#copa-america">Copa America</a></li>
@@ -178,8 +198,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#predictions" id="toc-predictions" class="nav-link" data-scroll-target="#predictions">Predictions</a>
   <ul class="collapse">
   <li><a href="#euro-1" id="toc-euro-1" class="nav-link" data-scroll-target="#euro-1">Euro</a></li>
-  <li><a href="#round-of-16" id="toc-round-of-16" class="nav-link" data-scroll-target="#round-of-16">Round of 16</a></li>
-  <li><a href="#quarter-finals" id="toc-quarter-finals" class="nav-link" data-scroll-target="#quarter-finals">Quarter-Finals</a></li>
   <li><a href="#copa-america-1" id="toc-copa-america-1" class="nav-link" data-scroll-target="#copa-america-1">Copa America</a></li>
   </ul></li>
   </ul>
@@ -224,7 +242,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>In this project, I will propose a model for the Euro &amp; Copa America - 2024 scores.</p>
+<p>In this project, I will propose a model for predicting the Euro &amp; Copa America - 2024 scores based on the model presented in <span class="citation" data-cites="florez2024">(<a href="#ref-florez2024" role="doc-biblioref">Florez, Guindani, and Vannucci 2024</a>)</span>.</p>
 <section id="packages" class="level2">
 <h2 class="anchored" data-anchor-id="packages">Packages</h2>
 <p>I will use a Bayesian model, so we need the following libraries</p>
@@ -253,7 +271,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">url</span>(urlfile), <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The proposed model is based on the teams’ strengths attacking and defending. Therefore, we will consider only the games played during 2024. An improved model would be one with dynamic strengths. But that is a future project.</p>
+<p>The proposed model is based on the teams’ strengths attacking and defending. To train the model, we used the scores of games played since season 2023-2024.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>euro_2024 <span class="ot">=</span> <span class="fu">c</span>(<span class="st">'Albania'</span>,<span class="st">'Austria'</span>,<span class="st">'Belgium'</span>,<span class="st">'Croatia'</span>,<span class="st">'Czech Republic'</span>,<span class="st">'Denmark'</span>,<span class="st">'England'</span>,<span class="st">'France'</span>,<span class="st">'Georgia'</span>,<span class="st">'Germany'</span>,<span class="st">'Hungary'</span>,<span class="st">'Italy'</span>,<span class="st">'Netherlands'</span>,<span class="st">'Poland'</span>,<span class="st">'Portugal'</span>,<span class="st">'Romania'</span>,<span class="st">'Scotland'</span>,<span class="st">'Serbia'</span>,<span class="st">'Slovakia'</span>,<span class="st">'Slovenia'</span>,<span class="st">'Spain'</span>,<span class="st">'Switzerland'</span>,<span class="st">'Turkey'</span>,<span class="st">'Ukraine'</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -294,7 +312,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>scores <span class="sc">%&gt;%</span> </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(home_team <span class="sc">==</span> <span class="st">"Colombia"</span> <span class="sc">|</span> away_team <span class="sc">==</span> <span class="st">"Colombia"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 14 × 11
+<pre><code># A tibble: 15 × 11
    date       home_team away_team home_score away_score tournament city  country
    &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;          &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;  
  1 2023-09-07 Colombia  Venezuela          1          0 FIFA Worl… Barr… Colomb…
@@ -310,7 +328,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 11 2024-06-28 Colombia  Costa Ri…          3          0 Copa Amér… Glen… United…
 12 2024-07-02 Brazil    Colombia           1          1 Copa Amér… Sant… United…
 13 2024-07-06 Colombia  Panama             5          0 Copa Amér… Glen… United…
-14 2024-07-10 Uruguay   Colombia          NA         NA Copa Amér… Char… United…
+14 2024-07-10 Uruguay   Colombia           0          1 Copa Amér… Char… United…
+15 2024-07-14 Argentina Colombia           1          0 Copa Amér… Miam… United…
 # ℹ 3 more variables: neutral &lt;lgl&gt;, id &lt;int&gt;, cup &lt;chr&gt;</code></pre>
 </div>
 </div>
@@ -347,10 +366,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_min</span>(diff_date) <span class="sc">%&gt;%</span> </span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, score, team, adversary, condition, <span class="at">date_game =</span> date.x, <span class="at">ranking_adv =</span> ranking, <span class="at">date_rank =</span> date.y, cup)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We are separating the data for both Euro and Copa America. In the case of the Euro, the eighth-finals started on June 29th, we will train the data before that data and leave the rest for testing. In the case of Copa America, I will train it before the last round of groups started.</p>
+<p>We are separating the data for both Euro and Copa America. For both cases, we will use as test data the games played after the quarter-finals. i.e, we will finish predicting the results of the semi-finals and the finals.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>date_euro <span class="ot">=</span> <span class="st">"2024-06-28"</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>date_ca <span class="ot">=</span> <span class="st">"2024-06-29"</span></span>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>date_euro <span class="ot">=</span> <span class="st">"2024-07-09"</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>date_ca <span class="ot">=</span> <span class="st">"2024-07-09"</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>train_euro <span class="ot">&lt;-</span> scores_rank <span class="sc">%&gt;%</span> </span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date_game <span class="sc">&lt;</span> date_euro, cup <span class="sc">==</span> <span class="st">"Euro"</span>)</span>
@@ -368,7 +387,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="fitting-the-model" class="level2">
 <h2 class="anchored" data-anchor-id="fitting-the-model">Fitting the model</h2>
-<p>To fit the model I would consider the scores Neg. Binomial distributed for simplicity, one better option is the Conway-Maxwell-Poisson. However, we will use a simple model for computational reasons.</p>
+<p>To fit the model I would consider the scores are distributed as Poisson for simplicity, one better option is the Conway-Maxwell-Poisson as shown in <span class="citation" data-cites="florez2024">(<a href="#ref-florez2024" role="doc-biblioref">Florez, Guindani, and Vannucci 2024</a>)</span>. However, we will use a simple model for computational reasons as we constantly update the model.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>model_euro <span class="ot">&lt;-</span> <span class="fu">stan_glm</span>(score <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> team <span class="sc">+</span> adversary <span class="sc">+</span> condition <span class="sc">+</span> ranking_adv, <span class="at">data =</span> train_euro, <span class="at">family =</span> poisson, <span class="at">iter =</span> <span class="dv">5000</span>, <span class="at">contrasts =</span> <span class="fu">list</span>(<span class="at">team =</span> <span class="st">"contr.sum"</span>, <span class="at">adversary =</span> <span class="st">"contr.sum"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -376,8 +395,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>model_america <span class="ot">&lt;-</span> <span class="fu">stan_glm</span>(score <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> team <span class="sc">+</span> adversary <span class="sc">+</span> condition <span class="sc">+</span> ranking_adv, <span class="at">data =</span> train_america, <span class="at">family =</span> poisson, <span class="at">iter =</span> <span class="dv">5000</span>, <span class="at">contrasts =</span> <span class="fu">list</span>(<span class="at">team =</span> <span class="st">"contr.sum"</span>, <span class="at">adversary =</span> <span class="st">"contr.sum"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="estimattion" class="level2">
-<h2 class="anchored" data-anchor-id="estimattion">Estimattion</h2>
+<section id="estimation" class="level2">
+<h2 class="anchored" data-anchor-id="estimation">Estimation</h2>
 <section id="euro" class="level3">
 <h3 class="anchored" data-anchor-id="euro">Euro</h3>
 <div class="cell">
@@ -456,7 +475,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="predictions">Predictions</h2>
 <section id="euro-1" class="level3">
 <h3 class="anchored" data-anchor-id="euro-1">Euro</h3>
-<p>Now, we predict the scores of the future games:</p>
+<p>Now, we predict the scores of the future games, i.e, the semifinals and the final.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>test_pred <span class="ot">&lt;-</span> test_euro <span class="sc">%&gt;%</span> </span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, team, adversary, condition, ranking_adv)</span>
@@ -474,118 +493,128 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Team 2"</span> <span class="ot">=</span> <span class="fu">last</span>(team),</span>
 <span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Exp. Goals 2"</span> <span class="ot">=</span> <span class="fu">last</span>(goals)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Therefore the predictions of future games are:</p>
-</section>
-<section id="round-of-16" class="level3">
-<h3 class="anchored" data-anchor-id="round-of-16">Round of 16</h3>
+<p>The predictions of future games are:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>test_pred <span class="sc">%&gt;%</span> </span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="fl">1e3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 14 × 5
-      id `Team 1`    `Exp. Goals` `Team 2`    `Exp. Goals 2`
-   &lt;int&gt; &lt;chr&gt;              &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;
- 1    91 Italy              0.597 Switzerland          0.783
- 2    92 Denmark            1.12  Germany              0.988
- 3    93 England            1.49  Slovakia             0.578
- 4    94 Georgia            0.298 Spain                3.10 
- 5    95 Belgium            0.780 France               0.454
- 6    96 Portugal           0.761 Slovenia             1.31 
- 7    97 Netherlands        1.38  Romania              2.63 
- 8    98 Austria            2.42  Turkey               0.818
- 9    99 Germany            0.595 Spain                1.61 
-10   100 France             1.11  Portugal             0.700
-11   101 England            0.904 Switzerland          0.8  
-12   102 Netherlands        1.75  Turkey               1.33 
-13   103 France             0.320 Spain                0.976
-14   104 England            2.22  Netherlands          1.22 </code></pre>
+<pre><code># A tibble: 3 × 5
+     id `Team 1` `Exp. Goals` `Team 2`    `Exp. Goals 2`
+  &lt;int&gt; &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;
+1   103 France          0.381 Spain                0.848
+2   104 England         1.89  Netherlands          1.63 
+3   105 England         0.619 Spain                1.53 </code></pre>
 </div>
 </div>
-<p>According to this, the quarter-finals will be Switzerland vs England, Austria vs Netherlands, France vs Slovenia, Germany vs Spain.</p>
-</section>
-<section id="quarter-finals" class="level3">
-<h3 class="anchored" data-anchor-id="quarter-finals">Quarter-Finals</h3>
-<p>To update</p>
+<p>Particullarly, the distribution of the prediction of the score for the final looks as shown below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>results_game <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="st">"England"</span> <span class="ot">=</span> predictions[,<span class="dv">5</span>], <span class="st">"Spain"</span> <span class="ot">=</span> predictions[,<span class="dv">6</span>])</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>df_count <span class="ot">&lt;-</span> results_game <span class="sc">%&gt;%</span> </span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(England, Spain) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">"keep"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>total_combinations <span class="ot">&lt;-</span> <span class="fu">nrow</span>(results_game)</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>df_count <span class="ot">&lt;-</span> df_count <span class="sc">%&gt;%</span> </span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">proportion =</span> count<span class="sc">/</span>total_combinations)</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_count, <span class="fu">aes</span>(<span class="at">x =</span> England, <span class="at">y =</span> Spain, <span class="at">fill =</span> proportion)) <span class="sc">+</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span> </span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"blue"</span>) <span class="sc">+</span> </span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Heatmap of Goals Scored by the two teams"</span>,</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"England"</span>, </span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Spain"</span>,</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Probability"</span>) <span class="sc">+</span> </span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="euro_2024_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>According to this, it is likely that the final will be Spain vs.&nbsp;England. <strong>Spain is expected to be the champion, with a predicted score of 2-0.</strong></p>
 </section>
 <section id="copa-america-1" class="level3">
 <h3 class="anchored" data-anchor-id="copa-america-1">Copa America</h3>
 <p>Similarly, we can generate the predictions for the last round of the games in Copa América</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>test_pred <span class="ot">&lt;-</span> test_america <span class="sc">%&gt;%</span> </span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, team, adversary, condition, ranking_adv)</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">posterior_predict</span>(model_america, <span class="at">newdata =</span> test_pred) </span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>mean_goals <span class="ot">&lt;-</span> <span class="fu">apply</span>(predictions, <span class="dv">2</span>, mean)</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>test_pred <span class="ot">&lt;-</span> test_pred <span class="sc">%&gt;%</span> </span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">goals =</span> mean_goals) <span class="sc">%&gt;%</span> </span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(id) <span class="sc">%&gt;%</span> </span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="st">"Team 1"</span> <span class="ot">=</span> <span class="fu">first</span>(team),</span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Exp. Goals"</span> <span class="ot">=</span> <span class="fu">first</span>(goals),</span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Team 2"</span> <span class="ot">=</span> <span class="fu">last</span>(team),</span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Exp. Goals 2"</span> <span class="ot">=</span> <span class="fu">last</span>(goals)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>test_pred <span class="ot">&lt;-</span> test_america <span class="sc">%&gt;%</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, team, adversary, condition, ranking_adv)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">posterior_predict</span>(model_america, <span class="at">newdata =</span> test_pred) </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>mean_goals <span class="ot">&lt;-</span> <span class="fu">apply</span>(predictions, <span class="dv">2</span>, mean)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>test_pred <span class="ot">&lt;-</span> test_pred <span class="sc">%&gt;%</span> </span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">goals =</span> mean_goals) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(id) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="st">"Team 1"</span> <span class="ot">=</span> <span class="fu">first</span>(team),</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Exp. Goals"</span> <span class="ot">=</span> <span class="fu">first</span>(goals),</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Team 2"</span> <span class="ot">=</span> <span class="fu">last</span>(team),</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Exp. Goals 2"</span> <span class="ot">=</span> <span class="fu">last</span>(goals)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>test_pred <span class="sc">%&gt;%</span> </span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="fl">1e3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>test_pred <span class="sc">%&gt;%</span> </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="fl">1e3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 14 × 5
-      id `Team 1`      `Exp. Goals` `Team 2`      `Exp. Goals 2`
-   &lt;int&gt; &lt;chr&gt;                &lt;dbl&gt; &lt;chr&gt;                  &lt;dbl&gt;
- 1    84 Argentina            1.41  Peru                   0.041
- 2    85 Canada               0.901 Chile                  1.04 
- 3    86 Ecuador              1.46  Mexico                 1.09 
- 4    87 Jamaica              0.377 Venezuela              2.18 
- 5    88 United States        0.811 United States          0.811
- 6    89 Bolivia              0.816 Panama                 1.23 
- 7    90 Brazil               1.32  Colombia               1.74 
- 8    91 Costa Rica           0.488 Paraguay               0.603
- 9    92 Argentina            1.27  Ecuador                0.419
-10    93 Canada               0.613 Venezuela              1.82 
-11    94 Brazil               1.06  Uruguay                2.22 
-12    95 Colombia             2.71  Panama                 0.546
-13    96 Argentina            2.13  Canada                 0.412
-14    97 Colombia             1.06  Uruguay                1.64 </code></pre>
+<pre><code># A tibble: 4 × 5
+     id `Team 1`  `Exp. Goals` `Team 2` `Exp. Goals 2`
+  &lt;int&gt; &lt;chr&gt;            &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;
+1    96 Argentina        1.90  Canada            0.414
+2    97 Colombia         0.866 Uruguay           1.34 
+3    98 Canada           0.502 Uruguay           2.54 
+4    99 Argentina        1.02  Colombia          0.765</code></pre>
 </div>
 </div>
-<p>If we want to see the distribution of a particular game, for example the game 92, Argentina vs Ecuador, it will be something like</p>
+<p>In this case, Argentina is expected to easily defeat Canada, and Uruguay will likely beat Colombia. However, Colombia won its game 1-0, so the final will be Argentina vs.&nbsp;Colombia, while the 3rd and 4th place game will be played between Canada and Uruguay.</p>
+<p><strong>The final is anticipated to be a close match, with the most likely result being 0-0, as indicated below. However, Argentina is expected to have a slightly higher probability of scoring more goals than Colombia.</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>results_game <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="st">"Colombia"</span> <span class="ot">=</span> predictions[,<span class="dv">26</span>], <span class="st">"Uruguay"</span> <span class="ot">=</span> predictions[,<span class="dv">27</span>])</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>df_count <span class="ot">&lt;-</span> results_game <span class="sc">%&gt;%</span> </span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Colombia, Uruguay) <span class="sc">%&gt;%</span> </span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">"keep"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>total_combinations <span class="ot">&lt;-</span> <span class="fu">nrow</span>(results_game)</span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>df_count <span class="ot">&lt;-</span> df_count <span class="sc">%&gt;%</span> </span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">proportion =</span> count<span class="sc">/</span>total_combinations)</span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_count, <span class="fu">aes</span>(<span class="at">x =</span> Colombia, <span class="at">y =</span> Uruguay, <span class="at">fill =</span> proportion)) <span class="sc">+</span></span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span> </span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"blue"</span>) <span class="sc">+</span> </span>
-<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Heatmap of Goals Scored by the two teams"</span>,</span>
-<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Colombia"</span>, </span>
-<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Uruguay"</span>,</span>
-<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Probability"</span>) <span class="sc">+</span> </span>
-<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>results_game <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="st">"Argentina"</span> <span class="ot">=</span> predictions[,<span class="dv">7</span>], <span class="st">"Colombia"</span> <span class="ot">=</span> predictions[,<span class="dv">8</span>])</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>df_count <span class="ot">&lt;-</span> results_game <span class="sc">%&gt;%</span> </span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Argentina, Colombia) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">"keep"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>total_combinations <span class="ot">&lt;-</span> <span class="fu">nrow</span>(results_game)</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>df_count <span class="ot">&lt;-</span> df_count <span class="sc">%&gt;%</span> </span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">proportion =</span> count<span class="sc">/</span>total_combinations)</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_count, <span class="fu">aes</span>(<span class="at">x =</span> Argentina, <span class="at">y =</span> Colombia, <span class="at">fill =</span> proportion)) <span class="sc">+</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span> </span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"blue"</span>) <span class="sc">+</span> </span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Heatmap of Goals Scored by the two teams"</span>,</span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Argentina"</span>, </span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Colombia"</span>,</span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Probability"</span>) <span class="sc">+</span> </span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="euro_2024_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="euro_2024_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+<p>As we saw, the model accurately predicted the scores and captured the strengths of each team. It also produced reasonable and accurate results for the final games based on the quarter-final outcomes. <strong>Spain defeated England 2-1</strong>, while the match between <strong>Argentina and Colombia ended 0-0</strong>, with Argentina scoring a goal in extra time.</p>
+<p>For future models, incorporating dynamic strengths could improve accuracy.</p>
+
 
 
 </section>
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-florez2024" class="csl-entry" role="listitem">
+Florez, Mauro, Michele Guindani, and Marina Vannucci. 2024. <span>“Bayesian Bivariate Conway<span></span>Maxwell<span></span>Poisson Regression Model for Correlated Count Data in Sports.”</span> <em>Journal of Quantitative Analysis in Sports</em> 0 (0). <a href="https://doi.org/10.1515/jqas-2024-0072">https://doi.org/10.1515/jqas-2024-0072</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
