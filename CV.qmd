@@ -2,4 +2,4 @@
 title: "Resume"
 ---
 
-![](media/Resume.pdf){width="100%" height="\"100%" style="min-height:100vh;"}
+![](media/Resume.pdf){height="100%" style="min-" width="100%"}
