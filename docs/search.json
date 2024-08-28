@@ -32,7 +32,7 @@
     "href": "index.html#selected-experience",
     "title": "Mauro Florez",
     "section": "Selected Experience",
-    "text": "Selected Experience\n\nData Analyst, Minciencias, 2019 - 2020\nStatistical Consultant, Universidad del Rosario, 2017 - 2018\nLecturer - See the full list of courses here."
+    "text": "Selected Experience\n\nData Scientist, Minciencias, 2019 - 2020\nData Analyst, Universidad del Rosario, 2017 - 2018\nLecturer - See the full list of courses here."
   },
   {
     "objectID": "teaching.html",
@@ -172,7 +172,7 @@
     "href": "index.html#certifications",
     "title": "Mauro Florez",
     "section": "Certifications",
-    "text": "Certifications\n\nDeep Learning. Certificate from DataCamp (DataCamp, 2024) [Certificate]\nR Developer. Certificate from DataCamp (DataCamp, 2024) [Certificate]\nApplied Data Science with Python Specialization. Certificate from University of Michigan (Coursera, 2019) [Certificate]"
+    "text": "Certifications\n\nDeep Learning. (DataCamp, 2024) [Certificate]\nDeveloping LLM. (DataCamp, 2024) [Certificate]\nR Developer. (DataCamp, 2024) [Certificate]\nApplied Data Science with Python Specialization. University of Michigan (Coursera, 2019) [Certificate]"
   },
   {
     "objectID": "index.html#additional",
@@ -193,7 +193,7 @@
     "href": "index.html#software",
     "title": "Mauro Florez",
     "section": "Software",
-    "text": "Software\n\nR\nPython\nSQL\nMatlab\nTableau\nLatex\nGit\nMS Office"
+    "text": "Software\n\nR (Developer)\nPython (Pandas, NumPy, scikit-learn, Matplotlib, Pytorch)\nSQL\nMatlab\nTableau\nLatex\nGit\nMS Office"
   },
   {
     "objectID": "projects/euro_2024.html#estimattion",
