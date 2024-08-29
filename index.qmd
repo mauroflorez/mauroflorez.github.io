@@ -5,7 +5,7 @@ toc: false
 about:
   template: trestles
   image-shape: round
-  image-width: 20em
+  image-width: 16em
   links:
     - icon: linkedin
       text: LinkedIn
@@ -93,6 +93,7 @@ I completed my undergraduate studies in Bogotá, Colombia, earning a BS in *Math
 
 ::: {.column width="40%"}
 ## Certifications
+
 -   **Deep Learning**. Certificate from DataCamp (*DataCamp, 2024*) \[[Certificate](https://www.datacamp.com/completed/statement-of-accomplishment/track/fd6eb135af814741b062bb68c0d8eb1adbd4d76a)\]
 
 -   **R Developer**. Certificate from DataCamp (*DataCamp, 2024*) \[[Certificate](https://www.datacamp.com/completed/statement-of-accomplishment/track/7add30a444c03f094691cc5c2e37aed02b5ee050)\]
