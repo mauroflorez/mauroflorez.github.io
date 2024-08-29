@@ -1,0 +1,31 @@
+"0","require(rstanarm)"
+"2","Loading required package: rstanarm
+"
+"2","Loading required package: Rcpp
+"
+"2","Registered S3 methods overwritten by 'htmltools':
+  method               from         
+  print.html           tools:rstudio
+  print.shiny.tag      tools:rstudio
+  print.shiny.tag.list tools:rstudio
+"
+"2","Registered S3 method overwritten by 'htmlwidgets':
+  method           from         
+  print.htmlwidget tools:rstudio
+"
+"2","This is rstanarm version 2.32.1
+"
+"2","- See https://mc-stan.org/rstanarm/articles/priors for changes to default priors!
+"
+"2","- Default priors may change, so it's safest to specify priors, even if equivalent to the defaults.
+"
+"2","- For execution on a local, multicore CPU with excess RAM we recommend calling
+"
+"2","  options(mc.cores = parallel::detectCores())
+"
+"0","require(rstantools)"
+"2","Loading required package: rstantools
+"
+"2","This is rstantools version 2.4.0
+"
+"0","require(bayesplot)"

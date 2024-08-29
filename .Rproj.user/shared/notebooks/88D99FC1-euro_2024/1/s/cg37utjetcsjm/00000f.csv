@@ -1,0 +1,41 @@
+"0","require(readr)"
+"2","Loading required package: readr
+"
+"0","require(dplyr)"
+"2","Loading required package: dplyr
+"
+"2","
+Attaching package: ‘dplyr’
+
+"
+"2","The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+"
+"2","The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+"
+"0","require(lubridate)"
+"2","Loading required package: lubridate
+"
+"2","
+Attaching package: ‘lubridate’
+
+"
+"2","The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+"
+"0","require(ggplot2)"
+"2","Loading required package: ggplot2
+"
+"0","require(ggrepel)"
+"2","Loading required package: ggrepel
+"
+"0","require(latex2exp)"
+"2","Loading required package: latex2exp
+"

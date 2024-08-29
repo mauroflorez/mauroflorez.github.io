@@ -1,0 +1,26 @@
+{
+  "projects/euro_2024.qmd": {
+    "euro_2024.html": "c529a510"
+  },
+  "teaching.qmd": {
+    "teaching.html": "9c1916b5"
+  },
+  "projects/MultRegCMP.qmd": {
+    "MultRegCMP.html": "e3e52d16"
+  },
+  "projects/survival_coal.qmd": {
+    "survival_coal.html": "6c423083"
+  },
+  "index.qmd": {
+    "index.html": "9fcd6ea0"
+  },
+  "gallery.qmd": {
+    "gallery.html": "f6802ca0"
+  },
+  "projects/copaamerica_2024.qmd": {
+    "copaamerica_2024.html": "fd152894"
+  },
+  "projects.qmd": {
+    "projects.html": "53cc3b52"
+  }
+}

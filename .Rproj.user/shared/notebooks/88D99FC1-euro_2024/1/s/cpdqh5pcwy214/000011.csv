@@ -1,0 +1,7 @@
+"0","path0 <- ""https://raw.githubusercontent.com/Dato-Futbol/fifa-ranking/master/ranking_fifa_historical.csv"""
+"0","rank <- read_csv(url(path0), show_col_types = FALSE)"
+"0",""
+"0","rank <- rank %>% "
+"0","  select(team, total_points, date) %>% "
+"0","  group_by(date) %>% "
+"0","  mutate(ranking = rank(-total_points))"

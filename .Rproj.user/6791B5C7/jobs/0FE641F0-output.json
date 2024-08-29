@@ -1,0 +1,5 @@
+[1,"Installing 'coda' ...\n"]
+[2,"trying URL 'https://cran.rstudio.com/bin/macosx/big-sur-arm64/contrib/4.4/coda_0.19-4.1.tgz'\n"]
+[1,"The downloaded binary packages are in\n"]
+[1,"\t/var/folders/zw/4k5dxmcs4nzf29nrv9z597z80000gn/T//RtmpqDsl6G/downloaded_packages\n"]
+[2,"Content type 'application/x-gzip' length 328347 bytes (320 KB)\n==================================================\ndownloaded 320 KB\n\n\n\n✔ Package 'coda' successfully installed.\n"]

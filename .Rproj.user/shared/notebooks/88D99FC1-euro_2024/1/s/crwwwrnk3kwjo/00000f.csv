@@ -1,0 +1,8 @@
+"0","n <- length(america_2024)"
+"0","strength_att <- model_america$coefficients[2:n]"
+"0","strength_att <- c(strength_att, 0 - sum(strength_att))"
+"0",""
+"0","strength_def <- model_america$coefficients[(n+1):(2*n-1)]"
+"0","strength_def <- c(strength_def, 0 - sum(strength_def))"
+"0",""
+"0","coeffs <- data.frame(team = america_2024, strength_att, strength_def, row.names = c())"
