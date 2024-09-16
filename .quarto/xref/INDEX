@@ -22,5 +22,11 @@
   },
   "projects.qmd": {
     "projects.html": "53cc3b52"
+  },
+  "projects/CMP_Regression.qmd": {
+    "CMP_Regression.html": "7485152f"
+  },
+  "projects/diff_mirna.qmd": {
+    "diff_mirna.html": "3de2896f"
   }
 }

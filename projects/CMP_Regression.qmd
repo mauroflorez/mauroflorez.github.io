@@ -1,0 +1,13 @@
+---
+title: "Bayesian bivariate Conway–Maxwell–Poisson regression model for correlated count data in sports"
+description:  "We propose the use of the Conway–Maxwell–Poisson (CMP) model for analyzing count data in sports offering flexibility in modeling data with different levels of dispersion."
+author: 
+  - name: Mauro Florez
+    email: mf53@rice.edu
+date: 2024-08-12
+image: CMP_regression.jpg
+---
+
+Count data play a crucial role in sports analytics, providing valuable insights into various aspects of the game. Models that accurately capture the characteristics of count data are essential for making reliable inferences. In this paper, we propose the use of the Conway–Maxwell–Poisson (CMP) model for analyzing count data in sports. The CMP model offers flexibility in modeling data with different levels of dispersion. Here we consider a bivariate CMP model that models the potential correlation between home and away scores by incorporating a random effect specification. We illustrate the advantages of the CMP model through simulations. We then analyze data from baseball and soccer games before, during, and after the COVID-19 pandemic. The performance of our proposed CMP model matches or outperforms standard Poisson and Negative Binomial models, providing a good fit and an accurate estimation of the observed effects in count data with any level of dispersion. The results highlight the robustness and flexibility of the CMP model in analyzing count data in sports, making it a suitable default choice for modeling a diverse range of count data types in sports, where the data dispersion may vary. **\[[View Preprint](CMP_Preprint.pdf)\]**
+
+-   Florez, M., Guindani, M. & Vannucci, M. (2024). Bayesian bivariate Conway–Maxwell–Poisson regression model for correlated count data in sports. *Journal of Quantitative Analysis in Sports*. <https://doi.org/10.1515/jqas-2024-0072>
