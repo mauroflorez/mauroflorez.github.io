@@ -38,10 +38,10 @@ When I am not immersed in data and research, I love soccer –watching or playin
 
 ::: {.column width="30%"}
 -   Bayesian Modeling
+-   Machine Learning
 -   Statistical Computing
 -   Graphical Models
 -   Applied Statistics
--   Machine Learning
 :::
 
 ::: {.column width="5%"}
@@ -65,41 +65,28 @@ I completed my undergraduate studies in Bogotá, Colombia, earning a BS in *Math
 :::
 
 ::: columns
+::: {.column width="35%"}
 ## Selected Experience
 
--   **Data Scientist**, *Minciencias*, 2019 - 2020
+-   **Data Scientist,** 2019 - 2020**\
+    ***Minciencias*
 
--   **Data Analyst**, *Universidad del Rosario*, 2017 - 2018
+-   **Data Analyst**, 2017 - 2018\
+    *Universidad del Rosario*
 
--   **Lecturer** - See the full list of courses [here](https://mauroflorez.github.io/teaching.html).
-:::
-
-::: columns
-::: {.column width="35%"}
-## Software
-
--   R
--   Python (Pandas, NumPy, scikit-learn, Matplotlib, Pytorch)
--   SQL
--   Matlab
--   Tableau
--   Latex
--   Git
--   MS Office
+-   **Lecturer** \
+    See the full list of courses [here](https://mauroflorez.github.io/teaching.html).
 :::
 
 ::: {.column width="5%"}
 :::
 
 ::: {.column width="60%"}
-## Certifications
+## MOOCs
 
--   **Deep Learning**. (*DataCamp, 2024*) \[[Certificate](https://www.datacamp.com/completed/statement-of-accomplishment/track/fd6eb135af814741b062bb68c0d8eb1adbd4d76a)\]
-
--   **Developing LLM**. (*DataCamp, 2024*) \[[Certificate](https://www.datacamp.com/completed/statement-of-accomplishment/track/3e53de05e5673c349ecd9fb95b143a87891c7217)\]
-
--   **R Developer**. (*DataCamp, 2024*) \[[Certificate](https://www.datacamp.com/completed/statement-of-accomplishment/track/7add30a444c03f094691cc5c2e37aed02b5ee050)\]
-
+-   **Deep Learning**. (*DataCamp, 2024*) \[[Certificate](https://www.datacamp.com/completed/statement-of-accomplishment/track/fd6eb135af814741b062bb68c0d8eb1adbd4d76a)\]\
+-   **Developing LLM**. (*DataCamp, 2024*) \[[Certificate](https://www.datacamp.com/completed/statement-of-accomplishment/track/3e53de05e5673c349ecd9fb95b143a87891c7217)\]\
+-   **R Developer**. (*DataCamp, 2024*) \[[Certificate](https://www.datacamp.com/completed/statement-of-accomplishment/track/7add30a444c03f094691cc5c2e37aed02b5ee050)\]\
 -   **Applied Data Science with Python Specialization** - University of Michigan (*Coursera, 2019*) \[[Certificate](https://www.coursera.org/account/accomplishments/specialization/PWJ9L2Z83K5Z)\]
 :::
 :::

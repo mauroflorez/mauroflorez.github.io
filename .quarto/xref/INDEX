@@ -31,5 +31,8 @@
   },
   "projects/lung_cancer.qmd": {
     "lung_cancer.html": "ffc0375f"
+  },
+  "CV.qmd": {
+    "CV.html": "c9deedd5"
   }
 }

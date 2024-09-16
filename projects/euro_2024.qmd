@@ -3,8 +3,9 @@ title: Predicting Euro & Copa America - 2024
 description: A statistical model to analyze the results of the Euro Cup and the Copa America 2024.
 author: 
   - name: Mauro Florez
-  -  email: mf53@rice.edu
+  - email: mf53@rice.edu
 date: 2024-06-30
+image: copa_america.jpg
 bibliography: references.bib
 ---
 
