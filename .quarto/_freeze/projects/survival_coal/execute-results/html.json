@@ -1,8 +1,8 @@
 {
-  "hash": "fa1cc047c1c4cdbac67cd48cc1c58a13",
+  "hash": "d7ba859291c3f6d918c1a7fd31b74f2c",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: Lung Disease Risk Prediction in a Coal Mine\ndescription: Survival Model to predict the risk of contracting a lung disease for workers of one of the largest coal mines in America\nauthor: \n  - name: Mauro Florez\n    email: mf53@rice.edu\ndate: 2019-01-10\nimage: survival.png\n---\n\n::: {.cell}\n::: {.cell-output-display}\n![](survival_coal_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n:::\n",
+    "markdown": "---\ntitle: \"Lung Disease Risk Prediction in a Coal Mine\"\ndescription: \"Survival Model to predict the risk of contracting a lung disease for workers of one of the largest coal mines in America.\"\nauthor: \n  - name: Mauro Florez\n  - email: mf53@rice.edu\ndate: 2019-01-10\nimage: survival.png\n---\n\n::: {.cell}\n::: {.cell-output-display}\n![](survival_coal_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n:::\n",
     "supporting": [
       "survival_coal_files"
     ],

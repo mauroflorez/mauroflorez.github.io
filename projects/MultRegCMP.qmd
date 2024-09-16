@@ -1,6 +1,6 @@
 ---
-title: Bayesian Regression Model for Multivariate Count Data
-description: An R package designed to fit a Bayesian Regression Model for multivariate count data where the data is distributed as Conway-Maxwell-Poisson distribution
+title: "Bayesian Regression Model for Multivariate Count Data"
+description: "An R package designed to fit a Bayesian Regression Model for multivariate count data where the data is distributed as Conway-Maxwell-Poisson distribution"
 author: 
   - name: Mauro Florez
     email: mf53@rice.edu

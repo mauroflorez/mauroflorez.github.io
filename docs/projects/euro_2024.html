@@ -2,15 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.41">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Mauro Florez">
 <meta name="dcterms.date" content="2024-06-30">
-<meta name="description" content="I proposed a statistical model to analyze the results of the Euro Cup and the Copa America 2024.">
+<meta name="description" content="A statistical model to analyze the results of the Euro Cup and the Copa America 2024.">
 
-<title>Mauro Florez – Predicting Euro &amp; Copa America - 2024</title>
+<title>Mauro Florez - Predicting Euro &amp; Copa America - 2024</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -36,7 +35,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -142,7 +141,7 @@ div.csl-indent {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -169,7 +168,7 @@ div.csl-indent {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+          <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
@@ -213,19 +212,13 @@ div.csl-indent {
 
 <div>
   <div class="description">
-    I proposed a statistical model to analyze the results of the Euro Cup and the Copa America 2024.
+    A statistical model to analyze the results of the Euro Cup and the Copa America 2024.
   </div>
 </div>
 
 
 <div class="quarto-title-meta column-page-left">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Mauro Florez <a href="mailto:mf53@rice.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
-          </div>
-  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
@@ -292,18 +285,20 @@ div.csl-indent {
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>scores <span class="sc">%&gt;%</span> </span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(home_team <span class="sc">==</span> <span class="st">"Portugal"</span> <span class="sc">|</span> away_team <span class="sc">==</span> <span class="st">"Portugal"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 9 × 11
-  date       home_team away_team  home_score away_score tournament city  country
-  &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;  
-1 2023-09-08 Slovakia  Portugal            0          1 UEFA Euro… Brat… Slovak…
-2 2023-10-13 Portugal  Slovakia            3          2 UEFA Euro… Porto Portug…
-3 2024-03-26 Slovenia  Portugal            2          0 Friendly   Ljub… Sloven…
-4 2024-06-08 Portugal  Croatia             1          2 Friendly   Oeir… Portug…
-5 2024-06-18 Portugal  Czech Rep…          2          1 UEFA Euro  Leip… Germany
-6 2024-06-22 Turkey    Portugal            0          3 UEFA Euro  Dort… Germany
-7 2024-06-26 Georgia   Portugal            2          0 UEFA Euro  Gels… Germany
-8 2024-07-01 Portugal  Slovenia            0          0 UEFA Euro  Fran… Germany
-9 2024-07-05 Portugal  France              0          0 UEFA Euro  Hamb… Germany
+<pre><code># A tibble: 11 × 11
+   date       home_team away_team home_score away_score tournament city  country
+   &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;          &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;  
+ 1 2023-09-08 Slovakia  Portugal           0          1 UEFA Euro… Brat… Slovak…
+ 2 2023-10-13 Portugal  Slovakia           3          2 UEFA Euro… Porto Portug…
+ 3 2024-03-26 Slovenia  Portugal           2          0 Friendly   Ljub… Sloven…
+ 4 2024-06-08 Portugal  Croatia            1          2 Friendly   Oeir… Portug…
+ 5 2024-06-18 Portugal  Czech Re…          2          1 UEFA Euro  Leip… Germany
+ 6 2024-06-22 Turkey    Portugal           0          3 UEFA Euro  Dort… Germany
+ 7 2024-06-26 Georgia   Portugal           2          0 UEFA Euro  Gels… Germany
+ 8 2024-07-01 Portugal  Slovenia           0          0 UEFA Euro  Fran… Germany
+ 9 2024-07-05 Portugal  France             0          0 UEFA Euro  Hamb… Germany
+10 2024-09-05 Portugal  Croatia            2          1 UEFA Nati… Lisb… Portug…
+11 2024-09-08 Portugal  Scotland           2          1 UEFA Nati… Lisb… Portug…
 # ℹ 3 more variables: neutral &lt;lgl&gt;, id &lt;int&gt;, cup &lt;chr&gt;</code></pre>
 </div>
 </div>
@@ -312,7 +307,7 @@ div.csl-indent {
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>scores <span class="sc">%&gt;%</span> </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(home_team <span class="sc">==</span> <span class="st">"Colombia"</span> <span class="sc">|</span> away_team <span class="sc">==</span> <span class="st">"Colombia"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 15 × 11
+<pre><code># A tibble: 17 × 11
    date       home_team away_team home_score away_score tournament city  country
    &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;          &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;  
  1 2023-09-07 Colombia  Venezuela          1          0 FIFA Worl… Barr… Colomb…
@@ -330,6 +325,8 @@ div.csl-indent {
 13 2024-07-06 Colombia  Panama             5          0 Copa Amér… Glen… United…
 14 2024-07-10 Uruguay   Colombia           0          1 Copa Amér… Char… United…
 15 2024-07-14 Argentina Colombia           1          0 Copa Amér… Miam… United…
+16 2024-09-06 Peru      Colombia           1          1 FIFA Worl… Lima  Peru   
+17 2024-09-10 Colombia  Argentina          2          1 FIFA Worl… Barr… Colomb…
 # ℹ 3 more variables: neutral &lt;lgl&gt;, id &lt;int&gt;, cup &lt;chr&gt;</code></pre>
 </div>
 </div>
@@ -498,12 +495,29 @@ div.csl-indent {
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>test_pred <span class="sc">%&gt;%</span> </span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="fl">1e3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 5
-     id `Team 1` `Exp. Goals` `Team 2`    `Exp. Goals 2`
-  &lt;int&gt; &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;
-1   103 France          0.370 Spain                0.837
-2   104 England         1.87  Netherlands          1.60 
-3   105 England         0.624 Spain                1.53 </code></pre>
+<pre><code># A tibble: 20 × 5
+      id `Team 1`       `Exp. Goals` `Team 2`    `Exp. Goals 2`
+   &lt;int&gt; &lt;chr&gt;                 &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;
+ 1   103 France                0.392 Spain                0.845
+ 2   104 England               1.92  Netherlands          1.60 
+ 3   105 England               0.628 Spain                1.57 
+ 4   106 Croatia               1.54  Portugal             1.31 
+ 5   107 Poland                2.20  Scotland             0.943
+ 6   108 Denmark               0.739 Switzerland          0.907
+ 7   109 Serbia                0.359 Spain                1.84 
+ 8   110 France                1.30  Italy                0.658
+ 9   111 Austria               1.87  Slovenia             1.32 
+10   112 Germany               2.17  Hungary              0.872
+11   113 Czech Republic        1.79  Georgia              1.86 
+12   114 Albania               1.41  Ukraine              0.802
+13   115 Portugal              2.30  Scotland             0.748
+14   116 Croatia               1.96  Poland               1.26 
+15   117 Denmark               1.07  Serbia               0.475
+16   118 Spain                 1.28  Switzerland          0.647
+17   119 Belgium               0.679 France               0.831
+18   120 Germany               2.04  Netherlands          1.98 
+19   121 Albania               4.39  Georgia              1.17 
+20   122 Czech Republic        1.07  Ukraine              1.36 </code></pre>
 </div>
 </div>
 <p>Particullarly, the distribution of the prediction of the score for the final looks as shown below.</p>
@@ -562,13 +576,25 @@ div.csl-indent {
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>test_pred <span class="sc">%&gt;%</span> </span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="fl">1e3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 5
-     id `Team 1`  `Exp. Goals` `Team 2` `Exp. Goals 2`
-  &lt;int&gt; &lt;chr&gt;            &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;
-1    96 Argentina        1.91  Canada            0.430
-2    97 Colombia         0.869 Uruguay           1.33 
-3    98 Canada           0.497 Uruguay           2.55 
-4    99 Argentina        1.02  Colombia          0.756</code></pre>
+<pre><code># A tibble: 16 × 5
+      id `Team 1`      `Exp. Goals` `Team 2`      `Exp. Goals 2`
+   &lt;int&gt; &lt;chr&gt;                &lt;dbl&gt; &lt;chr&gt;                  &lt;dbl&gt;
+ 1    96 Argentina            1.95  Canada                0.428 
+ 2    97 Colombia             0.880 Uruguay               1.34  
+ 3    98 Canada               0.496 Uruguay               2.57  
+ 4    99 Argentina            1.03  Colombia              0.745 
+ 5   100 Bolivia              0.545 Venezuela             1.65  
+ 6   101 Argentina            1.08  Chile                 0.178 
+ 7   102 Colombia             1.25  Peru                  0.109 
+ 8   103 Paraguay             0.172 Uruguay               2.32  
+ 9   104 Brazil               1.60  Ecuador               0.730 
+10   105 United States        2.10  United States         2.10  
+11   106 Canada               1.04  Mexico                1.81  
+12   107 Argentina            0.884 Colombia              0.932 
+13   108 Ecuador              1.26  Peru                  0.0758
+14   109 Bolivia              0.246 Chile                 1.11  
+15   110 Uruguay              1.29  Venezuela             0.761 
+16   111 Brazil               1.18  Paraguay              0.414 </code></pre>
 </div>
 </div>
 <p>In this case, Argentina is expected to easily defeat Canada, and Uruguay will likely beat Colombia. However, Colombia won its game 1-0, so the final will be Argentina vs.&nbsp;Colombia, while the 3rd and 4th place game will be played between Canada and Uruguay.</p>
@@ -794,7 +820,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -826,29 +863,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -856,7 +871,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

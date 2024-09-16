@@ -1,0 +1,18 @@
+---
+title: "Joint Transcriptomic Analysis of Lung Cancer and Other Lung Diseases"
+description:  "Identification of all deregulated genes and the transcriptional regulators (TFs) that are coexpressed during lung cancer"
+date: 2019-12-5
+image: lung_cancer.jpg
+---
+
+**Background:** Epidemiological and clinical evidence points cancer comorbidity with pulmonary chronic disease. The acquisition of some hallmarks of cancer by cells affected with lung pathologies as a cell adaptive mechanism to a shear stress, suggests that could be associated with the establishment of tumoral processes.
+
+**Objective:** To propose a bioinformatic pipeline for the identification of all deregulated genes and the transcriptional regulators (TFs) that are coexpressed during lung cancer establishment, and therefore could be important for the acquisition of the hallmarks of cancer.
+
+**Methods:** Ten microarray datasets (six of lung cancer, four of lung diseases) comparing normal and diseases-related lung tissue were selected to identify hub differentiated expressed genes (DEGs) in common between lung pathologies and lung cancer, along with transcriptional regulators through the utilization of specialized libraries from R language. DAVID bioinformatics tool for gene enrichment analyses was used to identify genes with experimental evidence associated to tumoral processes and signaling pathways. Coexpression networks of DEGs and TFs in lung cancer establishment were created with Coexnet library, and a survival analysis of the main hub genes was made.
+
+**Results:** Two hundred ten DEGs were identified in common between lung cancer and other lung diseases related to the acquisition of tumoral characteristics, which are coexpressed in a lung cancer network with TFs, suggesting that could be related to the establishment of the tumoral pathology in lung. The comparison of the coexpression networks of lung cancer and other lung diseases allowed the identification of common connectivity patterns (CCPs) with DEGs and TFs correlated to important tumoral processes and signaling pathways, that haven´t been studied to experimentally validate their role in the early stages of lung cancer. Some of the TFs identified showed a correlation between its expression levels and the survival of lung cancer patients.
+
+**Conclusion:** Our findings indicate that lung diseases share genes with lung cancer which are coexpressed in lung cancer, and might be able to explain the epidemiological observations that point to direct and inverse comorbid associations between some chronic lung diseases and lung cancer and represent a complex transcriptomic scenario.
+
+-   Otálora-Otálora, B. A., **Florez, M.**, López-Kleine, L., Canas Arboleda, A., Grajales Urrego, D. M., & Rojas, A. (2019). Joint transcriptomic analysis of lung cancer and other lung diseases. *Frontiers in Genetics*, *10*. <https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2019.01260>

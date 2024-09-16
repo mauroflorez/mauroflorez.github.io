@@ -3,9 +3,10 @@
     "listing": "/projects.html",
     "items": [
       "/projects/CMP_Regression.html",
-      "/projects/diff_mirna.html",
       "/projects/euro_2024.html",
       "/projects/MultRegCMP.html",
+      "/projects/diff_mirna.html",
+      "/projects/lung_cancer.html",
       "/projects/survival_coal.html"
     ]
   }

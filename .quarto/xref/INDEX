@@ -28,5 +28,8 @@
   },
   "projects/diff_mirna.qmd": {
     "diff_mirna.html": "3de2896f"
+  },
+  "projects/lung_cancer.qmd": {
+    "lung_cancer.html": "ffc0375f"
   }
 }

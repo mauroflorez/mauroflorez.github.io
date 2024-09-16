@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Hernán Mauricio Rivera, Esther Natalia Muñoz, Daniel Osuna, Mauro Florez, Michael Carvajal, Luis Alberto Gómez">
-<meta name="dcterms.date" content="2024-08-12">
-<meta name="description" content="We propose the use of the Conway–Maxwell–Poisson (CMP) model for analyzing count data in sports offering flexibility in modeling data with different levels of dispersion.">
+<meta name="dcterms.date" content="2021-02-05">
+<meta name="description" content="Detection of differential expression of microRNAs and identify which miRNAs in-network may contribute to the functional bases of phenotypes of differential pigmentation and reduction of proliferation">
 
 <title>Mauro Florez - Differential Expression Analysis of miRNAs from Sequencing Reads</title>
 <style>
@@ -138,24 +137,18 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    We propose the use of the Conway–Maxwell–Poisson (CMP) model for analyzing count data in sports offering flexibility in modeling data with different levels of dispersion.
+    Detection of differential expression of microRNAs and identify which miRNAs in-network may contribute to the functional bases of phenotypes of differential pigmentation and reduction of proliferation
   </div>
 </div>
 
 
 <div class="quarto-title-meta column-page">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Hernán Mauricio Rivera, Esther Natalia Muñoz, Daniel Osuna, Mauro Florez, Michael Carvajal, Luis Alberto Gómez <a href="mailto:mf53@rice.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
-          </div>
-  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 12, 2024</p>
+      <p class="date">February 5, 2021</p>
     </div>
   </div>
   
@@ -167,8 +160,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><br>
-<em>Background:</em> Many microRNAs have been identified as critical mediators in the progression of melanoma through its regulation of genes involved in different cellular processes such as melanogenesis, cell cycle control, and senescence. However, microRNAs’ concurrent participation in syngeneic mouse B16F1 melanoma cells simultaneously induced decreased proliferation and differential pigmentation by exposure to 5-Brd-2′-dU (5’Bromo-2-deoxyuridine) and L-Tyr (L-Tyrosine) respectively, is poorly understood.</p>
+<p><em>Background:</em> Many microRNAs have been identified as critical mediators in the progression of melanoma through its regulation of genes involved in different cellular processes such as melanogenesis, cell cycle control, and senescence. However, microRNAs’ concurrent participation in syngeneic mouse B16F1 melanoma cells simultaneously induced decreased proliferation and differential pigmentation by exposure to 5-Brd-2′-dU (5’Bromo-2-deoxyuridine) and L-Tyr (L-Tyrosine) respectively, is poorly understood.</p>
 <p><em>Aim:</em> To evaluate changes in the expression of microRNAs and identify which miRNAs in-network may contribute to the functional bases of phenotypes of differential pigmentation and reduction of proliferation in B16F1 melanoma cells exposed to 5-Brd-2′-dU and L-Tyr. Methods: Small RNAseq evaluation of the expression profiles of miRNAs in B16F1 melanoma cells exposed to 5-Brd-2′-dU (2.5 μg/mL) and L-Tyr (5 mM), as well as the expression by qRT-PCR of some molecular targets related to melanogenesis, cell cycle, and senescence. By bioinformatic analysis, we constructed network models of regulation and co-expression of microRNAs.</p>
 <p><em>Results:</em> We confirmed that stimulation or repression of melanogenesis with L-Tyr or 5-Brd-2′-dU, respectively, generated changes in melanin concentration, reduction in proliferation, and changes in expression of microRNAs 470-3p, 470-5p, 30d-5p, 129-5p, 148b-3p, 27b-3p, and 211-5p, which presented patterns of coordinated and reciprocal co-expression, related to changes in melanogenesis through their putative targets Mitf, Tyr and Tyrp1, and control of cell cycle and senescence: Cyclin D1, Cdk2, Cdk4, p21, and p27. Conclusions: These findings provide insights into the molecular biology of melanoma of the way miRNAs are coordinated and reciprocal expression that may operate in a network as molecular bases for understanding changes in pigmentation and decreased proliferation induced in B16F1 melanoma cells exposed to L-Tyr and 5-Brd-2′-dU.</p>
 <p>My main contribution to this project was on detecting the differentially expressed miRNAs, we evaluate the differential expression using the negative binomial distribution and the shrinkage estimator for the distribution of the variance. We normalized the data by calculating each factor’s weight using a function that calculates its weight. With the normalized data, we proceeded to calculate the miRNAs differentially expressed using the DESeq2. For more details check Section 4.12.</p>

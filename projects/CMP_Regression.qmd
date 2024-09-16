@@ -1,9 +1,6 @@
 ---
 title: "Bayesian bivariate Conway–Maxwell–Poisson regression model for correlated count data in sports"
-description:  "We propose the use of the Conway–Maxwell–Poisson (CMP) model for analyzing count data in sports offering flexibility in modeling data with different levels of dispersion."
-author: 
-  - name: Mauro Florez
-    email: mf53@rice.edu
+description:  "We propose the use of the Conway–Maxwell–Poisson (CMP) model for analyzing count data in sports offering flexibility in modeling data with different levels of dispersion"
 date: 2024-08-12
 image: CMP_regression.jpg
 ---

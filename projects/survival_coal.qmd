@@ -1,9 +1,9 @@
 ---
-title: Lung Disease Risk Prediction in a Coal Mine
-description: Survival Model to predict the risk of contracting a lung disease for workers of one of the largest coal mines in America
+title: "Lung Disease Risk Prediction in a Coal Mine"
+description: "Survival Model to predict the risk of contracting a lung disease for workers of one of the largest coal mines in America."
 author: 
   - name: Mauro Florez
-    email: mf53@rice.edu
+  - email: mf53@rice.edu
 date: 2019-01-10
 image: survival.png
 ---
