@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2024-06-30">
 <meta name="description" content="A statistical model to analyze the results of the Euro Cup and the Copa America 2024.">
 
-<title>Mauro Florez - Predicting Euro &amp; Copa America - 2024</title>
+<title>Predicting Euro &amp; Copa America - 2024 – Mauro Florez</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -35,7 +35,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -141,7 +141,7 @@ div.csl-indent {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -168,7 +168,7 @@ div.csl-indent {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
@@ -285,7 +285,7 @@ div.csl-indent {
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>scores <span class="sc">%&gt;%</span> </span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(home_team <span class="sc">==</span> <span class="st">"Portugal"</span> <span class="sc">|</span> away_team <span class="sc">==</span> <span class="st">"Portugal"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 11 × 11
+<pre><code># A tibble: 19 × 11
    date       home_team away_team home_score away_score tournament city  country
    &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;          &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;  
  1 2023-09-08 Slovakia  Portugal           0          1 UEFA Euro… Brat… Slovak…
@@ -299,6 +299,14 @@ div.csl-indent {
  9 2024-07-05 Portugal  France             0          0 UEFA Euro  Hamb… Germany
 10 2024-09-05 Portugal  Croatia            2          1 UEFA Nati… Lisb… Portug…
 11 2024-09-08 Portugal  Scotland           2          1 UEFA Nati… Lisb… Portug…
+12 2024-10-12 Poland    Portugal           1          3 UEFA Nati… Wars… Poland 
+13 2024-10-15 Scotland  Portugal           0          0 UEFA Nati… Glas… Scotla…
+14 2024-11-15 Portugal  Poland             5          1 UEFA Nati… Porto Portug…
+15 2024-11-18 Croatia   Portugal           1          1 UEFA Nati… Split Croatia
+16 2025-03-20 Denmark   Portugal           1          0 UEFA Nati… Cope… Denmark
+17 2025-03-23 Portugal  Denmark            5          2 UEFA Nati… Lisb… Portug…
+18 2025-06-04 Germany   Portugal           1          2 UEFA Nati… Muni… Germany
+19 2025-06-08 Portugal  Spain              2          2 UEFA Nati… Muni… Germany
 # ℹ 3 more variables: neutral &lt;lgl&gt;, id &lt;int&gt;, cup &lt;chr&gt;</code></pre>
 </div>
 </div>
@@ -307,7 +315,7 @@ div.csl-indent {
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>scores <span class="sc">%&gt;%</span> </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(home_team <span class="sc">==</span> <span class="st">"Colombia"</span> <span class="sc">|</span> away_team <span class="sc">==</span> <span class="st">"Colombia"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 17 × 11
+<pre><code># A tibble: 25 × 11
    date       home_team away_team home_score away_score tournament city  country
    &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;          &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;  
  1 2023-09-07 Colombia  Venezuela          1          0 FIFA Worl… Barr… Colomb…
@@ -320,13 +328,7 @@ div.csl-indent {
  8 2024-06-08 United S… Colombia           1          5 Friendly   Land… United…
  9 2024-06-15 Colombia  Bolivia            3          0 Friendly   Denv… United…
 10 2024-06-24 Colombia  Paraguay           2          1 Copa Amér… Hous… United…
-11 2024-06-28 Colombia  Costa Ri…          3          0 Copa Amér… Glen… United…
-12 2024-07-02 Brazil    Colombia           1          1 Copa Amér… Sant… United…
-13 2024-07-06 Colombia  Panama             5          0 Copa Amér… Glen… United…
-14 2024-07-10 Uruguay   Colombia           0          1 Copa Amér… Char… United…
-15 2024-07-14 Argentina Colombia           1          0 Copa Amér… Miam… United…
-16 2024-09-06 Peru      Colombia           1          1 FIFA Worl… Lima  Peru   
-17 2024-09-10 Colombia  Argentina          2          1 FIFA Worl… Barr… Colomb…
+# ℹ 15 more rows
 # ℹ 3 more variables: neutral &lt;lgl&gt;, id &lt;int&gt;, cup &lt;chr&gt;</code></pre>
 </div>
 </div>
@@ -495,29 +497,86 @@ div.csl-indent {
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>test_pred <span class="sc">%&gt;%</span> </span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="fl">1e3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 20 × 5
-      id `Team 1`       `Exp. Goals` `Team 2`    `Exp. Goals 2`
-   &lt;int&gt; &lt;chr&gt;                 &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;
- 1   103 France                0.395 Spain                0.840
- 2   104 England               1.88  Netherlands          1.62 
- 3   105 England               0.632 Spain                1.56 
- 4   106 Croatia               1.55  Portugal             1.29 
- 5   107 Poland                2.18  Scotland             0.914
- 6   108 Denmark               0.744 Switzerland          0.922
- 7   109 Serbia                0.349 Spain                1.88 
- 8   110 France                1.26  Italy                0.651
- 9   111 Austria               1.90  Slovenia             1.33 
-10   112 Germany               2.18  Hungary              0.889
-11   113 Czech Republic        1.82  Georgia              1.85 
-12   114 Albania               1.40  Ukraine              0.798
-13   115 Portugal              2.25  Scotland             0.762
-14   116 Croatia               1.95  Poland               1.26 
-15   117 Denmark               1.06  Serbia               0.494
-16   118 Spain                 1.26  Switzerland          0.654
-17   119 Belgium               0.683 France               0.831
-18   120 Germany               2.03  Netherlands          1.99 
-19   121 Albania               4.52  Georgia              1.20 
-20   122 Czech Republic        1.08  Ukraine              1.38 </code></pre>
+<pre><code># A tibble: 77 × 5
+      id `Team 1`       `Exp. Goals` `Team 2`       `Exp. Goals 2`
+   &lt;int&gt; &lt;chr&gt;                 &lt;dbl&gt; &lt;chr&gt;                   &lt;dbl&gt;
+ 1   103 France                0.402 Spain                   0.842
+ 2   104 England               1.89  Netherlands             1.60 
+ 3   105 England               0.626 Spain                   1.53 
+ 4   106 Croatia               1.53  Portugal                1.30 
+ 5   107 Poland                2.16  Scotland                0.940
+ 6   108 Denmark               0.748 Switzerland             0.941
+ 7   109 Serbia                0.359 Spain                   1.88 
+ 8   110 France                1.29  Italy                   0.644
+ 9   111 Austria               1.86  Slovenia                1.32 
+10   112 Germany               2.17  Hungary                 0.889
+11   113 Czech Republic        1.81  Georgia                 1.88 
+12   114 Albania               1.38  Ukraine                 0.789
+13   115 Portugal              2.26  Scotland                0.754
+14   116 Croatia               1.95  Poland                  1.24 
+15   117 Denmark               1.08  Serbia                  0.487
+16   118 Spain                 1.30  Switzerland             0.669
+17   119 Belgium               0.669 France                  0.835
+18   120 Germany               2.02  Netherlands             2.01 
+19   121 Albania               4.40  Georgia                 1.18 
+20   122 Czech Republic        1.09  Ukraine                 1.38 
+21   123 Belgium               1.12  Italy                   0.858
+22   124 Hungary               1.74  Netherlands             2.43 
+23   125 Albania               1.92  Czech Republic          0.864
+24   126 Georgia               1.09  Ukraine                 1.97 
+25   127 Croatia               3.50  Scotland                0.75 
+26   128 Poland                1.46  Portugal                1.12 
+27   129 Serbia                0.532 Switzerland             1.20 
+28   130 Denmark               0.433 Spain                   1.75 
+29   131 Belgium               0.808 France                  0.715
+30   132 Germany               2.40  Netherlands             1.67 
+31   133 Albania               3.84  Georgia                 1.40 
+32   134 Czech Republic        0.709 Ukraine                 1.07 
+33   135 Portugal              2.10  Scotland                0.891
+34   136 Croatia               1.61  Poland                  1.46 
+35   137 Serbia                0.307 Spain                   2.24 
+36   138 Denmark               0.619 Switzerland             1.08 
+37   139 Belgium               1.34  Italy                   0.712
+38   140 Poland                1.24  Portugal                1.36 
+39   141 Croatia               2.95  Scotland                0.921
+40   142 Denmark               0.523 Spain                   1.47 
+41   143 Serbia                0.446 Switzerland             1.42 
+42   144 Hungary               1.42  Netherlands             2.90 
+43   145 Albania               2.27  Czech Republic          0.713
+44   146 Georgia               1.70  Ukraine                 2.59 
+45   147 France                1.08  Italy                   0.793
+46   148 Austria               2.21  Slovenia                1.12 
+47   149 Croatia               1.84  Portugal                1.11 
+48   150 Poland                2.70  Scotland                0.791
+49   151 Denmark               0.933 Serbia                  0.590
+50   152 Spain                 1.53  Switzerland             0.555
+51   153 Germany               1.84  Hungary                 1.07 
+52   154 Albania               2.21  Ukraine                 1.04 
+53   155 Czech Republic        2.26  Georgia                 1.54 
+54   156 Croatia               1.06  France                  1.18 
+55   157 Denmark               1.17  Portugal                0.845
+56   158 Germany               1.46  Italy                   1.18 
+57   159 Netherlands           1.07  Spain                   2.56 
+58   160 Austria               2.66  Serbia                  0.661
+59   161 Hungary               1.24  Turkey                  1.80 
+60   162 Belgium               1.04  Ukraine                 0.511
+61   163 Slovakia              0.914 Slovenia                1.38 
+62   164 Albania               1.63  England                 2.12 
+63   165 Croatia               0.888 France                  1.41 
+64   166 Germany               1.71  Italy                   0.989
+65   167 Denmark               1.00  Portugal                0.986
+66   168 Netherlands           0.903 Spain                   3.08 
+67   169 Belgium               1.62  Ukraine                 0.641
+68   170 Hungary               1.49  Turkey                  1.48 
+69   171 Austria               2.26  Serbia                  0.787
+70   172 Slovakia              0.753 Slovenia                1.65 
+71   173 Germany               1.85  Portugal                0.906
+72   174 France                0.401 Spain                   0.838
+73   175 Austria               3.41  Romania                 1.53 
+74   176 Albania               1.86  Serbia                  0.633
+75   177 France                0.934 Germany                 1.04 
+76   178 Portugal              0.360 Spain                   1.51 
+77   179 Croatia               2.38  Czech Republic          0.825</code></pre>
 </div>
 </div>
 <p>Particullarly, the distribution of the prediction of the score for the final looks as shown below.</p>
@@ -576,25 +635,79 @@ div.csl-indent {
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>test_pred <span class="sc">%&gt;%</span> </span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="fl">1e3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 16 × 5
+<pre><code># A tibble: 70 × 5
       id `Team 1`      `Exp. Goals` `Team 2`      `Exp. Goals 2`
    &lt;int&gt; &lt;chr&gt;                &lt;dbl&gt; &lt;chr&gt;                  &lt;dbl&gt;
- 1    96 Argentina            1.90  Canada                0.432 
- 2    97 Colombia             0.867 Uruguay               1.32  
- 3    98 Canada               0.495 Uruguay               2.57  
- 4    99 Argentina            1.02  Colombia              0.747 
- 5   100 Bolivia              0.547 Venezuela             1.63  
- 6   101 Argentina            1.09  Chile                 0.173 
- 7   102 Colombia             1.26  Peru                  0.108 
- 8   103 Paraguay             0.168 Uruguay               2.33  
- 9   104 Brazil               1.61  Ecuador               0.721 
-10   105 United States        2.08  United States         2.08  
-11   106 Canada               1.05  Mexico                1.82  
-12   107 Argentina            0.897 Colombia              0.922 
-13   108 Ecuador              1.24  Peru                  0.0756
-14   109 Bolivia              0.260 Chile                 1.14  
-15   110 Uruguay              1.32  Venezuela             0.755 
-16   111 Brazil               1.19  Paraguay              0.412 </code></pre>
+ 1    96 Argentina           1.92   Canada                0.416 
+ 2    97 Colombia            0.874  Uruguay               1.34  
+ 3    98 Canada              0.498  Uruguay               2.57  
+ 4    99 Argentina           1.03   Colombia              0.766 
+ 5   100 Bolivia             0.554  Venezuela             1.62  
+ 6   101 Argentina           1.09   Chile                 0.171 
+ 7   102 Colombia            1.25   Peru                  0.109 
+ 8   103 Paraguay            0.171  Uruguay               2.29  
+ 9   104 Brazil              1.58   Ecuador               0.728 
+10   105 United States       2.06   United States         2.06  
+11   106 Canada              1.01   Mexico                1.80  
+12   107 Argentina           0.888  Colombia              0.932 
+13   108 Ecuador             1.26   Peru                  0.0765
+14   109 Bolivia             0.258  Chile                 1.11  
+15   110 Uruguay             1.33   Venezuela             0.754 
+16   111 Brazil              1.17   Paraguay              0.405 
+17   112 Bolivia             0.481  Colombia              2.89  
+18   113 Ecuador             1.57   Paraguay              0.281 
+19   114 Argentina           0.918  Venezuela             0.608 
+20   115 Brazil              0.649  Chile                 0.543 
+21   116 Peru                0.0716 Uruguay               1.30  
+22   117 United States       2.72   United States         2.72  
+23   118 Canada              2.79   Panama                1.06  
+24   119 United States       0.826  United States         0.826 
+25   120 Chile               0.326  Colombia              1.19  
+26   121 Paraguay            0.396  Venezuela             1.08  
+27   122 Ecuador             0.450  Uruguay               1.98  
+28   123 Argentina           3.58   Bolivia               0.164 
+29   124 Brazil              1.61   Peru                  0.0758
+30   125 Costa Rica          1.60   Panama                1.00  
+31   126 United States       1.34   United States         1.34  
+32   127 Brazil              0.929  Venezuela             1.22  
+33   128 Bolivia             0.339  Ecuador               2.74  
+34   129 Argentina           1.28   Paraguay              0.210 
+35   130 Chile               0.364  Peru                  0.0775
+36   131 Colombia            0.746  Uruguay               1.78  
+37   132 Costa Rica          1.02   Panama                1.54  
+38   133 United States       2.01   United States         2.01  
+39   134 Bolivia             0.739  Paraguay              0.657 
+40   135 Colombia            1.89   Ecuador               0.671 
+41   136 Argentina           1.55   Peru                  0.0361
+42   137 Chile               0.513  Venezuela             0.507 
+43   138 Brazil              0.939  Uruguay               1.22  
+44   139 United States       0.996  United States         0.996 
+45   140 United States       2.12   United States         2.12  
+46   141 Chile               1.44   Panama                0.325 
+47   142 Canada              1.05   Mexico                1.94  
+48   143 United States       2.71   United States         2.71  
+49   144 Chile               0.472  Paraguay              0.262 
+50   145 Bolivia             0.365  Peru                  0.273 
+51   146 Brazil              1.41   Colombia              1.16  
+52   147 Ecuador             1.04   Venezuela             0.782 
+53   148 Argentina           0.592  Uruguay               0.961 
+54   149 United States       2.22   United States         2.22  
+55   150 Mexico              2.34   Panama                0.774 
+56   151 Bolivia             0.339  Uruguay               3.01  
+57   152 Colombia            2.51   Paraguay              0.247 
+58   153 Peru                0.0707 Venezuela             1.29  
+59   154 Argentina           1.44   Brazil                0.497 
+60   155 Chile               0.561  Ecuador               0.488 
+61   156 Brazil              1.00   Ecuador               1.15  
+62   157 Paraguay            0.262  Uruguay               1.74  
+63   158 Argentina           0.619  Chile                 0.274 
+64   159 Colombia            1.97   Peru                  0.0684
+65   160 Bolivia             0.336  Venezuela             2.99  
+66   161 Bolivia             0.340  Chile                 0.848 
+67   162 Uruguay             1.82   Venezuela             0.474 
+68   163 Ecuador             0.761  Peru                  0.121 
+69   164 Argentina           1.37   Colombia              0.584 
+70   165 Brazil              2.10   Paraguay              0.256 </code></pre>
 </div>
 </div>
 <p>In this case, Argentina is expected to easily defeat Canada, and Uruguay will likely beat Colombia. However, Colombia won its game 1-0, so the final will be Argentina vs.&nbsp;Colombia, while the 3rd and 4th place game will be played between Canada and Uruguay.</p>
@@ -820,18 +933,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -863,7 +965,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -871,7 +995,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

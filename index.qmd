@@ -28,12 +28,12 @@ format:
 ::: justify
 ## About me
 
-I am a PhD Candidate in Statistics at Rice University. My research focuses on developing Bayesian models for multivariate data, working under the direction of Dr. [Marina Vannucci](https://marina.blogs.rice.edu/). I am passionate about formulating innovative statistical methods to analyze different types of data, with a diverse range of applications, from healthcare to sports.
+I’m a Data Scientist and Ph.D. graduate in Statistics from **Rice University** under the direction of Dr. [Marina Vannucci](https://marina.blogs.rice.edu/). My work focuses on Bayesian modeling for multivariate and count data, with applications in healthcare, sports, and social science. I’m currently interning at **Amazon**, developing deep learning models to analyze community sentiment from diverse data sources.
 
 When I am not immersed in data and research, I love soccer –watching or playing– as well as exploring new places and taking pictures. Check out some of my travel photos [here](https://mauroflorez.github.io/gallery.html).
 :::
 
-::: columns
+::::::: columns
 ## Research Interests
 
 ::: {.column width="30%"}
@@ -47,26 +47,29 @@ When I am not immersed in data and research, I love soccer –watching or playin
 ::: {.column width="5%"}
 :::
 
-::: {.column width="60%"}
+:::: {.column width="60%"}
 ::: justify
 My latest projects involve developing frameworks for estimating graphical models that identify relationships or dependencies between different mixed data types.
 
 A list of projects can be found [here](https://mauroflorez.github.io/projects.html).
 :::
-:::
-:::
+::::
+:::::::
 
 ::: justify
 ## Education
 
 ![](media/logos2.png){fig-align="center" width="600"}
 
-I completed my undergraduate studies in Bogotá, Colombia, earning a BS in *Mathematics* from Universidad Sergio Arboleda, with a tuition waiver scholarship. Additionally, I hold a BS in *Statistics* from the Universidad Nacional de Colombia, where I graduated with distinction (#1 class). In 2020, I was awarded a [Fulbright](https://www.fulbrightprogram.org/) scholarship to pursue my PhD at Rice University
+I completed my undergraduate studies in Bogotá, Colombia, earning a BS in Mathematics from Universidad Sergio Arboleda with a tuition waiver scholarship. I also hold a BS in Statistics from Universidad Nacional de Colombia, where I graduated first in my class. I recently completed a PhD in Statistics at Rice University, where my research focused on Bayesian modeling for complex multivariate and count data.
 :::
 
-::: columns
+:::::: columns
 ::: {.column width="35%"}
 ## Selected Experience
+
+-   **Data Scientist Intern,** Summer 2025**\
+    ***Amazon*
 
 -   **Data Scientist,** 2019 - 2020**\
     ***Minciencias*
@@ -74,7 +77,7 @@ I completed my undergraduate studies in Bogotá, Colombia, earning a BS in *Math
 -   **Data Analyst**, 2017 - 2018\
     *Universidad del Rosario*
 
--   **Lecturer** \
+-   **Lecturer**\
     See the full list of courses [here](https://mauroflorez.github.io/teaching.html).
 :::
 
@@ -89,4 +92,4 @@ I completed my undergraduate studies in Bogotá, Colombia, earning a BS in *Math
 -   **R Developer**. (*DataCamp, 2024*) \[[Certificate](https://www.datacamp.com/completed/statement-of-accomplishment/track/7add30a444c03f094691cc5c2e37aed02b5ee050)\]\
 -   **Applied Data Science with Python Specialization** - University of Michigan (*Coursera, 2019*) \[[Certificate](https://www.coursera.org/account/accomplishments/specialization/PWJ9L2Z83K5Z)\]
 :::
-:::
+::::::
