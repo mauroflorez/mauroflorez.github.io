@@ -1,0 +1,13 @@
+---
+title: "A Bayesian Approach for Inference on Mixed Graphical Models"
+description: "We propose a Bayesian pairwise graphical model that estimates conditional independencies between any type of data. We implement a flexible modeling construction, that includes zero-inflated count data and can also handle missing data."
+author: 
+  - name: Mauro Florez
+    email: mf53@rice.edu
+date: 2025-07-15
+image: bmgm.png
+---
+
+**Abstract:** Mixed data refers to a type of data in which variables can be of multiple types, such as continuous, discrete, or categorical. This data is routinely collected in various fields, including healthcare and social sciences. A common goal in the analysis of such data is to identify dependence relationships between variables, for an understanding of their associations. In this paper, we propose a Bayesian pairwise graphical model that estimates conditional independencies between any type of data. We implement a flexible modeling construction, that includes zero-inflated count data and can also handle missing data. We show that the model maintains both global and local Markov properties. We employ a spike-and-slab prior for the estimation of the graph and implement an MCMC algorithm for posterior inference based on conditional likelihoods. We assess performances on four simulation scenarios with distinct dependence structures, that also include cases with data missing at random, and compare results with existing methods. Finally, we present an analysis of real data from adolescents diagnosed with an eating disorder. Estimated graphs show differences in the associations estimated at intake and discharge, suggesting possible effects of the treatment on cognitive and behavioral measures in the adolescents.
+
+Link: [Arxiv - Paper](https://arxiv.org/html/2505.15464v1)

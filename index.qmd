@@ -28,7 +28,9 @@ format:
 ::: justify
 ## About me
 
-I’m a Data Scientist and Ph.D. graduate in Statistics from **Rice University** under the direction of Dr. [Marina Vannucci](https://marina.blogs.rice.edu/). My work focuses on Bayesian modeling for multivariate and count data, with applications in healthcare, sports, and social science. I’m currently interning at **Amazon**, developing deep learning models to analyze community sentiment from diverse data sources.
+I’m a Data Scientist and Ph.D. graduate in Statistics from **Rice University** under the direction of Dr. [Marina Vannucci](https://marina.blogs.rice.edu/). My work focuses on Bayesian modeling for multivariate and count data, with applications in healthcare, sports, and social science.
+
+I’m currently interning at **Amazon**, developing deep learning models to predict community sentiment.
 
 When I am not immersed in data and research, I love soccer –watching or playing– as well as exploring new places and taking pictures. Check out some of my travel photos [here](https://mauroflorez.github.io/gallery.html).
 :::
@@ -39,9 +41,9 @@ When I am not immersed in data and research, I love soccer –watching or playin
 ::: {.column width="30%"}
 -   Bayesian Modeling
 -   Machine Learning
+-   AI
 -   Statistical Computing
 -   Graphical Models
--   Applied Statistics
 :::
 
 ::: {.column width="5%"}
@@ -68,16 +70,19 @@ I completed my undergraduate studies in Bogotá, Colombia, earning a BS in Mathe
 ::: {.column width="35%"}
 ## Selected Experience
 
--   **Data Scientist Intern,** Summer 2025**\
-    ***Amazon*
+-   **Amazon,** Summer 2025**\
+    ***Data Scientist Intern*
 
--   **Data Scientist,** 2019 - 2020**\
-    ***Minciencias*
+-   **Rice University,** 2020 - 2025**\
+    ***Graduate Research Assistant*
 
--   **Data Analyst**, 2017 - 2018\
-    *Universidad del Rosario*
+-   **Department of Science, Technology and Information (Minciencias),** 2019 - 2020**\
+    ***Data Scientist*
 
--   **Lecturer**\
+-   **Universidad del Rosario**, 2017 - 2018**\
+    ***Data Analyst*
+
+-   *Lecturer*\
     See the full list of courses [here](https://mauroflorez.github.io/teaching.html).
 :::
 
