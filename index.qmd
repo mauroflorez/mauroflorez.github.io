@@ -67,7 +67,7 @@ I completed my undergraduate studies in Bogotá, Colombia, earning a BS in Mathe
 
 :::::: columns
 ::: {.column width="45%"}
-## Selected Experience
+## Professional Experience
 
 -   **Amazon,** Summer 2025**\
     ***Data Scientist Intern*
