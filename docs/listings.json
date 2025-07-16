@@ -2,6 +2,7 @@
   {
     "listing": "/projects.html",
     "items": [
+      "/projects/bmgm.html",
       "/projects/CMP_Regression.html",
       "/projects/euro_2024.html",
       "/projects/MultRegCMP.html",
