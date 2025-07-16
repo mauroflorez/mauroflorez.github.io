@@ -30,6 +30,15 @@ title: Teaching
 
 -   Probability and Basic Inference (Certificate course) - *Universidad Nacional de Colombia, Bogotá, CO* - Fall 2017
 
+### Fellowships & Mentorship
+
+------------------------------------------------------------------------
+
+-   **D2K Fellow** – *Rice University, Houston, TX - F*all 2024
+    -   Mentored students on deep learning (autoencoder) project to identify similar districts. \[[Project video](https://www.youtube.com/watch?v=b7T_d4c7SpM)\]
+-   **D2K Fellow** – *Rice University, Houston, TX - Spring* 2025
+    -   Mentored team in building an explainable autoencoder model to provide actionable guidance for improving Texas school districts.
+
 ### Reviewer
 
 ------------------------------------------------------------------------
