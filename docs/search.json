@@ -18,7 +18,7 @@
     "href": "index.html#research-interests",
     "title": "Mauro Florez",
     "section": "Research Interests",
-    "text": "Research Interests\n\n\nBayesian Modeling\nMachine Learning\nAI\nStatistical Computing\nGraphical Models\n\n\n\n\n\n\nMy latest projects involve developing frameworks for estimating graphical models that identify relationships or dependencies between different mixed data types.\nA list of projects can be found here."
+    "text": "Research Interests\n\n\nBayesian Modeling\nMachine Learning\nAI\nGraphical Models\n\n\n\n\n\n\nMy latest projects involve developing frameworks for estimating graphical models that identify relationships or dependencies between different mixed data types.\nA list of projects can be found here."
   },
   {
     "objectID": "index.html#education",
@@ -32,14 +32,14 @@
     "href": "index.html#selected-experience",
     "title": "Mauro Florez",
     "section": "Selected Experience",
-    "text": "Selected Experience\n\nAmazon, Summer 2025\nData Scientist Intern\nRice University, 2020 - 2025\nGraduate Research Assistant\nDepartment of Science, Technology and Information (Minciencias), 2019 - 2020\nData Scientist\nUniversidad del Rosario, 2017 - 2018\nData Analyst\nLecturer\nSee the full list of courses here."
+    "text": "Selected Experience\n\nAmazon, Summer 2025\nData Scientist Intern\nRice University, 2020 - 2025\nGraduate Research Assistant\nMinciencias, 2019 - 2020\nData Scientist\nUniversidad del Rosario, 2017 - 2018\nData Analyst\nLecturer\nSee the full list of courses here."
   },
   {
     "objectID": "index.html#moocs",
     "href": "index.html#moocs",
     "title": "Mauro Florez",
     "section": "MOOCs",
-    "text": "MOOCs\n\nDeep Learning. (DataCamp, 2024) [Certificate]\n\nDeveloping LLM. (DataCamp, 2024) [Certificate]\n\nR Developer. (DataCamp, 2024) [Certificate]\n\nApplied Data Science with Python Specialization - University of Michigan (Coursera, 2019) [Certificate]"
+    "text": "MOOCs\n\nDeep Learning (2024)\n\nDeveloping LLM (2024)\n\nR Developer (2024)\n\nApplied Data Science with Python Specialization (2019)"
   },
   {
     "objectID": "projects/CMP_Regression.html",

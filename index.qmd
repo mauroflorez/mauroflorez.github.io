@@ -42,7 +42,6 @@ When I am not immersed in data and research, I love soccer –watching or playin
 -   Bayesian Modeling
 -   Machine Learning
 -   AI
--   Statistical Computing
 -   Graphical Models
 :::
 
@@ -67,7 +66,7 @@ I completed my undergraduate studies in Bogotá, Colombia, earning a BS in Mathe
 :::
 
 :::::: columns
-::: {.column width="35%"}
+::: {.column width="45%"}
 ## Selected Experience
 
 -   **Amazon,** Summer 2025**\
@@ -76,7 +75,7 @@ I completed my undergraduate studies in Bogotá, Colombia, earning a BS in Mathe
 -   **Rice University,** 2020 - 2025**\
     ***Graduate Research Assistant*
 
--   **Department of Science, Technology and Information (Minciencias),** 2019 - 2020**\
+-   **Minciencias,** 2019 - 2020**\
     ***Data Scientist*
 
 -   **Universidad del Rosario**, 2017 - 2018**\
@@ -89,12 +88,12 @@ I completed my undergraduate studies in Bogotá, Colombia, earning a BS in Mathe
 ::: {.column width="5%"}
 :::
 
-::: {.column width="60%"}
+::: {.column width="50%"}
 ## MOOCs
 
--   **Deep Learning**. (*DataCamp, 2024*) \[[Certificate](https://www.datacamp.com/completed/statement-of-accomplishment/track/fd6eb135af814741b062bb68c0d8eb1adbd4d76a)\]\
--   **Developing LLM**. (*DataCamp, 2024*) \[[Certificate](https://www.datacamp.com/completed/statement-of-accomplishment/track/3e53de05e5673c349ecd9fb95b143a87891c7217)\]\
--   **R Developer**. (*DataCamp, 2024*) \[[Certificate](https://www.datacamp.com/completed/statement-of-accomplishment/track/7add30a444c03f094691cc5c2e37aed02b5ee050)\]\
--   **Applied Data Science with Python Specialization** - University of Michigan (*Coursera, 2019*) \[[Certificate](https://www.coursera.org/account/accomplishments/specialization/PWJ9L2Z83K5Z)\]
+-   [Deep Learning](https://www.datacamp.com/completed/statement-of-accomplishment/track/fd6eb135af814741b062bb68c0d8eb1adbd4d76a) **(**2024) \
+-   [Developing LLM](https://www.datacamp.com/completed/statement-of-accomplishment/track/3e53de05e5673c349ecd9fb95b143a87891c7217) (2024)\
+-   [R Developer](https://www.datacamp.com/completed/statement-of-accomplishment/track/7add30a444c03f094691cc5c2e37aed02b5ee050) (2024)\
+-   [Applied Data Science with Python Specialization](https://www.coursera.org/account/accomplishments/specialization/PWJ9L2Z83K5Z) (2019)
 :::
 ::::::
