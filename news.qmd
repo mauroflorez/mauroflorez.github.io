@@ -1,0 +1,7 @@
+---
+title: "News"
+---
+
+## Latest News
+
+- **March 2025**: Launched the new News section of my website.

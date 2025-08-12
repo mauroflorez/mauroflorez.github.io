@@ -8,6 +8,7 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - news.qmd
       - projects.qmd
       - teaching.qmd
       - gallery.qmd
