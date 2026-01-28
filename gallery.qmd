@@ -42,3 +42,11 @@ lightbox:
 
 ![Malta](media/photography/IMG_2444.JPEG){group="malta"}
 :::
+
+## Colorado
+
+![](media/photography/Colorado/MAU03875.jpg)
+
+## ![](media/photography/WA/MAU04091.jpg)WA
+
+![](media/photography/WA/MAU05295.jpg)

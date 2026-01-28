@@ -30,7 +30,7 @@ format:
 
 I’m a Data Scientist and Ph.D. graduate in Statistics from **Rice University** under the direction of Dr. [Marina Vannucci](https://marina.blogs.rice.edu/). My work focuses on Bayesian modeling for multivariate and count data, with applications in healthcare, sports, and social science.
 
-I’m currently interning at **Amazon**, developing deep learning models to predict community sentiment.
+I'm currently a Data Scientist at **Amazon**, where I generate analytics and uncover actionable insights for the Speed Transportation Analytics team
 
 When I am not immersed in data and research, I love soccer –watching or playing– as well as exploring new places and taking pictures. Check out some of my travel photos [here](https://mauroflorez.github.io/gallery.html).
 :::
@@ -69,8 +69,11 @@ I completed my undergraduate studies in Bogotá, Colombia, earning a BS in Mathe
 ::: {.column width="45%"}
 ## Professional Experience
 
+-   **Amazon,** 2025 - Present**\
+    ***Data Scientist - Speed Analytics*
+
 -   **Amazon,** Summer 2025**\
-    ***Data Scientist Intern*
+    ***Data Scientist Intern - Community Operations*
 
 -   **Rice University,** 2020 - 2025**\
     ***Graduate Research Assistant*
