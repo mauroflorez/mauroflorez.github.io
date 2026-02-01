@@ -37,5 +37,20 @@
   },
   "projects/bmgm.qmd": {
     "bmgm.html": "38c31328"
+  },
+  "news/2025-01-01-amazon.qmd": {
+    "2025-01-01-amazon.html": "7e424e5c"
+  },
+  "news/2025-07-15-bmgm-pub.qmd": {
+    "2025-07-15-bmgm-pub.html": "59d64eff"
+  },
+  "news/2026-02-01-welcome.qmd": {
+    "2026-02-01-welcome.html": "e58754f0"
+  },
+  "projects/epl-lpp.qmd": {
+    "epl-lpp.html": "46e671de"
+  },
+  "projects/euro_2024.knit.md": {
+    "euro_2024.knit.html": "955e556b"
   }
 }

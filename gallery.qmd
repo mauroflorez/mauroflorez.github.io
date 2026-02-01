@@ -13,6 +13,41 @@ lightbox:
   loop: false
 ---
 
+## Highlights
+
+```{=html}
+<div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="media/photography/IMG_0949.JPEG" class="d-block w-100" alt="Florence">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Florence</h5>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="media/photography/IMG_1930.JPEG" class="d-block w-100" alt="Colosseum">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Colosseum</h5>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="media/photography/cinque.JPEG" class="d-block w-100" alt="Cinque Terre">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Cinque Terre</h5>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+```
+
 ## Italy
 
 ![Florence](media/photography/IMG_0949.JPEG){group="gallery" fig-align="center" width="500"}
@@ -47,6 +82,8 @@ lightbox:
 
 ![](media/photography/Colorado/MAU03875.jpg)
 
-## ![](media/photography/WA/MAU04091.jpg)WA
+## WA
+
+![](media/photography/WA/MAU04091.jpg)
 
 ![](media/photography/WA/MAU05295.jpg)

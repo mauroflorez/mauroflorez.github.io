@@ -23,6 +23,17 @@ format:
       body-width: 1000px
       margin-width: 300px
       gutter-width: 1.5rem
+listing:
+  - id: news-listings
+    contents: news
+    sort: "date desc"
+    type: table
+    max-items: 3
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    fields: [date, title]
+    table-hover: true
 ---
 
 ::: justify
@@ -58,45 +69,82 @@ A list of projects can be found [here](https://mauroflorez.github.io/projects.ht
 :::::::
 
 ::: justify
+## News
+
+::: {#news-listings}
+:::
+
 ## Education
 
 ![](media/logos2.png){fig-align="center" width="600"}
 
 I completed my undergraduate studies in Bogotá, Colombia, earning a BS in Mathematics from Universidad Sergio Arboleda with a tuition waiver scholarship. I also hold a BS in Statistics from Universidad Nacional de Colombia, where I graduated first in my class. I recently completed a PhD in Statistics at Rice University, where my research focused on Bayesian modeling for complex multivariate and count data.
-:::
 
-:::::: columns
-::: {.column width="45%"}
 ## Professional Experience
 
--   **Amazon,** 2025 - Present**\
-    ***Data Scientist - Speed Analytics*
+::: {.experience-timeline}
 
--   **Amazon,** Summer 2025**\
-    ***Data Scientist Intern - Community Operations*
-
--   **Rice University,** 2020 - 2025**\
-    ***Graduate Research Assistant*
-
--   **Minciencias,** 2019 - 2020**\
-    ***Data Scientist*
-
--   **Universidad del Rosario**, 2017 - 2018**\
-    ***Data Analyst*
-
--   *Lecturer*\
-    See the full list of courses [here](https://mauroflorez.github.io/teaching.html).
+::: {.experience-item}
+::: {.experience-logo}
+![](media/logos/amazon.png)
+:::
+::: {.experience-content}
+**Amazon** | 2025 - Present  
+*Data Scientist - Speed Analytics*
+:::
 :::
 
-::: {.column width="5%"}
+::: {.experience-item}
+::: {.experience-logo}
+![](media/logos/amazon.png)
+:::
+::: {.experience-content}
+**Amazon** | Summer 2025  
+*Data Scientist Intern - Community Operations*
+:::
 :::
 
-::: {.column width="50%"}
+::: {.experience-item}
+::: {.experience-logo}
+![](media/logos/rice.png)
+:::
+::: {.experience-content}
+**Rice University** | 2020 - 2025  
+*Graduate Research Assistant*
+:::
+:::
+
+::: {.experience-item}
+::: {.experience-logo}
+![](media/logos/minciencias.png)
+:::
+::: {.experience-content}
+**Minciencias** | 2019 - 2020  
+*Data Scientist*
+:::
+:::
+
+::: {.experience-item}
+::: {.experience-logo}
+![](media/logos/rosario.png)
+:::
+::: {.experience-content}
+**Universidad del Rosario** | 2017 - 2018  
+*Data Analyst*
+:::
+:::
+
+:::
+
+**Lecturer**  
+See the full list of courses [here](https://mauroflorez.github.io/teaching.html).
+:::
+
+<!--
 ## MOOCs
 
 -   [Deep Learning](https://www.datacamp.com/completed/statement-of-accomplishment/track/fd6eb135af814741b062bb68c0d8eb1adbd4d76a) **(**2024)\
 -   [Developing LLM](https://www.datacamp.com/completed/statement-of-accomplishment/track/3e53de05e5673c349ecd9fb95b143a87891c7217) (2024)\
 -   [R Developer](https://www.datacamp.com/completed/statement-of-accomplishment/track/7add30a444c03f094691cc5c2e37aed02b5ee050) (2024)\
 -   [Applied Data Science with Python Specialization](https://www.coursera.org/account/accomplishments/specialization/PWJ9L2Z83K5Z) (2019)
-:::
-::::::
+-->

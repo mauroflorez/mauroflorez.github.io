@@ -1,7 +1,28 @@
 /* css styles */
 
-```{css, echo = FALSE}
 .justify {
   text-align: justify !important
 }
-```
+
+.experience-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.experience-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.experience-logo img {
+  width: 60px;
+  height: auto;
+  object-fit: contain;
+}
+
+.experience-content {
+  flex: 1;
+}

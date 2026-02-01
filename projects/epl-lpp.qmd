@@ -1,0 +1,33 @@
+---
+title: "epl-lpp: EPL Match Prediction"
+description: "A Poisson regression model for predicting English Premier League match scores, learning team attack strength and defensive weakness from historical match data."
+date: "2026-02-01"
+image: media/photography/WA/MAU05295.jpg
+---
+
+## Overview
+
+A Poisson regression model for predicting English Premier League match scores. The model learns team attack strength and defensive weakness from historical match data.
+
+## How It Works
+
+The model uses a Poisson GLM with the following structure:
+
+```
+Home Goals ~ HomeTeam + AwayTeam + Positions + Rolling Stats
+Away Goals ~ AwayTeam + HomeTeam + Positions + Rolling Stats
+```
+
+- **HomeTeam effect** → Attack strength of the home team
+- **AwayTeam effect** → Defensive weakness when facing that opponent
+- **Positions** → Current league standings
+- **Rolling Stats** → Goals, shots, shots on target (last 5 games)
+
+## Features
+
+- Rolling averages for goals scored/conceded
+- Rolling averages for shots and shots on target
+- Dynamic league position calculation
+- Trained on all current season games
+
+[View Project Website](https://mauroflorez.github.io/epl-lpp/)

@@ -1,5 +1,8 @@
 {
   "listingMap": {
+    "index.qmd": [
+      "news"
+    ],
     "projects.qmd": [
       "projects/*.qmd"
     ]

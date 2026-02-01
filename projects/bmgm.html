@@ -6,10 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2019-12-05">
-<meta name="description" content="Identification of all deregulated genes and the transcriptional regulators (TFs) that are coexpressed during lung cancer">
+<meta name="author" content="Mauro Florez">
+<meta name="dcterms.date" content="2025-07-15">
+<meta name="description" content="We propose a Bayesian pairwise graphical model that estimates conditional independencies between any type of data. We implement a flexible modeling construction, that includes zero-inflated count data and can also handle missing data.">
 
-<title>Mauro Florez – Joint Transcriptomic Analysis of Lung Cancer and Other Lung Diseases</title>
+<title>Mauro Florez – A Bayesian Approach for Inference on Mixed Graphical Models</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -128,23 +129,29 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Joint Transcriptomic Analysis of Lung Cancer and Other Lung Diseases</h1>
+<h1 class="title">A Bayesian Approach for Inference on Mixed Graphical Models</h1>
 </div>
 
 <div>
   <div class="description">
-    Identification of all deregulated genes and the transcriptional regulators (TFs) that are coexpressed during lung cancer
+    We propose a Bayesian pairwise graphical model that estimates conditional independencies between any type of data. We implement a flexible modeling construction, that includes zero-inflated count data and can also handle missing data.
   </div>
 </div>
 
 
 <div class="quarto-title-meta column-page">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Mauro Florez <a href="mailto:mf53@rice.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 5, 2019</p>
+      <p class="date">July 15, 2025</p>
     </div>
   </div>
   
@@ -156,13 +163,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>Background:</strong> Epidemiological and clinical evidence points cancer comorbidity with pulmonary chronic disease. The acquisition of some hallmarks of cancer by cells affected with lung pathologies as a cell adaptive mechanism to a shear stress, suggests that could be associated with the establishment of tumoral processes.</p>
-<p><strong>Objective:</strong> To propose a bioinformatic pipeline for the identification of all deregulated genes and the transcriptional regulators (TFs) that are coexpressed during lung cancer establishment, and therefore could be important for the acquisition of the hallmarks of cancer.</p>
-<p><strong>Methods:</strong> Ten microarray datasets (six of lung cancer, four of lung diseases) comparing normal and diseases-related lung tissue were selected to identify hub differentiated expressed genes (DEGs) in common between lung pathologies and lung cancer, along with transcriptional regulators through the utilization of specialized libraries from R language. DAVID bioinformatics tool for gene enrichment analyses was used to identify genes with experimental evidence associated to tumoral processes and signaling pathways. Coexpression networks of DEGs and TFs in lung cancer establishment were created with Coexnet library, and a survival analysis of the main hub genes was made.</p>
-<p><strong>Results:</strong> Two hundred ten DEGs were identified in common between lung cancer and other lung diseases related to the acquisition of tumoral characteristics, which are coexpressed in a lung cancer network with TFs, suggesting that could be related to the establishment of the tumoral pathology in lung. The comparison of the coexpression networks of lung cancer and other lung diseases allowed the identification of common connectivity patterns (CCPs) with DEGs and TFs correlated to important tumoral processes and signaling pathways, that haven´t been studied to experimentally validate their role in the early stages of lung cancer. Some of the TFs identified showed a correlation between its expression levels and the survival of lung cancer patients.</p>
-<p><strong>Conclusion:</strong> Our findings indicate that lung diseases share genes with lung cancer which are coexpressed in lung cancer, and might be able to explain the epidemiological observations that point to direct and inverse comorbid associations between some chronic lung diseases and lung cancer and represent a complex transcriptomic scenario.</p>
+<p><strong>Abstract:</strong> Mixed data refers to a type of data in which variables can be of multiple types, such as continuous, discrete, or categorical. This data is routinely collected in various fields, including healthcare and social sciences. A common goal in the analysis of such data is to identify dependence relationships between variables, for an understanding of their associations. In this paper, we propose a Bayesian pairwise graphical model that estimates conditional independencies between any type of data. We implement a flexible modeling construction, that includes zero-inflated count data and can also handle missing data. We show that the model maintains both global and local Markov properties. We employ a spike-and-slab prior for the estimation of the graph and implement an MCMC algorithm for posterior inference based on conditional likelihoods. We assess performances on four simulation scenarios with distinct dependence structures, that also include cases with data missing at random, and compare results with existing methods. Finally, we present an analysis of real data from adolescents diagnosed with an eating disorder. Estimated graphs show differences in the associations estimated at intake and discharge, suggesting possible effects of the treatment on cognitive and behavioral measures in the adolescents.</p>
 <ul>
-<li>Otálora-Otálora, B. A., <strong>Florez, M.</strong>, López-Kleine, L., Canas Arboleda, A., Grajales Urrego, D. M., &amp; Rojas, A. (2019). Joint transcriptomic analysis of lung cancer and other lung diseases. <em>Frontiers in Genetics</em>, <em>10</em>. <a href="https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2019.01260" class="uri">https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2019.01260</a></li>
+<li>Florez, M., Gottard, A., McAdams, C., Guindani, M. &amp; Vannucci, M. (2025). A Bayesian Approach for Inference on Mixed Graphical Models. <em>Bayesian Analysis</em>, 1-28. <a href="https://doi.org/10.1214/25-BA1557" class="uri">https://doi.org/10.1214/25-BA1557</a></li>
 </ul>
 
 

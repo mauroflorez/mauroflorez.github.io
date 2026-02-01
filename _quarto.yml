@@ -4,6 +4,8 @@ project:
 
 website:
   title: "Mauro Florez"
+  description: "Mauro Florez's Personal Website - Data Science, Statistics, and Photography"
+  site-url: "https://mauroflorez.github.io"
   navbar:
     left:
       - href: index.qmd
@@ -11,7 +13,6 @@ website:
       - projects.qmd
       - teaching.qmd
       - gallery.qmd
-      - CV.qmd
 
 format:
   html:

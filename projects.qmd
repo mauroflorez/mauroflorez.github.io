@@ -5,7 +5,7 @@ listing:
   contents: "projects/*.qmd"
   sort: "date desc"
   type: default
-page-layour: full
+page-layout: full
 ---
 
 ### Projects

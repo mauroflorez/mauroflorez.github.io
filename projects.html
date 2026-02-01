@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2019-12-05">
-<meta name="description" content="Identification of all deregulated genes and the transcriptional regulators (TFs) that are coexpressed during lung cancer">
 
-<title>Mauro Florez – Joint Transcriptomic Analysis of Lung Cancer and Other Lung Diseases</title>
+<title>Mauro Florez – Projects</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,24 +23,26 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,9 +70,67 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-sample-listings .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
 
-<link rel="stylesheet" href="../styles.css">
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-sample-listings'] = new List('listing-sample-listings', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -82,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Mauro Florez</span>
     </a>
   </div>
@@ -93,19 +151,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../projects.html"> 
+    <a class="nav-link active" href="./projects.html" aria-current="page"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../teaching.html"> 
+    <a class="nav-link" href="./teaching.html"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../gallery.html"> 
+    <a class="nav-link" href="./gallery.html"> 
 <span class="menu-text">Gallery</span></a>
   </li>  
 </ul>
@@ -120,33 +178,29 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#projects" id="toc-projects" class="nav-link active" data-scroll-target="#projects">Projects</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Joint Transcriptomic Analysis of Lung Cancer and Other Lung Diseases</h1>
-</div>
-
-<div>
-  <div class="description">
-    Identification of all deregulated genes and the transcriptional regulators (TFs) that are coexpressed during lung cancer
-  </div>
+<h1 class="title">Projects</h1>
 </div>
 
 
-<div class="quarto-title-meta column-page">
+
+<div class="quarto-title-meta column-page-left">
 
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">December 5, 2019</p>
-    </div>
-  </div>
   
     
   </div>
@@ -156,16 +210,234 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>Background:</strong> Epidemiological and clinical evidence points cancer comorbidity with pulmonary chronic disease. The acquisition of some hallmarks of cancer by cells affected with lung pathologies as a cell adaptive mechanism to a shear stress, suggests that could be associated with the establishment of tumoral processes.</p>
-<p><strong>Objective:</strong> To propose a bioinformatic pipeline for the identification of all deregulated genes and the transcriptional regulators (TFs) that are coexpressed during lung cancer establishment, and therefore could be important for the acquisition of the hallmarks of cancer.</p>
-<p><strong>Methods:</strong> Ten microarray datasets (six of lung cancer, four of lung diseases) comparing normal and diseases-related lung tissue were selected to identify hub differentiated expressed genes (DEGs) in common between lung pathologies and lung cancer, along with transcriptional regulators through the utilization of specialized libraries from R language. DAVID bioinformatics tool for gene enrichment analyses was used to identify genes with experimental evidence associated to tumoral processes and signaling pathways. Coexpression networks of DEGs and TFs in lung cancer establishment were created with Coexnet library, and a survival analysis of the main hub genes was made.</p>
-<p><strong>Results:</strong> Two hundred ten DEGs were identified in common between lung cancer and other lung diseases related to the acquisition of tumoral characteristics, which are coexpressed in a lung cancer network with TFs, suggesting that could be related to the establishment of the tumoral pathology in lung. The comparison of the coexpression networks of lung cancer and other lung diseases allowed the identification of common connectivity patterns (CCPs) with DEGs and TFs correlated to important tumoral processes and signaling pathways, that haven´t been studied to experimentally validate their role in the early stages of lung cancer. Some of the TFs identified showed a correlation between its expression levels and the survival of lung cancer patients.</p>
-<p><strong>Conclusion:</strong> Our findings indicate that lung diseases share genes with lung cancer which are coexpressed in lung cancer, and might be able to explain the epidemiological observations that point to direct and inverse comorbid associations between some chronic lung diseases and lung cancer and represent a complex transcriptomic scenario.</p>
-<ul>
-<li>Otálora-Otálora, B. A., <strong>Florez, M.</strong>, López-Kleine, L., Canas Arboleda, A., Grajales Urrego, D. M., &amp; Rojas, A. (2019). Joint transcriptomic analysis of lung cancer and other lung diseases. <em>Frontiers in Genetics</em>, <em>10</em>. <a href="https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2019.01260" class="uri">https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2019.01260</a></li>
-</ul>
+<section id="projects" class="level3">
+<h3 class="anchored" data-anchor-id="projects">Projects</h3>
+<div id="listing-sample-listings" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1769925600000" data-listing-file-modified-sort="1769935945154" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="116">
+<div class="thumbnail">
+<p><a href="./projects/epl-lpp.html" class="no-external"></a></p><a href="./projects/epl-lpp.html" class="no-external">
+<p><img loading="lazy" src="./projects/media/photography/WA/MAU05295.jpg" class="thumbnail-image"></p>
+</a><p><a href="./projects/epl-lpp.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./projects/epl-lpp.html" class="no-external">epl-lpp: EPL Match Prediction</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./projects/epl-lpp.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./projects/epl-lpp.html" class="no-external">A Poisson regression model for predicting English Premier League match scores, learning team attack strength and defensive weakness from historical match data.</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./projects/epl-lpp.html" class="no-external">
+<div class="listing-date">
+Feb 1, 2026
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1752555600000" data-listing-file-modified-sort="1769935912690" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="223">
+<div class="thumbnail">
+<p><a href="./projects/bmgm.html" class="no-external"></a></p><a href="./projects/bmgm.html" class="no-external">
+<p><img loading="lazy" src="./projects/bmgm.png" class="thumbnail-image"></p>
+</a><p><a href="./projects/bmgm.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./projects/bmgm.html" class="no-external">A Bayesian Approach for Inference on Mixed Graphical Models</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./projects/bmgm.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./projects/bmgm.html" class="no-external">We propose a Bayesian pairwise graphical model that estimates conditional independencies between any type of data. We implement a flexible modeling construction, that includes zero-inflated count data and can also handle missing data.</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./projects/bmgm.html" class="no-external">
+<div class="listing-date">
+Jul 15, 2025
+</div>
+<div class="listing-author">
+Mauro Florez
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1723438800000" data-listing-file-modified-sort="1769934619722" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="219">
+<div class="thumbnail">
+<p><a href="./projects/CMP_Regression.html" class="no-external"></a></p><a href="./projects/CMP_Regression.html" class="no-external">
+<p><img loading="lazy" src="./projects/CMP_regression.jpg" class="thumbnail-image"></p>
+</a><p><a href="./projects/CMP_Regression.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./projects/CMP_Regression.html" class="no-external">Bayesian bivariate Conway–Maxwell–Poisson regression model for correlated count data in sports</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./projects/CMP_Regression.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./projects/CMP_Regression.html" class="no-external">We propose the use of the Conway–Maxwell–Poisson (CMP) model for analyzing count data in sports offering flexibility in modeling data with different levels of dispersion</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./projects/CMP_Regression.html" class="no-external">
+<div class="listing-date">
+Aug 12, 2024
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1719723600000" data-listing-file-modified-sort="1769934619726" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1597">
+<div class="thumbnail">
+<p><a href="./projects/euro_2024.html" class="no-external"></a></p><a href="./projects/euro_2024.html" class="no-external">
+<p><img loading="lazy" src="./projects/copa_america.jpg" class="thumbnail-image"></p>
+</a><p><a href="./projects/euro_2024.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./projects/euro_2024.html" class="no-external">Predicting Euro &amp; Copa America - 2024</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./projects/euro_2024.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./projects/euro_2024.html" class="no-external">A statistical model to analyze the results of the Euro Cup and the Copa America 2024.</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./projects/euro_2024.html" class="no-external">
+<div class="listing-date">
+Jun 30, 2024
+</div>
+<div class="listing-author">
+Mauro Florez
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1717045200000" data-listing-file-modified-sort="1769934619723" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="45">
+<div class="thumbnail">
+<p><a href="./projects/MultRegCMP.html" class="no-external"></a></p><a href="./projects/MultRegCMP.html" class="no-external">
+<p><img loading="lazy" src="./projects/CMP.png" class="thumbnail-image"></p>
+</a><p><a href="./projects/MultRegCMP.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./projects/MultRegCMP.html" class="no-external">MultRegCMP: Bayesian Regression Model for Multivariate Count Data</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./projects/MultRegCMP.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./projects/MultRegCMP.html" class="no-external">An R package designed to fit a Bayesian Regression Model for multivariate count data where the data is distributed as Conway-Maxwell-Poisson distribution</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./projects/MultRegCMP.html" class="no-external">
+<div class="listing-date">
+May 30, 2024
+</div>
+<div class="listing-author">
+Mauro Florez
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-listing-date-sort="1612504800000" data-listing-file-modified-sort="1769934619725" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="384">
+<div class="thumbnail">
+<p><a href="./projects/diff_mirna.html" class="no-external"></a></p><a href="./projects/diff_mirna.html" class="no-external">
+<p><img loading="lazy" src="./projects/diff_mirna.jpg" class="thumbnail-image"></p>
+</a><p><a href="./projects/diff_mirna.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./projects/diff_mirna.html" class="no-external">Differential Expression Analysis of miRNAs from Sequencing Reads</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./projects/diff_mirna.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./projects/diff_mirna.html" class="no-external">Detection of differential expression of microRNAs and identify which miRNAs in-network may contribute to the functional bases of phenotypes of differential pigmentation and reduction of proliferation</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./projects/diff_mirna.html" class="no-external">
+<div class="listing-date">
+Feb 5, 2021
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-listing-date-sort="1575525600000" data-listing-file-modified-sort="1769934619727" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="374">
+<div class="thumbnail">
+<p><a href="./projects/lung_cancer.html" class="no-external"></a></p><a href="./projects/lung_cancer.html" class="no-external">
+<p><img loading="lazy" src="./projects/lung_cancer.jpg" class="thumbnail-image"></p>
+</a><p><a href="./projects/lung_cancer.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./projects/lung_cancer.html" class="no-external">Joint Transcriptomic Analysis of Lung Cancer and Other Lung Diseases</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./projects/lung_cancer.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./projects/lung_cancer.html" class="no-external">Identification of all deregulated genes and the transcriptional regulators (TFs) that are coexpressed during lung cancer</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./projects/lung_cancer.html" class="no-external">
+<div class="listing-date">
+Dec 5, 2019
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="7" data-listing-date-sort="1547100000000" data-listing-file-modified-sort="1769934619730" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="127">
+<div class="thumbnail">
+<p><a href="./projects/survival_coal.html" class="no-external"></a></p><a href="./projects/survival_coal.html" class="no-external">
+<p><img loading="lazy" src="./projects/survival.png" class="thumbnail-image"></p>
+</a><p><a href="./projects/survival_coal.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./projects/survival_coal.html" class="no-external">Lung Disease Risk Prediction in a Coal Mine</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./projects/survival_coal.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./projects/survival_coal.html" class="no-external">Survival Model to predict the risk of contracting a lung disease for workers of one of the largest coal mines in America.</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./projects/survival_coal.html" class="no-external">
+<div class="listing-date">
+Jan 10, 2019
+</div>
+<div class="listing-author">
+Mauro Florez
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+</section>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section"></h3>
 
 
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
