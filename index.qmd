@@ -23,17 +23,6 @@ format:
       body-width: 1000px
       margin-width: 300px
       gutter-width: 1.5rem
-listing:
-  - id: news-listings
-    contents: news
-    sort: "date desc"
-    type: table
-    max-items: 3
-    categories: false
-    sort-ui: false
-    filter-ui: false
-    fields: [date, title]
-    table-hover: true
 ---
 
 ::: justify
@@ -69,11 +58,6 @@ A list of projects can be found [here](https://mauroflorez.github.io/projects.ht
 :::::::
 
 ::: justify
-## News
-
-::: {#news-listings}
-:::
-
 ## Education
 
 ![](media/logos2.png){fig-align="center" width="600"}

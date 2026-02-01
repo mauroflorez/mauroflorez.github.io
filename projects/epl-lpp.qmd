@@ -2,7 +2,7 @@
 title: "epl-lpp: EPL Match Prediction"
 description: "A Poisson regression model for predicting English Premier League match scores, learning team attack strength and defensive weakness from historical match data."
 date: "2026-02-01"
-image: media/photography/WA/MAU05295.jpg
+image: epl-lpp.jpg
 ---
 
 ## Overview

@@ -3,76 +3,41 @@ title: Gallery
 description: One of my hobbies is traveling around the world to discover new places, try new food, get to know different cultures, and take pictures. Here are some of my favorite photos I've taken.
 format:
   html:
-    toc: false
-    grid:
-      body-width: 500px
+    toc: true
 lightbox:
   match: auto
   effect: fade
   desc-position: right
-  loop: false
+  loop: true
 ---
 
-## Highlights
-
-```{=html}
-<div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="media/photography/IMG_0949.JPEG" class="d-block w-100" alt="Florence">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Florence</h5>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="media/photography/IMG_1930.JPEG" class="d-block w-100" alt="Colosseum">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Colosseum</h5>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="media/photography/cinque.JPEG" class="d-block w-100" alt="Cinque Terre">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Cinque Terre</h5>
-      </div>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-```
+Click any photo to open it in full-screen mode, then use the arrow keys or buttons to navigate through all photos in that section.
 
 ## Italy
 
-![Florence](media/photography/IMG_0949.JPEG){group="gallery" fig-align="center" width="500"}
+::: {style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); grid-gap: 1em;"}
+![Florence](media/photography/IMG_0949.JPEG){group="italy"}
 
-::: {style="display: grid;grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));grid-gap: 1em;"}
-![The Brunelleschi Dome](media/photography/cathedral.JPEG){group="gallery"}
+![The Brunelleschi Dome](media/photography/cathedral.JPEG){group="italy"}
 
-![San Gimignano](media/photography/IMG_1180.JPEG){group="gallery"}
+![San Gimignano](media/photography/IMG_1180.JPEG){group="italy"}
 
-![Lucca](media/photography/IMG_1537.JPEG){group="gallery"}
+![Lucca](media/photography/IMG_1537.JPEG){group="italy"}
 
-![Colosseum](media/photography/IMG_1930.JPEG){group="gallery"}
+![Colosseum](media/photography/IMG_1930.JPEG){group="italy"}
 
-![Cinque Terre](media/photography/cinque.JPEG){group="gallery"}
+![Cinque Terre](media/photography/cinque.JPEG){group="italy"}
 
-![Colosseum at night](media/photography/IMG_1780.JPEG){group="gallery"}
+![Colosseum at night](media/photography/IMG_1780.JPEG){group="italy"}
 
-![David by Michelangelo](media/photography/IMG_1765.JPEG){group="gallery"}
+![David by Michelangelo](media/photography/IMG_1765.JPEG){group="italy"}
 
-![Rome](media/photography/IMG_1795.JPEG){group="gallery"}
+![Rome](media/photography/IMG_1795.JPEG){group="italy"}
 :::
 
 ## Malta
 
-::: {style="display: grid;grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));grid-gap: 1em;"}
+::: {style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); grid-gap: 1em;"}
 ![Malta](media/photography/malta.JPEG){group="malta"}
 
 ![Malta](media/photography/IMG_2444.JPEG){group="malta"}
@@ -80,10 +45,14 @@ lightbox:
 
 ## Colorado
 
-![](media/photography/Colorado/MAU03875.jpg)
+::: {style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); grid-gap: 1em;"}
+![Colorado](media/photography/Colorado/MAU03875.jpg){group="colorado"}
+:::
 
-## WA
+## Washington
 
-![](media/photography/WA/MAU04091.jpg)
+::: {style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); grid-gap: 1em;"}
+![Washington](media/photography/WA/MAU04091.jpg){group="washington"}
 
-![](media/photography/WA/MAU05295.jpg)
+![Washington](media/photography/WA/MAU05295.jpg){group="washington"}
+:::
